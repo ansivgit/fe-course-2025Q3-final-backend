@@ -1,0 +1,36 @@
+{
+  "name": "fe-course-2025q3-final-backend",
+  "version": "1.0.0",
+  "description": "RSS FE-course-2025q3 final-task. Backend",
+  "homepage": "https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final-backend#readme",
+  "bugs": {
+    "url": "https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final-backend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final-backend.git"
+  },
+  "license": "ISC",
+  "author": "ZAS",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "lint": "eslint",
+    "format": "npx @biomejs/biome check",
+    "format:fix": "npx @biomejs/biome check --write",
+    "lint:fix": "eslint . --fix",
+    "precommit": "npx lint-staged",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.3.14",
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-unicorn": "^62.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.54.0"
+  }
+}

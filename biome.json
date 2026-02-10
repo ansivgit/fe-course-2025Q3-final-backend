@@ -1,0 +1,87 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.3.14/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "includes": ["**", "!**/*.config.js"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useImportType": {
+          "level": "error",
+          "options": {
+            "style": "separatedType"
+          }
+        },
+        "noDefaultExport": "error"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "lineWidth": 100,
+      "quoteStyle": "single"
+    }
+  },
+  "css": {
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "single"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ":URL:",
+              ":NODE:",
+              [
+                "@/**",
+                "!@/types.ts",
+                "!@/types/*",
+                "!**/types.ts",
+                "!**/types/*.ts",
+                "!*.types.ts",
+                "!@/constants.{js,ts}",
+                "!@/constants/*",
+                "!**/constants.{js,ts}",
+                "!**/constants/*.{js,ts}"
+              ],
+              [
+                "@/constants.{js,ts}",
+                "@/constants/*",
+                "**/constants.{js,ts}",
+                "**/constants/*.{js,ts}"
+              ],
+              ":BLANK_LINE:",
+              [
+                "@/types.ts",
+                "@/types/*",
+                "**/types.ts",
+                "**/types/*.ts",
+                "*.types.ts"
+              ],
+              ":BLANK_LINE:",
+              "*.css"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

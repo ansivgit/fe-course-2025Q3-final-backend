@@ -83,5 +83,5 @@ export class AiService {
   }
 }
 
-// Экспортируем экземпляр, чтобы использовать как синглтон
+// Exporting an instance to use as a singleton
 export const aiService = new AiService();

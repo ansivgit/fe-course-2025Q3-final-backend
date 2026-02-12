@@ -1,0 +1,71 @@
+openapi: 3.0.0
+info:
+  title: Tandem AI Agent API
+  version: 1.0.0
+  description: API documentation for the Tandem project backend
+servers:
+  - url: http://localhost:3000
+    description: Local Development Server
+
+paths:
+  /health:
+    get:
+      summary: Checking the server status
+      tags: [System]
+      responses:
+        '200':
+          description: The server is stable
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  message:
+                    type: string
+                    example: The server is stable
+
+  /api/chat:
+    post:
+      summary: Send a message to the AI agent and get a streaming response
+      tags: [AI]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Streaming text response
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Invalid request
+        '500':
+          description: Server or AI provider error
+
+components:
+  schemas:
+    ChatRequest:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: The user's query
+          example: "Explain Event Loop"
+        sessionId:
+          type: string
+          description: Session ID for context preservation
+        topic:
+          type: string
+          description: Current educational topic
+        difficulty:
+          type: string
+          enum: [junior, middle, senior]

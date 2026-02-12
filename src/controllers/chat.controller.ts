@@ -4,39 +4,6 @@ import { aiService } from '../services/ai.service.js';
 const HTTP_STATUS_BAD_REQUEST = 400;
 const HTTP_STATUS_INTERNAL_ERROR = 500;
 
-/**
- * @swagger
- * /api/chat:
- *   post:
- *     summary: Send a message to the agent and receive a streamed response
- *     tags: [AI]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             type: object
- *             required:
- *               - message
- *             properties:
- *               message:
- *                 type: string
- *                 example: "How does the Event Loop work?"
- *               sessionId:
- *                 type: string
- *                 description: "Session ID"
- *     responses:
- *       200:
- *         description: Streaming response
- *         content:
- *           text/plain:
- *             schema:
- *               type: string
- *       400:
- *         description: Invalid request
- *       500:
- *         description: Server or AI provider error
- */
 export const chatController = async (request: Request, res: Response): Promise<void> => {
   try {
     const { message } = request.body;

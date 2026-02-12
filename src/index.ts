@@ -7,13 +7,11 @@ import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yaml';
 import { chatController } from './controllers/chat.controller';
-
-const DEFAULT_PORT = 3000;
-const HTTP_STATUS_OK = 200;
+import { CONSTANTS } from './constants/constants.ts';
 
 // Init application
 export const app = express();
-const port = process.env.PORT ?? DEFAULT_PORT;
+const port = process.env.PORT ?? CONSTANTS.DEFAULT_PORT;
 
 // Basic middleware for processing JSON and cross-domain queries
 app.use(cors());
@@ -29,7 +27,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.post('/api/chat', chatController);
 
 export const healthCheckHandler = (_request: Request, res: Response): void => {
-  res.status(HTTP_STATUS_OK).json({ status: 'ok', message: 'The server is stable' });
+  res.status(CONSTANTS.HTTP_STATUS_OK).json({ status: 'ok', message: 'The server is stable' });
 };
 
 // A simple health check router

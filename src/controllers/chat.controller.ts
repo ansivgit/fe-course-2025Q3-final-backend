@@ -1,15 +1,13 @@
 import type { Request, Response } from 'express';
 import { aiService } from '../services/ai.service.js';
-
-const HTTP_STATUS_BAD_REQUEST = 400;
-const HTTP_STATUS_INTERNAL_ERROR = 500;
+import { CONSTANTS } from '../constants/constants.ts';
 
 export const chatController = async (request: Request, res: Response): Promise<void> => {
   try {
     const { message } = request.body;
 
     if (!message) {
-      res.status(HTTP_STATUS_BAD_REQUEST).json({ error: 'Field "message" is required' });
+      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ error: 'Field "message" is required' });
       return;
     }
 
@@ -37,7 +35,7 @@ export const chatController = async (request: Request, res: Response): Promise<v
       // If the stream has already started, just cut it off.
       res.end();
     } else {
-      res.status(HTTP_STATUS_INTERNAL_ERROR).json({ error: 'Internal AI Error' });
+      res.status(CONSTANTS.HTTP_STATUS_INTERNAL_ERROR).json({ error: 'Internal AI Error' });
     }
   }
 };

@@ -4,6 +4,7 @@ import type { Request, Response } from 'express';
 import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
+import { chatController } from './controllers/chat.controller';
 
 const DEFAULT_PORT = 3000;
 const HTTP_STATUS_OK = 200;
@@ -30,9 +31,10 @@ const swaggerOptions: swaggerJSDoc.Options = {
 };
 
 const swaggerSpec = swaggerJSDoc(swaggerOptions);
-
 // Connecting the Swagger UI interface via the path /api-docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.post('/api/chat', chatController);
 
 /**
  * @swagger

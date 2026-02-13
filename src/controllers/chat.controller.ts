@@ -1,13 +1,17 @@
-import type { Request, Response } from 'express';
+import type { Response } from 'express';
 import { aiService } from '../services/ai.service.js';
 import { CONSTANTS } from '../constants/constants.ts';
+import type { ChatMessage, TypedChatRequest } from '../types/ai.ts';
+import { promptBuilder } from '../services/prompt.builder.ts';
 
-export const chatController = async (request: Request, res: Response): Promise<void> => {
+export const chatController = async (request: TypedChatRequest, res: Response): Promise<void> => {
   try {
-    const { message } = request.body;
+    const { message, topic, difficulty } = request.body;
 
-    if (!message) {
-      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ error: 'Field "message" is required' });
+    if (!message || !topic || !difficulty) {
+      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ 
+        error: 'Fields "message", "topic", and "difficulty" are required',
+      });
       return;
     }
 
@@ -17,8 +21,15 @@ export const chatController = async (request: Request, res: Response): Promise<v
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
 
+    const systemPrompt = promptBuilder.buildInterviewPrompt(topic, difficulty);
+
+    const messages: ChatMessage[] = [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: message },
+    ];
+
     // We receive a stream from the service
-    const stream = aiService.streamChat([{ role: 'user', content: message }]);
+    const stream = aiService.streamChat(messages);
 
     // We read the stream and write back in real time
     for await (const chunk of stream) {

@@ -24,6 +24,7 @@ export type ChatRequestBody = {
   message?: string;
   topic?: string;
   difficulty?: Difficulty;
+  sessionId?: string;
 }
 
 export type TypedChatRequest = Request<Record<string, never>, unknown, ChatRequestBody>;

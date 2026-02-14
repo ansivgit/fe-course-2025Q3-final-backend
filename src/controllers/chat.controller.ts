@@ -1,16 +1,17 @@
 import type { Response } from 'express';
 import { aiService } from '../services/ai.service.js';
 import { CONSTANTS } from '../constants/constants.ts';
-import type { ChatMessage, TypedChatRequest } from '../types/ai.ts';
+import type { TypedChatRequest } from '../types/ai.ts';
 import { promptBuilder } from '../services/prompt.builder.ts';
+import { historyService } from '../services/history.service.ts';
 
 export const chatController = async (request: TypedChatRequest, res: Response): Promise<void> => {
   try {
-    const { message, topic, difficulty } = request.body;
+    const { message, topic, difficulty, sessionId } = request.body;
 
-    if (!message || !topic || !difficulty) {
+    if (!message || !topic || !difficulty || !sessionId) {
       res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ 
-        error: 'Fields "message", "topic", and "difficulty" are required',
+        error: 'Fields "message", "topic", "difficulty", and "sessionId" are required',
       });
       return;
     }
@@ -21,20 +22,32 @@ export const chatController = async (request: TypedChatRequest, res: Response): 
     res.setHeader('Cache-Control', 'no-cache');
     res.setHeader('Connection', 'keep-alive');
 
-    const systemPrompt = promptBuilder.buildInterviewPrompt(topic, difficulty);
+    // Taking out the old story
+    const history = historyService.getHistory(sessionId);
 
-    const messages: ChatMessage[] = [
-      { role: 'system', content: systemPrompt },
-      { role: 'user', content: message },
-    ];
+    // If the story is empty, this is the beginning of the dialogue. Setting the AI's "personality"
+    if (history.length === 0) {
+      const systemPrompt = promptBuilder.buildInterviewPrompt(topic, difficulty);
+      historyService.addMessage(sessionId, { role: 'system', content: systemPrompt });
+    }
 
-    // We receive a stream from the service
-    const stream = aiService.streamChat(messages);
+    // Adding a new message from the user to the history
+    historyService.addMessage(sessionId, { role: 'user', content: message });
+
+    // Taking the full story to send to AI
+    const messagesToSend = historyService.getHistory(sessionId);
+    const stream = aiService.streamChat(messagesToSend);
+
+    let assistantFullResponse = '';
 
     // We read the stream and write back in real time
     for await (const chunk of stream) {
       res.write(chunk);
+      assistantFullResponse += chunk;
     }
+
+    // Saving the complete AI response to the session history
+    historyService.addMessage(sessionId, { role: 'assistant', content: assistantFullResponse });
 
     // We finish the response when the stream is over.
     res.end();

@@ -39,7 +39,7 @@ export class PromptBuilderService {
           and deep language specifications. Be highly critical.`;
       }
       default: {
-        throw new Error(`Unsupported difficulty level: ${difficulty}`);
+        return 'junior';
       }
     }
   }

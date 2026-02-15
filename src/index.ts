@@ -8,6 +8,7 @@ import swaggerUi from 'swagger-ui-express';
 import YAML from 'yaml';
 import { chatController } from './controllers/chat.controller';
 import { CONSTANTS } from './constants/constants.ts';
+import { dictionaryController } from './controllers/dictionary.controller.ts';
 
 // Init application
 export const app = express();
@@ -24,6 +25,7 @@ const swaggerDocument: Record<string, unknown> = YAML.parse(file);
 // Connecting the Swagger UI interface via the path /api-docs
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+app.get('/api/dictionaries', dictionaryController);
 app.post('/api/chat', chatController);
 
 export const healthCheckHandler = (_request: Request, res: Response): void => {

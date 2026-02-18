@@ -73,8 +73,10 @@ export class AiService {
     // We break the text into small pieces of 2-5 characters each, so that it looks like a stream.
     const chunkParams = { min: 1, max: 3 };
     // We break it into small pieces to emulate printing
-    const chunks = mockResponse
-      .match(new RegExp(`.{${String(chunkParams.min)},${String(chunkParams.max)}}`, 'g')) ?? [];
+    const chunks =
+      mockResponse.match(
+        new RegExp(`.{${String(chunkParams.min)},${String(chunkParams.max)}}`, 'g'),
+      ) ?? [];
 
     for (const chunk of chunks) {
       await new Promise((resolve) => setTimeout(resolve, MOCK_DELAY_MS));

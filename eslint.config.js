@@ -80,6 +80,7 @@ export default defineConfig([
             props: false,
             ref: false,
             res: false,
+            req: false,
           },
         },
       ],

@@ -9,6 +9,7 @@ import type { Request, Response } from 'express';
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { chatController } from './controllers/chat.controller';
+import { userRouter } from './routes/user.router';
 
 // Init application
 export const app = express();
@@ -33,6 +34,8 @@ export const healthCheckHandler = (_request: Request, res: Response): void => {
 
 // A simple health check router
 app.get('/health', healthCheckHandler);
+
+app.use('/', userRouter);
 
 // Server startup function
 export const startServer = (): void => {

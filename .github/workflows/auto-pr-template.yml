@@ -83,22 +83,22 @@ jobs:
               assignees: [context.actor]
             });
 
-      - name: Add reviewers
-        uses: actions/github-script@v8
-        with:
-          script: |
-            const reviewers = ['rika-milew', 'ViktorElenich', 'zena86'];
-            # const teamReviewers = ['team-slug'];
+      # - name: Add reviewers
+      #   uses: actions/github-script@v8
+      #   with:
+      #     script: |
+      #       const reviewers = ['rika-milew', 'ViktorElenich', 'zena86'];
+      #       # const teamReviewers = ['team-slug'];
 
-            if (reviewers.length > 0 || teamReviewers.length > 0) {
-              await github.rest.pulls.requestReviewers({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                pull_number: context.payload.pull_request.number,
-                reviewers: reviewers,
-                # team_reviewers: teamReviewers
-              });
-            }
+      #       if (reviewers.length > 0 || teamReviewers.length > 0) {
+      #         await github.rest.pulls.requestReviewers({
+      #           owner: context.repo.owner,
+      #           repo: context.repo.repo,
+      #           pull_number: context.payload.pull_request.number,
+      #           reviewers: reviewers,
+      #           # team_reviewers: teamReviewers
+      #         });
+      #       }
 
       - name: Copy labels and replace placeholder in PR body
         if: steps.branch.outputs.issue_number != ''

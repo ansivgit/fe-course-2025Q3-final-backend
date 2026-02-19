@@ -1,47 +1,39 @@
-import type { Difficulty } from '../types/ai';
+import type { Task } from '../types/ai';
 
 export class PromptBuilderService {
   // A system prompt for an AI agent based on theme and complexity
-  public buildInterviewPrompt(topic: string, difficulty: Difficulty): string {
-    // We determine the tone and depth of the questions depending on the level
-    const difficultyContext = this.getDifficultyContext(difficulty);
+  public buildJudgeSystemPrompt(task: Task): string {
+    const rubricText = task.rubric.map((rule) => `- ${rule}`).join('\n');
 
     return `
-      You are a strict but fair Senior Software Engineer conducting a technical interview.
-      The topic of the interview is: "${topic}".
-      The candidate is applying for a "${difficulty}" level position.
+      ROLE: You are a strict Technical Interviewer and AI Judge.
+      TOPIC: "${task.topic}", DIFFICULTY: "${task.difficulty}".
+      LANGUAGE: Reply ONLY in Russian (except for IT terms).
 
-      ${difficultyContext}
+      WORKFLOW (FOLLOW STRICTLY):
 
-      CRITICAL RULES YOU MUST FOLLOW:
-      1. Act as the interviewer. Do not break character.
-      2. Ask ONLY ONE question at a time. Never give a list of questions.
-      3. Wait for the candidate's answer before proceeding.
-      4. After the candidate answers, briefly evaluate it (correct, partially correct, or wrong), 
-        explain the mistake if any, and then ask the next question.
-      5. Keep your responses concise. No long lectures unless explaining a critical mistake.
-      6. Speak in Russian, but keep technical terms in English (e.g., Event Loop, Promise, Closure).
+      PHASE 1: ASKING THE QUESTION
+      If the user sends a greeting, a test message, or says they are ready (e.g., "Готов", "Начнем", "Привет"),
+      your ONLY task is to ask the following QUESTION:
+      
+      "${task.question}"
+      Do not evaluate anything in Phase 1. Just ask the question and wait.
+
+      PHASE 2: THE EVALUATION
+      When the user provides an attempt to answer the technical question, act as a Judge.
+      Evaluate their answer against the REFERENCE_ANSWER and RUBRIC.
+      
+      REFERENCE_ANSWER: "${task.goldenAnswer}"
+      
+      RUBRIC (Must cover these points):
+      ${rubricText}
+
+      OUTPUT FORMAT FOR EVALUATION (Strictly follow this structure):
+      Оценка: X/10
+      ✅ Покрыто: [кратко перечисли, что кандидат сказал верно]
+      ❌ Упущено: [кратко перечисли, что кандидат забыл сказать]
+      Фидбек: [короткий конструктивный комментарий и совет]
     `.trim();
-  }
-
-  // An auxiliary method for detailing complexity level requirements
-  private getDifficultyContext(difficulty: Difficulty): string {
-    switch (difficulty) {
-      case 'junior': {
-        return 'Focus on basic concepts, syntax, and fundamental understanding. Be encouraging.';
-      }
-      case 'middle': {
-        return `Focus on real-world application, under-the-hood mechanics, and edge cases. 
-          Expect detailed explanations.`;
-      }
-      case 'senior': {
-        return `Focus on system design, performance optimization, architecture, 
-          and deep language specifications. Be highly critical.`;
-      }
-      default: {
-        return 'junior';
-      }
-    }
   }
 }
 

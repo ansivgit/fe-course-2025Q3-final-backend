@@ -1,0 +1,14 @@
+[
+  {
+    "id": "js-jun-001",
+    "topic": "javascript",
+    "difficulty": "junior",
+    "question": "В чем разница между null и undefined в JavaScript?",
+    "goldenAnswer": "undefined означает, что переменная объявлена, но значение ей не присвоено. null — это специальное значение, которое явно указывает на отсутствие значения. typeof undefined === 'undefined', а typeof null === 'object'.",
+    "rubric": [
+      "Упомянуто, что undefined - это неинициализированная переменная.",
+      "Упомянуто, что null - это явное отсутствие значения (пустота).",
+      "Указана разница в typeof."
+    ]
+  }
+]

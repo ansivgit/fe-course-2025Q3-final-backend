@@ -1,9 +1,9 @@
-import type { Response } from 'express';
-import { aiService } from '../services/ai.service.js';
 import { CONSTANTS } from '../constants/constants.ts';
+
 import type { TypedChatRequest } from '../types/ai.ts';
-import { promptBuilder } from '../services/prompt.builder.ts';
-import { historyService } from '../services/history.service.ts';
+
+import type { Response } from 'express';
+import { aiService, historyService, promptBuilder, taskService } from '../services';
 import { validateChatRequest } from '../utils/validation.ts';
 
 export const chatController = async (request: TypedChatRequest, res: Response): Promise<void> => {
@@ -18,7 +18,7 @@ export const chatController = async (request: TypedChatRequest, res: Response): 
     const { message, topic, difficulty, sessionId } = validation.data;
 
     if (!message || !topic || !difficulty || !sessionId) {
-      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ 
+      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({
         error: 'Fields "message", "topic", "difficulty", and "sessionId" are required',
       });
       return;
@@ -35,7 +35,8 @@ export const chatController = async (request: TypedChatRequest, res: Response): 
 
     // If the story is empty, this is the beginning of the dialogue. Setting the AI's "personality"
     if (history.length === 0) {
-      const systemPrompt = promptBuilder.buildInterviewPrompt(topic, difficulty);
+      const task = await taskService.getTaskForSession(topic, difficulty);
+      const systemPrompt = promptBuilder.buildJudgeSystemPrompt(task);
       historyService.addMessage(sessionId, { role: 'system', content: systemPrompt });
     }
 
@@ -59,7 +60,6 @@ export const chatController = async (request: TypedChatRequest, res: Response): 
 
     // We finish the response when the stream is over.
     res.end();
-
   } catch (error) {
     console.error('Chat Controller Error:', error);
     // If we haven't started writing a response yet, we are sending JSON with an error.

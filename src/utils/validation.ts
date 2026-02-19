@@ -1,13 +1,12 @@
-import { TOPICS, DIFFICULTIES } from '../constants/dictionaries';
+import { DIFFICULTIES, TOPICS } from '../constants/dictionaries';
 import type { ChatRequestBody, Difficulty } from '../types/ai';
-
 
 type ValidationResult =
   | { success: true; data: ChatRequestBody }
   | { success: false; error: string };
 
 // An auxiliary function that verifies that the value is an object
-function isObject(value: unknown): value is Record<string, unknown> {
+export function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
 }
 

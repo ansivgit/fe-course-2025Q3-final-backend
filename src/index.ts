@@ -1,11 +1,13 @@
+import YAML from 'yaml';
 import 'dotenv/config';
 import fs from 'node:fs';
 import path from 'node:path';
-import express from 'express';
-import type { Request, Response } from 'express';
+import { CONSTANTS } from './constants/constants.ts';
+
 import cors from 'cors';
+import type { Request, Response } from 'express';
+import express from 'express';
 import swaggerUi from 'swagger-ui-express';
-import YAML from 'yaml';
 import { chatController } from './controllers/chat.controller';
 import { CONSTANTS, ROUTERS } from './constants/constants.ts';
 import { dictionaryController } from './controllers/dictionary.controller.ts';

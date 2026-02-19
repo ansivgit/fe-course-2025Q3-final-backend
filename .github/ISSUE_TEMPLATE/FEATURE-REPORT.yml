@@ -29,4 +29,4 @@ body:
       description: Provide clear criteria that signify the feature's successful implementation
       placeholder: This is what we did
     validations:
-      required: false
+      required: true

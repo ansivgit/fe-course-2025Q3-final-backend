@@ -1,10 +1,10 @@
-import { TOPICS, DIFFICULTIES } from '../constants/dictionaries';
+import { DIFFICULTIES, TOPICS } from '../constants/dictionaries';
 import type { ChatRequestBody, Difficulty } from '../types/ai';
 
-
-type ValidationResult =
-  | { success: true; data: ChatRequestBody }
-  | { success: false; error: string };
+type ValidationResult = {
+  data: ChatRequestBody | null;
+  error: string | null;
+};
 
 // An auxiliary function that verifies that the value is an object
 function isObject(value: unknown): value is Record<string, unknown> {
@@ -23,38 +23,38 @@ function isValidTopic(value: string): boolean {
 
 export const validateChatRequest = (body: unknown): ValidationResult => {
   if (!isObject(body)) {
-    return { success: false, error: 'Request body must be a JSON object' };
+    return { data: null, error: 'Request body must be a JSON object' };
   }
 
   const { message, topic, difficulty, sessionId } = body;
 
   // Validation of fields
   if (typeof message !== 'string' || !message.trim()) {
-    return { success: false, error: 'Field "message" is required and must be a non-empty string' };
+    return { data: null, error: 'Field "message" is required and must be a string' };
   }
 
   if (typeof sessionId !== 'string' || !sessionId.trim()) {
-    return { success: false, error: 'Field "sessionId" is required' };
+    return { data: null, error: 'Field "sessionId" is required' };
   }
 
   if (typeof topic !== 'string' || !isValidTopic(topic)) {
     // We collect available topics for suggestions in the error
     const allowed = TOPICS.map((t) => t.id).join(', ');
-    return { success: false, error: `Invalid or missing "topic". Allowed: ${allowed}` };
+    return { data: null, error: `Invalid or missing "topic". Allowed: ${allowed}` };
   }
 
   if (typeof difficulty !== 'string' || !isValidDifficulty(difficulty)) {
     const allowed = DIFFICULTIES.map((d) => d.id).join(', ');
-    return { success: false, error: `Invalid or missing "difficulty". Allowed: ${allowed}` };
+    return { data: null, error: `Invalid or missing "difficulty". Allowed: ${allowed}` };
   }
 
   return {
-    success: true,
     data: {
       message,
       topic,
       difficulty,
       sessionId,
     },
+    error: null,
   };
 };

@@ -8,8 +8,6 @@ export const TOPICS: DictionaryItem[] = [
   { id: 'react', name: 'React' },
   { id: 'node', name: 'Node.js' },
   { id: 'typescript', name: 'TypeScript' },
-  { id: 'vue', name: 'Vue.js' },
-  { id: 'angular', name: 'Angular' },
 ];
 
 export const DIFFICULTIES: DictionaryItem[] = [

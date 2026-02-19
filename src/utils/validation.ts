@@ -7,7 +7,7 @@ type ValidationResult =
   | { success: false; error: string };
 
 // An auxiliary function that verifies that the value is an object
-function isRecord(value: unknown): value is Record<string, unknown> {
+function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
 }
 
@@ -22,7 +22,7 @@ function isValidTopic(value: string): boolean {
 }
 
 export const validateChatRequest = (body: unknown): ValidationResult => {
-  if (!isRecord(body)) {
+  if (!isObject(body)) {
     return { success: false, error: 'Request body must be a JSON object' };
   }
 

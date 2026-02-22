@@ -10,10 +10,10 @@ export class UserController {
     this.userService = new UserService();
   }
 
-  public async getUserOne(req: Request, res: Response, next: NextFunction): Promise<void> {
+  public async getUser(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       // const userData: User = req.body;
-      const user: User = await this.userService.getUserOne('leo@example.com');
+      const user: User = await this.userService.getUser('leo@example.com');
 
       res.status(CONSTANTS.HTTP_STATUS_OK).send({
         data: user,

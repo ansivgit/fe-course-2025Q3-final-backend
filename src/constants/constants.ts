@@ -7,7 +7,7 @@ export const CONSTANTS = {
 
 export const ROUTERS = {
   HEALTH: '/health',
-  DOCS: '/api-docs',
-  CHAT: '/api/chat',
-  DICTIONARIES: '/api/dictionaries',
+  DOCS: '/docs',
+  CHAT: '/chat',
+  DICTIONARIES: '/dictionaries',
 };

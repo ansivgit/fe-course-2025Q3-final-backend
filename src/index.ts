@@ -40,7 +40,7 @@ app.get(ROUTERS.HEALTH, healthCheckHandler);
 export const startServer = (): void => {
   app.listen(port, () => {
     console.warn(`Server is running on http://localhost:${String(port)}`);
-    console.warn(`Swagger API docs: http://localhost:${String(port)}/api-docs`);
+    console.warn(`Swagger API docs: http://localhost:${String(port)}/docs`);
   });
 };
 

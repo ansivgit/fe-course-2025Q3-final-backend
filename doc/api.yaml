@@ -27,7 +27,7 @@ paths:
                     type: string
                     example: The server is stable
 
-  /api/dictionaries:
+  /dictionaries:
     get:
       summary: Get configuration dictionaries (topics and difficulties)
       tags: [ System ]
@@ -47,7 +47,7 @@ paths:
                     type: array
                     items:
                       $ref: '#/components/schemas/DictionaryItem'
-  /api/chat:
+  /chat:
     post:
       summary: Send a message to the AI agent and get a streaming response
       tags: [AI]

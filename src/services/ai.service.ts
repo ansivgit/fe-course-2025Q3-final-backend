@@ -31,62 +31,76 @@ export class AiService {
 
   // A real request to the Groq API
   private async *getRealStream(messages: ChatMessage[]): AsyncIterable<string> {
-    const response = await this.performRequest(messages);
+    try {
+      const response = await this.performRequest(messages);
 
-    if (!response.body) {
-      throw new Error('Response body is empty');
-    }
-
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder('utf-8');
-    let buffer = '';
-
-    // We read the stream in chunks until done becomes true
-    let { done, value } = await reader.read();
-
-    while (!done) {
-      const chunk = decoder.decode(value, { stream: true });
-      const { lines, remaining } = this.updateBuffer(buffer, chunk);
-      buffer = remaining;
-
-      // Processing each full line from the buffer
-      for (const line of lines) {
-        const content = this.parseLine(line);
-        if (content) {
-          yield content;
-        }
+      if (!response.body) {
+        throw new Error('Response body is empty');
       }
 
-      const result = await reader.read();
-      done = result.done;
-      value = result.value;
+      const reader: ReadableStreamDefaultReader<Uint8Array> = response.body.getReader();
+      const decoder = new TextDecoder('utf-8');
+      let buffer = '';
+
+      // We read the stream in chunks until done becomes true
+      let { done, value } = await reader.read();
+
+      while (!done) {
+        const chunk = decoder.decode(value, { stream: true });
+        const { lines, remaining } = this.updateBuffer(buffer, chunk);
+        buffer = remaining;
+
+        // Processing each full line from the buffer
+        for (const line of lines) {
+          const content = this.parseLine(line);
+          if (content) {
+            yield content;
+          }
+        }
+
+        const result = await reader.read();
+        done = result.done;
+        value = result.value;
+      }
+    } catch (error) {
+      console.error('Error accessing the AI API:', error);
+      throw new Error("Couldn't get a response from the AI. Check the connection or server logs.");
     }
   }
 
   // Executes a network request to the Groq API via native fetch
   // adjusts the request headers and body to enable streaming mode
   private async performRequest(messages: ChatMessage[]): Promise<Response> {
-    const response = await fetch(this.baseUrl, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${this.apiKey}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        model: MODEL_ID,
-        messages: messages.map((message) => ({ role: message.role, content: message.content })),
-        stream: true,
-        temperature: TEMPERATURE,
-        max_tokens: MAX_TOKENS,
-      }),
-    });
+    try {
+      const response = await fetch(this.baseUrl, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${this.apiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          model: MODEL_ID,
+          messages: messages.map((message) => ({ role: message.role, content: message.content })),
+          stream: true,
+          temperature: TEMPERATURE,
+          max_tokens: MAX_TOKENS,
+        }),
+      });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Groq API Error: ${String(response.status)} - ${errorText}`);
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Groq API Error: ${String(response.status)} - ${errorText}`);
+      }
+
+      return response;
+    } catch (error) {
+      if (error instanceof Error) {
+        console.error('Error when accessing AI:', error.message);
+        throw new Error(`Couldn't get a response from AI: ${error.message}`);
+      }
+      console.error('Unknown error during fetch:', error);
+      throw new Error('An unexpected network error has occurred');
     }
-
-    return response;
   }
 
   // Manages the buffer of incomplete lines

@@ -69,6 +69,155 @@ paths:
         '500':
           description: Server or AI provider error
 
+  /auth/login:
+    post:
+      tags:
+        - Login
+      security: []
+      summary: Login
+      description: Logins a user and returns a User object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                login:
+                  type: string
+                  example: 'test@example.com'
+                  format: email
+                  description: UserLogin
+                password:
+                  type: string
+                  example: 'test1234'
+                  minLength: 8
+                  description: Password
+              required:
+                - login
+                - password
+      responses:
+        200:
+          description: Successful login.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Bad request. Login and password required
+        403:
+          description: Incorrect login or password
+  /auth/signup:
+    post:
+      tags:
+        - Signup
+      security: [ ]
+      summary: Signup
+      description: Signup a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                login:
+                  type: string
+                  minLength: 3
+                  maxLength: 255
+                  description: Username
+                password:
+                  type: string
+                  format: password
+                  pattern: ^[a-zA-Z0-9]{3,30}
+                  description: Password
+              required:
+                - login
+                - password
+      responses:
+        201:
+          description: The user has been registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Bad request. Login, password required and should be a string
+        409:
+          description: Conflict. Login already exists
+
+    # put:
+    #   tags:
+    #     - Users
+    #   summary: Update a user's password
+    #   description: Updates a user's password by ID
+    #   requestBody:
+    #     required: true
+    #     content:
+    #       application/json:
+    #         schema:
+    #           type: object
+    #           title: example
+    #           properties:
+    #             oldPassword:
+    #               type: string
+    #               description: The user's old password
+    #             newPassword:
+    #               type: string
+    #               description: The user's new password
+    #           required:
+    #             - oldPassword
+    #             - newPassword
+    #   responses:
+    #     200:
+    #       description: The user has been updated.
+    #       content:
+    #         application/json:
+    #           schema:
+    #             type: object
+    #             title: example
+    #             properties:
+    #               id:
+    #                 type: string
+    #                 format: uuid
+    #               login:
+    #                 type: string
+    #                 example: TestUser
+    #               version:
+    #                 type: integer
+    #                 example: 2
+    #               createdAt:
+    #                 type: integer
+    #                 example: 1655000000
+    #               updatedAt:
+    #                 type: integer
+    #                 example: 1655999999
+    #     400:
+    #       description: Bad request. userId is invalid (not uuid)
+    #     401:
+    #       $ref: '#/components/responses/UnauthorizedError'
+    #     403:
+    #       description: oldPassword is wrong
+    #     404:
+    #       description: User not found
+
+    # delete:
+    #   tags:
+    #     - Users
+    #   summary: Delete user
+    #   description: Deletes user by ID.
+    #   responses:
+    #     204:
+    #       description: The user has been deleted
+    #     400:
+    #       description: Bad request. userId is invalid (not uuid)
+    #     401:
+    #       $ref: '#/components/responses/UnauthorizedError'
+    #     404:
+    #       description: User not found
+
 components:
   schemas:
     ChatRequest:
@@ -96,3 +245,26 @@ components:
           type: string
         name:
           type: string
+    User:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            login:
+              type: string
+              example: 'test@example.com'
+            name:
+              type: string
+              example: 'TestUser'
+            createdAt:
+              type: number
+              example: 1655000000
+            updatedAt:
+              type: number
+              example: 1655000000
+            session: []
+            settings: {}
+          required:
+            - id
+            - login

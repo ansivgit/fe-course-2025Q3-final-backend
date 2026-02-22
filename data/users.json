@@ -5,6 +5,7 @@
     "login": "max@example.com",
     "password": "hashed_password_123",
     "createdAt": "2025-02-01",
+    "updatedAt": "2025-02-02",
     "session": [],
     "settings": {}
   },
@@ -14,6 +15,7 @@
     "login": "leo@example.com",
     "password": "hashed_password_456",
     "createdAt": "2025-02-03",
+    "updatedAt": "2025-02-04",
     "session": [],
     "settings": {}
   },
@@ -23,6 +25,17 @@
     "login": "mia@example.com",
     "password": "hashed_password_789",
     "createdAt": "2025-02-05",
+    "updatedAt": "2025-02-06",
+    "session": [],
+    "settings": {}
+  },
+  {
+    "id": "77b1af51-e2a7-4448-97ac-92e8d57c466a",
+    "name": "TestUser",
+    "login": "test@example.com",
+    "password": "test1234",
+    "createdAt": "2025-02-05",
+    "updatedAt": "2025-02-06",
     "session": [],
     "settings": {}
   }

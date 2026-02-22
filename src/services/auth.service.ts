@@ -1,5 +1,6 @@
+import { RES_ERROR_MESSAGES } from '../constants/constants';
 import { UserRepository } from '../data-access';
-import type { User } from '../types/user';
+import type { LoginUser, User, UserProfile } from '../types/user';
 
 export class AuthService {
   private readonly userRepository: UserRepository;
@@ -8,12 +9,32 @@ export class AuthService {
     this.userRepository = new UserRepository();
   }
 
-  public async getUser(login: string): Promise<User> {
+  // public async getUser(login: string): Promise<User> {
+  //   const user: User | undefined = await this.userRepository.getUser(login);
+
+  //   if (!user) {
+  //     throw new Error('User not found!');
+  //   }
+  //   return user;
+  // }
+
+  public async login(loginData: LoginUser): Promise<UserProfile> {
+    const { login, password } = loginData;
+
     const user: User | undefined = await this.userRepository.getUser(login);
 
     if (!user) {
-      throw new Error('User not found!');
+      throw new Error(RES_ERROR_MESSAGES['403_login']);
     }
-    return user;
+
+    const isValid = password === user.password;
+
+    if (!isValid) {
+      throw new Error(RES_ERROR_MESSAGES['403_pswd']);
+    }
+
+    const { password: _, ...rest } = user;
+
+    return rest;
   }
 }

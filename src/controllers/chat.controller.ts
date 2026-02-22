@@ -6,10 +6,18 @@ import type { Response } from 'express';
 import { aiService } from '../services/ai.service.js';
 import { historyService } from '../services/history.service.ts';
 import { promptBuilder } from '../services/prompt.builder.ts';
+import { validateChatRequest } from '../utils/validation.ts';
 
 export const chatController = async (request: TypedChatRequest, res: Response): Promise<void> => {
   try {
-    const { message, topic, difficulty, sessionId } = request.body;
+    const { data, error } = validateChatRequest(request.body);
+
+    if (error || !data) {
+      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ error: error });
+      return;
+    }
+
+    const { message, topic, difficulty, sessionId } = data;
 
     if (!message || !topic || !difficulty || !sessionId) {
       res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({

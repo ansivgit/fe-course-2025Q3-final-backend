@@ -27,6 +27,26 @@ paths:
                     type: string
                     example: The server is stable
 
+  /api/dictionaries:
+    get:
+      summary: Get configuration dictionaries (topics and difficulties)
+      tags: [ System ]
+      responses:
+        '200':
+          description: List of available topics and difficulties
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  topics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DictionaryItem'
+                  difficulties:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DictionaryItem'
   /api/chat:
     post:
       summary: Send a message to the AI agent and get a streaming response
@@ -69,3 +89,10 @@ components:
         difficulty:
           type: string
           enum: [junior, middle, senior]
+    DictionaryItem:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string

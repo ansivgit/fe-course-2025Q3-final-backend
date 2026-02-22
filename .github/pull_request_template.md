@@ -16,10 +16,6 @@ _Please replace this line with description of the changes made in this PR._
 
 - <!-- Closes issue will be added here by the bot -->
 
-## Screenshots, Recordings
-
-_Please replace this line with any relevant images for UI changes._
-
 ## Added/updated tests?
 
 - [ ] 👌 Yes

@@ -1,7 +1,7 @@
 import { UserRepository } from '../data-access';
 import type { User } from '../types/user';
 
-export class UserService {
+export class AuthService {
   private readonly userRepository: UserRepository;
 
   constructor() {

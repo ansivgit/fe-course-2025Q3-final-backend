@@ -1,7 +1,7 @@
 import { v4 } from 'uuid';
 import { RES_ERROR_MESSAGES } from '../constants/constants';
 import { UserRepository } from '../data-access';
-import type { LoginUser, NewUser, User, UserProfile } from '../types/user';
+import type { LoginUser, NewUser, User, UserProfile } from '../types/user.types';
 
 export class AuthService {
   private readonly userRepository: UserRepository;

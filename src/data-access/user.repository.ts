@@ -1,6 +1,6 @@
 import users from '../../data/users.json';
 import { RES_ERROR_MESSAGES } from '../constants/constants';
-import type { User, UserProfile } from '../types/user';
+import type { User, UserProfile } from '../types/user.types';
 
 export class UserRepository {
   public async getUsersList(): Promise<User[]> {

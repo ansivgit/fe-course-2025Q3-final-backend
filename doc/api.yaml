@@ -127,16 +127,19 @@ paths:
                   type: string
                   minLength: 3
                   maxLength: 255
+                  example: 'test2@example.com'
                   description: Login
                 name:
                   type: string
                   minLength: 3
                   maxLength: 255
+                  example: 'UserName'
                   description: Username
                 password:
                   type: string
                   format: password
                   # pattern: ^[a-zA-Z0-9]{3,30}
+                  example: 'test1234'
                   description: Password
               required:
                 - login

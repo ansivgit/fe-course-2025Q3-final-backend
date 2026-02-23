@@ -127,14 +127,20 @@ paths:
                   type: string
                   minLength: 3
                   maxLength: 255
+                  description: Login
+                name:
+                  type: string
+                  minLength: 3
+                  maxLength: 255
                   description: Username
                 password:
                   type: string
                   format: password
-                  pattern: ^[a-zA-Z0-9]{3,30}
+                  # pattern: ^[a-zA-Z0-9]{3,30}
                   description: Password
               required:
                 - login
+                - name
                 - password
       responses:
         201:
@@ -147,76 +153,6 @@ paths:
           description: Bad request. Login, password required and should be a string
         409:
           description: Conflict. Login already exists
-
-    # put:
-    #   tags:
-    #     - Users
-    #   summary: Update a user's password
-    #   description: Updates a user's password by ID
-    #   requestBody:
-    #     required: true
-    #     content:
-    #       application/json:
-    #         schema:
-    #           type: object
-    #           title: example
-    #           properties:
-    #             oldPassword:
-    #               type: string
-    #               description: The user's old password
-    #             newPassword:
-    #               type: string
-    #               description: The user's new password
-    #           required:
-    #             - oldPassword
-    #             - newPassword
-    #   responses:
-    #     200:
-    #       description: The user has been updated.
-    #       content:
-    #         application/json:
-    #           schema:
-    #             type: object
-    #             title: example
-    #             properties:
-    #               id:
-    #                 type: string
-    #                 format: uuid
-    #               login:
-    #                 type: string
-    #                 example: TestUser
-    #               version:
-    #                 type: integer
-    #                 example: 2
-    #               createdAt:
-    #                 type: integer
-    #                 example: 1655000000
-    #               updatedAt:
-    #                 type: integer
-    #                 example: 1655999999
-    #     400:
-    #       description: Bad request. userId is invalid (not uuid)
-    #     401:
-    #       $ref: '#/components/responses/UnauthorizedError'
-    #     403:
-    #       description: oldPassword is wrong
-    #     404:
-    #       description: User not found
-
-    # delete:
-    #   tags:
-    #     - Users
-    #   summary: Delete user
-    #   description: Deletes user by ID.
-    #   responses:
-    #     204:
-    #       description: The user has been deleted
-    #     400:
-    #       description: Bad request. userId is invalid (not uuid)
-    #     401:
-    #       $ref: '#/components/responses/UnauthorizedError'
-    #     404:
-    #       description: User not found
 
 components:
   schemas:

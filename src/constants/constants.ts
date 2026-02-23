@@ -20,4 +20,5 @@ export const ROUTES = {
   CHAT: '/api/chat',
   DICTIONARIES: '/api/dictionaries',
   LOGIN: '/auth/login',
+  SIGNUP: '/auth/signup',
 };

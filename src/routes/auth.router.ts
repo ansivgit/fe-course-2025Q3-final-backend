@@ -6,8 +6,8 @@ const authRouter = Router();
 
 const authController = new AuthController();
 
-// authRouter.get('/', authController.getUser.bind(authController));
-
 authRouter.post(ROUTES.LOGIN, authController.login.bind(authController));
+
+authRouter.post(ROUTES.SIGNUP, authController.signup.bind(authController));
 
 export { authRouter };

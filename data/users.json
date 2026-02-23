@@ -4,8 +4,8 @@
     "name": "Max",
     "login": "max@example.com",
     "password": "hashed_password_123",
-    "createdAt": "2025-02-01",
-    "updatedAt": "2025-02-02",
+    "createdAt": 1655000000,
+    "updatedAt": 1755000000,
     "session": [],
     "settings": {}
   },
@@ -14,8 +14,8 @@
     "name": "Leo",
     "login": "leo@example.com",
     "password": "hashed_password_456",
-    "createdAt": "2025-02-03",
-    "updatedAt": "2025-02-04",
+    "createdAt": 1655000000,
+    "updatedAt": 1755000000,
     "session": [],
     "settings": {}
   },
@@ -24,8 +24,8 @@
     "name": "Mia",
     "login": "mia@example.com",
     "password": "hashed_password_789",
-    "createdAt": "2025-02-05",
-    "updatedAt": "2025-02-06",
+    "createdAt": 1655000000,
+    "updatedAt": 1755000000,
     "session": [],
     "settings": {}
   },
@@ -34,8 +34,8 @@
     "name": "TestUser",
     "login": "test@example.com",
     "password": "test1234",
-    "createdAt": "2025-02-05",
-    "updatedAt": "2025-02-06",
+    "createdAt": 1655000000,
+    "updatedAt": 1755000000,
     "session": [],
     "settings": {}
   }

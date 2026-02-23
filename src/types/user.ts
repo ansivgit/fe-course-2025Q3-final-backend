@@ -5,13 +5,13 @@ export type User = {
   password: string;
   session: Session[];
   settings: Settings;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: number;
+  updatedAt: number;
 };
 
 type Settings = unknown;
 type Session = unknown;
 
-export type NewUser = Omit<User, 'id' | 'createdAt' | 'updatedAt'>;
+export type NewUser = Pick<User, 'login' | 'password' | 'name'>;
 export type LoginUser = Pick<User, 'login' | 'password'>;
 export type UserProfile = Omit<User, 'password'>;

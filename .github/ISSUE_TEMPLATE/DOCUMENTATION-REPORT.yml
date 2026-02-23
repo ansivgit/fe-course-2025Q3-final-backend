@@ -2,8 +2,7 @@ name: Documentation Report
 description: File a documentation report.
 title: '[📘 Docs]: '
 labels: ['documentation']
-projects: ['ansivgit/1']
-type: documentation
+projects: ['https://github.com/users/ansivgit/projects/4/views/1']
 body:
   - type: textarea
     id: documentation-description

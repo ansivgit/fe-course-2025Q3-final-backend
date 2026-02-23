@@ -2,9 +2,7 @@ name: Feature Report
 description: File a feature report.
 title: '[🚀 Feat]: '
 labels: ['feature']
-projects: ['ansivgit/1']
-# milestone: ['Sprint 1']
-type: feature
+projects: ['https://github.com/users/ansivgit/projects/4/views/1']
 body:
   - type: textarea
     id: feature-description

@@ -2,8 +2,7 @@ name: Refactoring Report
 description: File a refactoring report.
 title: '[🔄 Refactor]: '
 labels: ['refactor']
-projects: ['ansivgit/1']
-type: refactor
+projects: ['https://github.com/users/ansivgit/projects/4']
 body:
   - type: textarea
     id: refactor-description

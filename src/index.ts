@@ -28,7 +28,6 @@ const swaggerDocument: Record<string, unknown> = YAML.parse(file);
 app.use(ROUTES.DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/', authRouter);
-
 app.get(ROUTES.DICTIONARIES, dictionaryController);
 app.post(ROUTES.CHAT, chatController);
 
@@ -43,7 +42,7 @@ app.get(ROUTES.HEALTH, healthCheckHandler);
 export const startServer = (): void => {
   app.listen(port, () => {
     console.warn(`Server is running on http://localhost:${String(port)}`);
-    console.warn(`Swagger API docs: http://localhost:${String(port)}/api-docs`);
+    console.warn(`Swagger API docs: http://localhost:${String(port)}/docs`);
   });
 };
 

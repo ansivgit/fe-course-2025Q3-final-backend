@@ -5,9 +5,9 @@ export const CONSTANTS = {
   HTTP_STATUS_INTERNAL_ERROR: 500,
 };
 
-export const ROUTERS = {
+export const ROUTES = {
   HEALTH: '/health',
   DOCS: '/docs',
-  CHAT: '/chat',
-  DICTIONARIES: '/dictionaries',
+  CHAT: '/agent/chat',
+  DICTIONARIES: '/agent/dictionaries',
 };

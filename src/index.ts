@@ -10,6 +10,7 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { chatController } from './controllers/chat.controller';
 import { dictionaryController } from './controllers/dictionary.controller.ts';
+import { authRouter } from './routes/auth.router.ts';
 
 // Init application
 export const app = express();
@@ -26,6 +27,7 @@ const swaggerDocument: Record<string, unknown> = YAML.parse(file);
 // Connecting the Swagger UI interface via the path /api-docs
 app.use(ROUTES.DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
+app.use('/', authRouter);
 app.get(ROUTES.DICTIONARIES, dictionaryController);
 app.post(ROUTES.CHAT, chatController);
 

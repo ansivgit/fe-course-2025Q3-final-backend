@@ -1,9 +1,8 @@
 name: Bug Report
 description: File a bug report.
-title: '[🐞 Bug]: '
+title: '[🐞 Fix]: '
 labels: ['bug', 'triage']
-projects: ['github.com/orgs/rss-mentoring-ansiv/projects/1']
-type: bug
+projects: ['https://github.com/users/ansivgit/projects/4']
 body:
   - type: textarea
     id: what-happened

@@ -67,6 +67,7 @@ export default defineConfig([
       '@typescript-eslint/prefer-nullish-coalescing': 'warn',
       '@typescript-eslint/prefer-optional-chain': 'error',
       '@typescript-eslint/no-unnecessary-condition': 'error',
+      '@typescript-eslint/await-thenable': 'warn',
 
       'unicorn/prevent-abbreviations': [
         'error',
@@ -80,6 +81,7 @@ export default defineConfig([
             props: false,
             ref: false,
             res: false,
+            req: false,
           },
         },
       ],

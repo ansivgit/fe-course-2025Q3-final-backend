@@ -17,8 +17,8 @@ export const RES_ERROR_MESSAGES = {
 export const ROUTES = {
   HEALTH: '/health',
   DOCS: '/api-docs',
-  CHAT: '/api/chat',
-  DICTIONARIES: '/api/dictionaries',
+  CHAT: '/agent/chat',
+  DICTIONARIES: '/agent/dictionaries',
   LOGIN: '/auth/login',
   SIGNUP: '/auth/signup',
 };

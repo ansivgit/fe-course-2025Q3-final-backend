@@ -3,9 +3,7 @@ import { CONSTANTS } from '../constants/constants.ts';
 import type { TypedChatRequest } from '../types/ai.ts';
 
 import type { Response } from 'express';
-import { aiService } from '../services/ai.service.js';
-import { historyService } from '../services/history.service.ts';
-import { promptBuilder } from '../services/prompt.builder.ts';
+import { aiService, historyService, promptBuilder, taskService } from '../services';
 import { validateChatRequest } from '../utils/validation.ts';
 
 export const chatController = async (request: TypedChatRequest, res: Response): Promise<void> => {
@@ -13,7 +11,7 @@ export const chatController = async (request: TypedChatRequest, res: Response): 
     const { data, error } = validateChatRequest(request.body);
 
     if (error || !data) {
-      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ error: error });
+      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).send({ data: null, error: error });
       return;
     }
 
@@ -37,7 +35,8 @@ export const chatController = async (request: TypedChatRequest, res: Response): 
 
     // If the story is empty, this is the beginning of the dialogue. Setting the AI's "personality"
     if (history.length === 0) {
-      const systemPrompt = promptBuilder.buildInterviewPrompt(topic, difficulty);
+      const task = await taskService.getTaskForSession(topic, difficulty);
+      const systemPrompt = promptBuilder.buildJudgeSystemPrompt(task);
       historyService.addMessage(sessionId, { role: 'system', content: systemPrompt });
     }
 

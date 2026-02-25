@@ -42,3 +42,9 @@ export class InternalError extends AppError {
     super(message, ERROR_CODE_KEYS.INTERNAL_ERROR);
   }
 }
+
+export class DatabaseError extends AppError {
+  constructor(message = ERROR_MESSAGES.DATABASE_ERROR) {
+    super(message, ERROR_CODE_KEYS.DATABASE_ERROR);
+  }
+}

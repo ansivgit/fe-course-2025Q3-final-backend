@@ -1,5 +1,6 @@
 import users from '../../data/users.json';
 import { ERROR_MESSAGES } from '../constants';
+import { DatabaseError } from '../errors';
 import type { User, UserProfile } from '../types';
 
 export class UserRepository {
@@ -7,12 +8,8 @@ export class UserRepository {
     try {
       const usersList: User[] = await users;
       return usersList;
-    } catch (error: unknown) {
-      const _error =
-        error instanceof Error
-          ? new Error(error.message)
-          : new Error(ERROR_MESSAGES.INTERNAL_ERROR);
-      throw _error;
+    } catch {
+      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
   }
 
@@ -27,12 +24,8 @@ export class UserRepository {
     try {
       usersList.push(user);
       return user;
-    } catch (error: unknown) {
-      const _error =
-        error instanceof Error
-          ? new Error(error.message)
-          : new Error(ERROR_MESSAGES.INTERNAL_ERROR);
-      throw _error;
+    } catch {
+      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
   }
 }

@@ -8,6 +8,7 @@ export const ERROR_CODE_KEYS = {
   CONFLICT: 'CONFLICT',
   INTERNAL_ERROR: 'INTERNAL_ERROR',
   VALIDATION_ERROR: 'VALIDATION_ERROR',
+  DATABASE_ERROR: 'DATABASE_ERROR',
 } as const;
 
 export const STATUS_BY_ERROR_CODE: Record<ErrorCode, ErrorStatusCode> = {
@@ -18,6 +19,7 @@ export const STATUS_BY_ERROR_CODE: Record<ErrorCode, ErrorStatusCode> = {
   [ERROR_CODE_KEYS.CONFLICT]: 409,
   [ERROR_CODE_KEYS.INTERNAL_ERROR]: 500,
   [ERROR_CODE_KEYS.VALIDATION_ERROR]: 400,
+  [ERROR_CODE_KEYS.DATABASE_ERROR]: 500,
 };
 
 export const ERROR_MESSAGES: Record<ErrorCode, string> = {
@@ -28,4 +30,5 @@ export const ERROR_MESSAGES: Record<ErrorCode, string> = {
   [ERROR_CODE_KEYS.CONFLICT]: 'Resource already exists',
   [ERROR_CODE_KEYS.INTERNAL_ERROR]: 'Internal server error',
   [ERROR_CODE_KEYS.VALIDATION_ERROR]: 'Validation failed',
+  [ERROR_CODE_KEYS.DATABASE_ERROR]: 'Database error',
 };

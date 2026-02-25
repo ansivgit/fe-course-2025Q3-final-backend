@@ -1,7 +1,7 @@
 import { v4 } from 'uuid';
 import { ERROR_MESSAGES } from '../constants';
 import { UserRepository } from '../data-access';
-import { NotFoundError } from '../errors';
+import { BadRequestError, ConflictError, DatabaseError, NotFoundError } from '../errors';
 import type { LoginUser, NewUser, User, UserProfile } from '../types';
 
 const LOGIN_ERROR_MESSAGES = {
@@ -20,12 +20,8 @@ export class AuthService {
   private async getUser(login: string): Promise<User | undefined> {
     try {
       return await this.userRepository.getUser(login);
-    } catch (error: unknown) {
-      const _error =
-        error instanceof Error
-          ? new Error(error.message)
-          : new Error(ERROR_MESSAGES.INTERNAL_ERROR);
-      throw _error;
+    } catch {
+      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
   }
 
@@ -41,7 +37,7 @@ export class AuthService {
     const isValid = password === user.password;
 
     if (!isValid) {
-      throw new Error(LOGIN_ERROR_MESSAGES.INVALID_PSWD);
+      throw new BadRequestError(LOGIN_ERROR_MESSAGES.INVALID_PSWD);
     }
 
     const { password: _, ...rest } = user;
@@ -54,11 +50,11 @@ export class AuthService {
     const user: User | undefined = await this.getUser(login);
 
     if (user) {
-      throw new Error(LOGIN_ERROR_MESSAGES.USER_EXISTS);
+      throw new ConflictError(LOGIN_ERROR_MESSAGES.USER_EXISTS);
     }
 
     if (!password || !name) {
-      throw new Error(ERROR_MESSAGES.BAD_REQUEST);
+      throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 
     const userInfo: User = {
@@ -72,15 +68,8 @@ export class AuthService {
 
     try {
       await this.userRepository.create(userInfo);
-
-      const usersList: User[] = await this.userRepository.getUsersList();
-      console.log('usersList', usersList);
-    } catch (error: unknown) {
-      const _error =
-        error instanceof Error
-          ? new Error(error.message)
-          : new Error(ERROR_MESSAGES.INTERNAL_ERROR);
-      throw _error;
+    } catch {
+      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
 
     const { password: _, ...rest } = userInfo;

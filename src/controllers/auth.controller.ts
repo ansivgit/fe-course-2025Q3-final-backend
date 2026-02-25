@@ -1,5 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
-import { CONSTANTS } from '../constants/constants';
+import { CONSTANTS, ERROR_MESSAGES } from '../constants';
+import { BadRequestError } from '../errors';
 import { AuthService } from '../services';
 import type { LoginUser, NewUser, UserProfile } from '../types';
 
@@ -15,7 +16,7 @@ export class AuthController {
       const userData: LoginUser | undefined = req.body;
 
       if (!userData) {
-        throw new Error('Login and password required');
+        throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
       }
 
       const user: UserProfile = await this.authService.login(userData);
@@ -25,7 +26,6 @@ export class AuthController {
         error: null,
       });
     } catch (error: unknown) {
-      console.info('error', error);
       next(error);
     }
   }
@@ -35,7 +35,7 @@ export class AuthController {
       const userData: NewUser | undefined = req.body;
 
       if (!userData) {
-        throw new Error('User data required');
+        throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
       }
 
       const user: UserProfile = await this.authService.signup(userData);
@@ -45,7 +45,6 @@ export class AuthController {
         error: null,
       });
     } catch (error: unknown) {
-      console.info('error', error);
       next(error);
     }
   }

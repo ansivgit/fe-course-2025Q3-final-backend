@@ -10,6 +10,7 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import { chatController } from './controllers/chat.controller';
 import { dictionaryController } from './controllers/dictionary.controller.ts';
+import { errorAuthHandler, errorHandler, notFoundHandler } from './middleware';
 import { authRouter } from './routes/auth.router.ts';
 
 // Init application
@@ -38,6 +39,10 @@ export const healthCheckHandler = (_request: Request, res: Response): void => {
 
 // A simple health check router
 app.get(ROUTES.HEALTH, healthCheckHandler);
+
+app.use(errorAuthHandler);
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 // Server startup function
 export const startServer = (): void => {

@@ -10,6 +10,6 @@ export class AppError extends Error {
     super(message);
     this.code = code;
     this.statusCode = STATUS_BY_ERROR_CODE[code];
-    this.isOperational = isOperational;
+    this.isOperational = isOperational; // TODO: add logging or remove this
   }
 }

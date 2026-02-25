@@ -1,7 +1,14 @@
 import { v4 } from 'uuid';
-import { RES_ERROR_MESSAGES } from '../constants/constants';
+import { ERROR_MESSAGES } from '../constants';
 import { UserRepository } from '../data-access';
-import type { LoginUser, NewUser, User, UserProfile } from '../types/user.types';
+import { NotFoundError } from '../errors';
+import type { LoginUser, NewUser, User, UserProfile } from '../types';
+
+const LOGIN_ERROR_MESSAGES = {
+  USER_NOT_FOUND: 'User not found. Please sign up',
+  INVALID_PSWD: 'Invalid password',
+  USER_EXISTS: 'User already exist. Please login',
+};
 
 export class AuthService {
   private readonly userRepository: UserRepository;
@@ -15,7 +22,9 @@ export class AuthService {
       return await this.userRepository.getUser(login);
     } catch (error: unknown) {
       const _error =
-        error instanceof Error ? new Error(error.message) : new Error(RES_ERROR_MESSAGES['500']);
+        error instanceof Error
+          ? new Error(error.message)
+          : new Error(ERROR_MESSAGES.INTERNAL_ERROR);
       throw _error;
     }
   }
@@ -26,13 +35,13 @@ export class AuthService {
     const user: User | undefined = await this.getUser(login);
 
     if (!user) {
-      throw new Error(RES_ERROR_MESSAGES['403_login']);
+      throw new NotFoundError(LOGIN_ERROR_MESSAGES.USER_NOT_FOUND);
     }
 
     const isValid = password === user.password;
 
     if (!isValid) {
-      throw new Error(RES_ERROR_MESSAGES['403_pswd']);
+      throw new Error(LOGIN_ERROR_MESSAGES.INVALID_PSWD);
     }
 
     const { password: _, ...rest } = user;
@@ -45,11 +54,11 @@ export class AuthService {
     const user: User | undefined = await this.getUser(login);
 
     if (user) {
-      throw new Error(RES_ERROR_MESSAGES['409']);
+      throw new Error(LOGIN_ERROR_MESSAGES.USER_EXISTS);
     }
 
     if (!password || !name) {
-      throw new Error(RES_ERROR_MESSAGES['400']);
+      throw new Error(ERROR_MESSAGES.BAD_REQUEST);
     }
 
     const userInfo: User = {
@@ -68,7 +77,9 @@ export class AuthService {
       console.log('usersList', usersList);
     } catch (error: unknown) {
       const _error =
-        error instanceof Error ? new Error(error.message) : new Error(RES_ERROR_MESSAGES['500']);
+        error instanceof Error
+          ? new Error(error.message)
+          : new Error(ERROR_MESSAGES.INTERNAL_ERROR);
       throw _error;
     }
 

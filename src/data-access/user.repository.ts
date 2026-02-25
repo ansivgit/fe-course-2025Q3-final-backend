@@ -1,6 +1,6 @@
 import users from '../../data/users.json';
-import { RES_ERROR_MESSAGES } from '../constants/constants';
-import type { User, UserProfile } from '../types/user.types';
+import { ERROR_MESSAGES } from '../constants';
+import type { User, UserProfile } from '../types';
 
 export class UserRepository {
   public async getUsersList(): Promise<User[]> {
@@ -9,7 +9,9 @@ export class UserRepository {
       return usersList;
     } catch (error: unknown) {
       const _error =
-        error instanceof Error ? new Error(error.message) : new Error(RES_ERROR_MESSAGES['500']);
+        error instanceof Error
+          ? new Error(error.message)
+          : new Error(ERROR_MESSAGES.INTERNAL_ERROR);
       throw _error;
     }
   }
@@ -27,7 +29,9 @@ export class UserRepository {
       return user;
     } catch (error: unknown) {
       const _error =
-        error instanceof Error ? new Error(error.message) : new Error(RES_ERROR_MESSAGES['500']);
+        error instanceof Error
+          ? new Error(error.message)
+          : new Error(ERROR_MESSAGES.INTERNAL_ERROR);
       throw _error;
     }
   }

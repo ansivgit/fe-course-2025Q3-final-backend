@@ -52,7 +52,6 @@ export default defineConfig([
 
       // 🟡 Good practices
       'no-console': ['warn', { allow: ['warn', 'error'] }],
-      'no-magic-numbers': ['error', { ignore: [0, 1, 2, -1] }],
       'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
       'max-lines-per-function': ['warn', { max: 60, skipBlankLines: true }],
       '@typescript-eslint/consistent-type-assertions': ['error', { assertionStyle: 'never' }],
@@ -106,6 +105,7 @@ export default defineConfig([
       'max-len': ['warn', { code: 120, ignoreComments: true }],
 
       // 🔧 Switched off
+      'no-magic-numbers': ['off'],
       'unicorn/no-array-reduce': 'off',
       'unicorn/no-array-for-each': 'off',
       'unicorn/no-null': 'off',

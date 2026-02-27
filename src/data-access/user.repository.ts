@@ -1,16 +1,15 @@
 import users from '../../data/users.json';
-import { RES_ERROR_MESSAGES } from '../constants/constants';
-import type { User, UserProfile } from '../types/user.types';
+import { ERROR_MESSAGES } from '../constants';
+import { DatabaseError } from '../errors';
+import type { User, UserProfile } from '../types';
 
 export class UserRepository {
   public async getUsersList(): Promise<User[]> {
     try {
       const usersList: User[] = await users;
       return usersList;
-    } catch (error: unknown) {
-      const _error =
-        error instanceof Error ? new Error(error.message) : new Error(RES_ERROR_MESSAGES['500']);
-      throw _error;
+    } catch {
+      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
   }
 
@@ -25,10 +24,8 @@ export class UserRepository {
     try {
       usersList.push(user);
       return user;
-    } catch (error: unknown) {
-      const _error =
-        error instanceof Error ? new Error(error.message) : new Error(RES_ERROR_MESSAGES['500']);
-      throw _error;
+    } catch {
+      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
   }
 }

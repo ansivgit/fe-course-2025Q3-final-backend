@@ -4,6 +4,13 @@ Frontend repository [repo](https://github.com/rss-mentoring-ansiv/fe-course-2025
 Backend service for the **Tandem** application (RS School Final Project).
 This server implements the **API Service Layer** architecture, handles AI Agent integration via Groq, and enforces strict code quality standards.
 
+## 🌐 Live Demo
+
+The project is available online:
+
+- **Vercel:** [https://tandem-growlab.vercel.app](https://tandem-growlab.vercel.app)
+
+
 ## 🛠 Tech Stack
 
 * **Runtime:** Node.js

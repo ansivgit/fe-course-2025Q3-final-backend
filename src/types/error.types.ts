@@ -1,4 +1,4 @@
-import type { ERROR_CODE_KEYS } from '../constants';
+import type { ERROR_CODE_KEYS } from '../constants/index.js';
 
 export type ErrorCode = (typeof ERROR_CODE_KEYS)[keyof typeof ERROR_CODE_KEYS];
 

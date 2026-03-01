@@ -1,4 +1,4 @@
-import type { ErrorCode, ErrorStatusCode } from '../types';
+import type { ErrorCode, ErrorStatusCode } from '../types/index.js';
 
 export const ERROR_CODE_KEYS = {
   BAD_REQUEST: 'BAD_REQUEST',

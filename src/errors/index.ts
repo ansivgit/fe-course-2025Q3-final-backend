@@ -1,4 +1,4 @@
-export { AppError } from './app-error';
+export { AppError } from './app-error.js';
 export {
   BadRequestError,
   ConflictError,
@@ -8,4 +8,4 @@ export {
   NotFoundError,
   UnauthorizedError,
   ValidationError,
-} from './http-errors';
+} from './http-errors.js';

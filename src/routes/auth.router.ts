@@ -1,6 +1,7 @@
+import { ROUTES } from '../constants/index.js';
+
 import { Router } from 'express';
-import { ROUTES } from '../constants';
-import { AuthController } from '../controllers';
+import { AuthController } from '../controllers/index.js';
 
 const authRouter = Router();
 

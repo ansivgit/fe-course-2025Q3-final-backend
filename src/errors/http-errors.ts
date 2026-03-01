@@ -1,5 +1,6 @@
-import { ERROR_CODE_KEYS, ERROR_MESSAGES } from '../constants';
-import { AppError } from './app-error';
+import { ERROR_CODE_KEYS, ERROR_MESSAGES } from '../constants/index.js';
+
+import { AppError } from './app-error.js';
 
 export class BadRequestError extends AppError {
   constructor(message = ERROR_MESSAGES.BAD_REQUEST) {

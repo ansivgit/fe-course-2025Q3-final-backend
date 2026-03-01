@@ -1,7 +1,8 @@
+import { ERROR_CODE_KEYS, ERROR_MESSAGES, STATUS_BY_ERROR_CODE } from '../constants/index.js';
+
 import type { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
-import { ERROR_CODE_KEYS, ERROR_MESSAGES, STATUS_BY_ERROR_CODE } from '../constants';
-import { AppError, InternalError } from '../errors';
-import { getHttpErrorResponse } from '../utils';
+import { AppError, InternalError } from '../errors/index.js';
+import { getHttpErrorResponse } from '../utils/index.js';
 
 //* Handler for errors with known status (4xx)
 export const errorAuthHandler: ErrorRequestHandler = (

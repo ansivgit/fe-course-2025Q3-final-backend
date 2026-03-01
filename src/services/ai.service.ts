@@ -1,5 +1,5 @@
 import type { ChatMessage, GroqResponse } from '../types/ai.js';
-import { isObject } from '../utils/validation.ts';
+import { isObject } from '../utils/validation.js';
 
 const MOCK_DELAY_MS = 50;
 const MODEL_ID = 'llama-3.3-70b-versatile';

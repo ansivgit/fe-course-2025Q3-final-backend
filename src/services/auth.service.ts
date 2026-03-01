@@ -1,8 +1,9 @@
+import { ERROR_MESSAGES } from '../constants/index.js';
+
 import { v4 } from 'uuid';
-import { ERROR_MESSAGES } from '../constants';
-import { UserRepository } from '../data-access';
-import { BadRequestError, ConflictError, DatabaseError, NotFoundError } from '../errors';
-import type { LoginUser, NewUser, User, UserProfile } from '../types';
+import { UserRepository } from '../data-access/index.js';
+import { BadRequestError, ConflictError, DatabaseError, NotFoundError } from '../errors/index.js';
+import type { LoginUser, NewUser, User, UserProfile } from '../types/index.js';
 
 const LOGIN_ERROR_MESSAGES = {
   USER_NOT_FOUND: 'User not found. Please sign up',

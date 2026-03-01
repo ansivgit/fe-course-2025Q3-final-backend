@@ -1,5 +1,6 @@
-import { DIFFICULTIES, TOPICS } from '../constants/dictionaries';
-import type { ChatRequestBody, Difficulty } from '../types/ai';
+import { DIFFICULTIES, TOPICS } from '../constants/dictionaries.js';
+
+import type { ChatRequestBody, Difficulty } from '../types/ai.js';
 
 type ValidationResult = {
   data: ChatRequestBody | null;

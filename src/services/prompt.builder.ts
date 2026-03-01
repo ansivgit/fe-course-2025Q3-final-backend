@@ -1,4 +1,4 @@
-import type { Difficulty } from '../types/ai';
+import type { Difficulty } from '../types/ai.js';
 
 export class PromptBuilderService {
   // A system prompt for an AI agent based on theme and complexity

@@ -1,12 +1,11 @@
-import { CONSTANTS } from '../constants/constants.ts';
-
-import type { TypedChatRequest } from '../types/ai.ts';
+import { CONSTANTS } from '../constants/constants.js';
 
 import type { Response } from 'express';
 import { aiService } from '../services/ai.service.js';
-import { historyService } from '../services/history.service.ts';
-import { promptBuilder } from '../services/prompt.builder.ts';
-import { validateChatRequest } from '../utils/validation.ts';
+import { historyService } from '../services/history.service.js';
+import { promptBuilder } from '../services/prompt.builder.js';
+import type { TypedChatRequest } from '../types/ai.js';
+import { validateChatRequest } from '../utils/validation.js';
 
 export const chatController = async (request: TypedChatRequest, res: Response): Promise<void> => {
   try {

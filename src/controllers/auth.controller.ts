@@ -1,8 +1,9 @@
+import { CONSTANTS, ERROR_MESSAGES } from '../constants/index.js';
+
 import type { NextFunction, Request, Response } from 'express';
-import { CONSTANTS, ERROR_MESSAGES } from '../constants';
-import { BadRequestError } from '../errors';
-import { AuthService } from '../services';
-import type { LoginUser, NewUser, UserProfile } from '../types';
+import { BadRequestError } from '../errors/index.js';
+import { AuthService } from '../services/index.js';
+import type { LoginUser, NewUser, UserProfile } from '../types/index.js';
 
 export class AuthController {
   private readonly authService: AuthService;

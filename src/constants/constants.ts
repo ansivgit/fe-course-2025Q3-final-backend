@@ -7,7 +7,7 @@ export const CONSTANTS = {
 
 export const ROUTES = {
   HEALTH: '/health',
-  DOCS: '/api-docs',
+  DOCS: '/docs',
   CHAT: '/api/chat',
   DICTIONARIES: '/api/dictionaries',
   LOGIN: '/auth/login',

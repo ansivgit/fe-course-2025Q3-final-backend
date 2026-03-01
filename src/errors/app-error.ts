@@ -1,5 +1,6 @@
-import { STATUS_BY_ERROR_CODE } from '../constants';
-import type { ErrorCode, ErrorStatusCode } from '../types';
+import { STATUS_BY_ERROR_CODE } from '../constants/index.js';
+
+import type { ErrorCode, ErrorStatusCode } from '../types/index.js';
 
 export class AppError extends Error {
   public readonly code: ErrorCode;

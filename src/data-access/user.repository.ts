@@ -1,7 +1,8 @@
-import users from '../../data/users.json';
-import { ERROR_MESSAGES } from '../constants';
-import { DatabaseError } from '../errors';
-import type { User, UserProfile } from '../types';
+import { ERROR_MESSAGES } from '../constants/index.js';
+
+import users from '../../data/users.json' with { type: 'json' };
+import { DatabaseError } from '../errors/index.js';
+import type { User, UserProfile } from '../types/index.js';
 
 export class UserRepository {
   public async getUsersList(): Promise<User[]> {

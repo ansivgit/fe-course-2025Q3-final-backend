@@ -1,0 +1,209 @@
+openapi: 3.0.0
+info:
+  title: Tandem AI Agent API
+  version: 1.0.0
+  description: API documentation for the Tandem project backend
+servers:
+  - url: http://localhost:3000
+    description: Local Development Server
+
+paths:
+  /health:
+    get:
+      summary: Checking the server status
+      tags: [System]
+      responses:
+        '200':
+          description: The server is stable
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  message:
+                    type: string
+                    example: The server is stable
+
+  /agent/dictionaries:
+    get:
+      summary: Get configuration dictionaries (topics and difficulties)
+      tags: [ System ]
+      responses:
+        '200':
+          description: List of available topics and difficulties
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  topics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DictionaryItem'
+                  difficulties:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DictionaryItem'
+  /agent/chat:
+    post:
+      summary: Send a message to the AI agent and get a streaming response
+      tags: [AI]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatRequest'
+      responses:
+        '200':
+          description: Streaming text response
+          content:
+            text/plain:
+              schema:
+                type: string
+        '400':
+          description: Invalid request
+        '500':
+          description: Server or AI provider error
+
+  /auth/login:
+    post:
+      tags:
+        - Login
+      security: []
+      summary: Login
+      description: Logins a user and returns a User object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                login:
+                  type: string
+                  example: 'test@example.com'
+                  format: email
+                  description: UserLogin
+                password:
+                  type: string
+                  example: 'test1234'
+                  minLength: 8
+                  description: Password
+              required:
+                - login
+                - password
+      responses:
+        200:
+          description: Successful login.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Bad request. Login and password required
+        403:
+          description: Incorrect login or password
+  /auth/signup:
+    post:
+      tags:
+        - Signup
+      security: [ ]
+      summary: Signup
+      description: Signup a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                login:
+                  type: string
+                  minLength: 3
+                  maxLength: 255
+                  example: 'test2@example.com'
+                  description: Login
+                name:
+                  type: string
+                  minLength: 3
+                  maxLength: 255
+                  example: 'UserName'
+                  description: Username
+                password:
+                  type: string
+                  format: password
+                  # pattern: ^[a-zA-Z0-9]{3,30}
+                  example: 'test1234'
+                  description: Password
+              required:
+                - login
+                - name
+                - password
+      responses:
+        201:
+          description: The user has been registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Bad request. Login, password required and should be a string
+        409:
+          description: Conflict. Login already exists
+
+components:
+  schemas:
+    ChatRequest:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          description: The user's query
+          example: "Explain Event Loop"
+        sessionId:
+          type: string
+          description: Session ID for context preservation
+        topic:
+          type: string
+          description: Current educational topic
+        difficulty:
+          type: string
+          enum: [junior, middle, senior]
+    DictionaryItem:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    User:
+          type: object
+          properties:
+            id:
+              type: string
+              format: uuid
+            login:
+              type: string
+              example: 'test@example.com'
+            name:
+              type: string
+              example: 'TestUser'
+            createdAt:
+              type: number
+              example: 1655000000
+            updatedAt:
+              type: number
+              example: 1655000000
+            session: []
+            settings: {}
+          required:
+            - id
+            - login

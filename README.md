@@ -1,74 +1,48 @@
-# RS JS/FE-2025Q3 Final Project: Tandem
+# Tandem Backend API
 
-Учебный командный проект, выполняемый в рамках обучения в RS School. Проект представляет собой веб-приложение для подготовки к техническим собеседованиям с интерактивными тестами и поддержкой AI ментора.
+Frontend repository [repo](https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final)
+Backend service for the **Tandem** application (RS School Final Project).
+This server implements the **API Service Layer** architecture, handles AI Agent integration via Groq, and enforces strict code quality standards.
 
-## 🎯 Цели проекта
+## 🌐 Live Demo
 
-- Закрепить и углубить знания по **React** и **TypeScript**;
-- Отработать навыки **командной разработки** с использованием Git и GitHub;
-- Спроектировать базовую архитектуру фронтенд-приложения;
-- Реализовать интерактивную практику по техническим темам;
-- Получить опыт работы с **AI-сервисами**;
-- Научиться документировать проект и процесс разработки.
+The project is available online:
 
----
+- **Vercel:** [https://tandem-growlab.vercel.app](https://tandem-growlab.vercel.app)
 
-## 📋 Описание задания
 
-Необходимо разработать веб-приложение для подготовки к техническим собеседованиям, которое включает:
-- практические задания по темам;
-- различные форматы тестов;
-- AI-ментора для проведения интервью;
-- систему прогресса пользователя.
+## 🛠 Tech Stack
 
-Требования и функциональность будут уточняться по ходу разработки проекта.
+* **Runtime:** Node.js
+* **Framework:** Express.js
+* **Language:** TypeScript (Strict Mode)
+* **AI Provider:** Groq SDK
+* **Documentation:** Swagger / OpenAPI
+* **Code Quality:** Biome (Formatting), ESLint (Linting), Husky (Git Hooks)
 
----
+## 🚀 Getting Started
 
-## 🏫 Школа и задание
+### 1. Prerequisites
+Ensure you have **Node.js** (v18.x or higher) installed.
 
-- **Школа:** [RS School](https://rs.school/)
-- **Курс:** [JS / Front-end Course](https://rs.school/courses/javascript)
-- **Задание:** [Tandem](https://github.com/rolling-scopes-school/tasks/tree/master/stage2/tasks/rs-tandem)
+### 2. Installation
+Clone the repository and install dependencies:
 
----
+```bash
+git clone <https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final-backend.git>
+cd fe-course-2025q3-final-backend
+npm install
+```
 
-## 👥 Команда
+## 🏃‍♂️ Running the Server
 
-- **Ментор:** Anna Zhuravleva — [ansivgit](https://github.com/ansivgit)
-- Yauheniya Mastavaya — [zena86](https://github.com/zena86)
-- Eryka Mileuskaya — [rika-milew](https://github.com/rika-milew)
-- Viktor Elenich — [viktorelenich](https://github.com/viktorelenich)
+**Development Mode**
+Starts the server with hot-reloading using tsx.
 
----
+```bash
+npm run dev
+```
 
-## 🛠 Стек технологий
-
-### Базовый стек
-
-- **React**
-- **TypeScript**
-- **State Management** (уточняется)
-- **AI API**
-- **CSS Modules**
-
----
-
-### Инструменты разработки
-
-- **Vite**
-- **ESLint**
-- **Biome**
-- **Git / GitHub**
-
----
-
-## 🔗 Репозиторий фронтенда
-
-- [fe-course-2025Q3-final](https://github.com/ansivgit/fe-course-2025Q3-final)
-
----
-
-## 📌 Статус проекта
-
-Проект находится на начальном этапе. Архитектура, стек и функциональные требования могут измениться в процессе разработки.
+Once started, the server will be available at:
+* **API Root:** `http://localhost:3000`
+* **Swagger Docs:** `http://localhost:3000/api-docs`

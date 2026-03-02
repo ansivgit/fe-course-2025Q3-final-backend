@@ -1,0 +1,27 @@
+# temp
+*.tmp
+*.temp
+
+# logs
+*.log
+
+# dependencies
+node_modules/
+
+# compiled output
+dist/
+build/
+out/
+
+# OS
+.DS_Store
+
+# ide settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# env
+.env
+.env.local

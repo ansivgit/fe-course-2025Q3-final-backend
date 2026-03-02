@@ -1,7 +1,9 @@
 import { v4 } from 'uuid';
-import { ERROR_MESSAGES } from '../constants';
+
 import { UserRepository } from '../data-access';
 import { BadRequestError, ConflictError, DatabaseError, NotFoundError } from '../errors';
+
+import { ERROR_MESSAGES } from '../constants';
 import type { LoginUser, NewUser, User, UserProfile } from '../types';
 
 const LOGIN_ERROR_MESSAGES = {

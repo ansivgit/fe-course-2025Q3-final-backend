@@ -1,6 +1,7 @@
 import users from '../../data/users.json';
-import { ERROR_MESSAGES } from '../constants';
 import { DatabaseError } from '../errors';
+
+import { ERROR_MESSAGES } from '../constants';
 import type { User, UserProfile } from '../types';
 
 export class UserRepository {

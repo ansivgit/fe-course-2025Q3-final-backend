@@ -1,7 +1,9 @@
 import type { NextFunction, Request, Response } from 'express';
-import { CONSTANTS, ERROR_MESSAGES } from '../constants';
+
 import { BadRequestError } from '../errors';
 import { AuthService } from '../services';
+
+import { CONSTANTS, ERROR_MESSAGES } from '../constants';
 import type { LoginUser, NewUser, UserProfile } from '../types';
 
 export class AuthController {

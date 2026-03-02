@@ -1,5 +1,6 @@
-import type { ChatMessage, GroqResponse } from '../types/ai.js';
-import { isObject } from '../utils/validation.ts';
+import { isObject } from '../utils/validation';
+
+import type { ChatMessage, GroqResponse } from '../types/ai';
 
 const MOCK_DELAY_MS = 50;
 const MODEL_ID = 'llama-3.3-70b-versatile';
@@ -163,7 +164,7 @@ export class AiService {
   // Fake stream for development (Mock Mode)
   // Emulates the printing of text in pieces
   private async *getMockStream(): AsyncIterable<string> {
-    const mockResponse = `This is a test response in development mode. 
+    const mockResponse = `This is a test response in development mode.
       I'm emulating the work of AI..
       Here is a sample code:
       \`\`\`typescript

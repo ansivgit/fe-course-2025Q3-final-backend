@@ -21,7 +21,7 @@
         "useImportType": {
           "level": "error",
           "options": {
-            "style": "separatedType"
+            "style": "auto"
           }
         },
         "noDefaultExport": "error"
@@ -50,34 +50,43 @@
             "groups": [
               ":URL:",
               ":NODE:",
+              ":PACKAGE:",
+              ":PACKAGE_WITH_PROTOCOL:",
+              ":BLANK_LINE:",
               [
                 "@/**",
+                "**/*",
                 "!@/types.ts",
                 "!@/types/*",
                 "!**/types.ts",
                 "!**/types/*.ts",
+                "!**/types/**",
+                "!**/types",
                 "!*.types.ts",
                 "!@/constants.{js,ts}",
                 "!@/constants/*",
+                "!**/constants/**",
+                "!**/constants",
                 "!**/constants.{js,ts}",
                 "!**/constants/*.{js,ts}"
               ],
+              ":BLANK_LINE:",
               [
                 "@/constants.{js,ts}",
                 "@/constants/*",
                 "**/constants.{js,ts}",
-                "**/constants/*.{js,ts}"
+                "**/constants/*.{js,ts}",
+                "**/constants/**",
+                "**/constants"
               ],
-              ":BLANK_LINE:",
               [
                 "@/types.ts",
                 "@/types/*",
                 "**/types.ts",
                 "**/types/*.ts",
-                "*.types.ts"
-              ],
-              ":BLANK_LINE:",
-              "*.css"
+                "**/types/**",
+                "**/types"
+              ]
             ]
           }
         }

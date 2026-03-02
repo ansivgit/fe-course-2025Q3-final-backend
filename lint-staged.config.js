@@ -1,4 +1,4 @@
 export default {
-  './src/**/*.{tsx,ts,css,scss,sass}': 'npm run format:fix',
-  './src/**/*.{tsx,ts}': 'npm run lint:fix',
+  './src/**/*.{ts,js}': 'npm run format:fix',
+  './src/**/*.{ts,js}': 'npm run lint:fix',
 };

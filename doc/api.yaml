@@ -156,7 +156,31 @@ paths:
           description: Bad request. Login, password required and should be a string
         409:
           description: Conflict. Login already exists
-
+  /widget/{type}:
+    get:
+      summary: Get all widgets of a specific type
+      tags:
+        - Widget
+      parameters:
+        - name: type
+          in: path
+          required: true
+          description: Type of widget (quiz, etc.)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Array of widgets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/widget'
+        '404':
+          description: Widget file not found
+        '400':
+          description: Invalid widget data
 components:
   schemas:
     ChatRequest:
@@ -207,3 +231,68 @@ components:
           required:
             - id
             - login
+    Widget:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique widget ID
+          example: quiz-01
+        type:
+          type: string
+          enum: [quiz]
+          description: Widget type
+          example: quiz
+        tags:
+          type: array
+          items:
+            type: string
+          description: Tags related to the widget
+          example: [js, arrays]
+        payload:
+          type: object
+          description: Widget payload with question, options, correctAnswersIds and explanation
+          properties:
+            question:
+              type: string
+              description: Question text
+              example: "Which values are falsy in JavaScript?"
+            options:
+              type: array
+              description: Possible answers
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: quiz-01-a
+                  name:
+                    type: string
+                    example: a
+                  value:
+                    type: string
+                    example: 0
+                required:
+                  - id
+                  - name
+                  - value
+            correctAnswersIds:
+              type: array
+              description: IDs of correct options
+              items:
+                type: string
+              example: [a, c, d, e]
+            explanation:
+              type: string
+              description: Explanation for the answer
+              example: "0, null, '', and undefined are falsy; any object is always truthy."
+          required:
+            - question
+            - options
+            - correctAnswersIds
+            - explanation
+      required:
+        - id
+        - type
+        - tags
+        - payload

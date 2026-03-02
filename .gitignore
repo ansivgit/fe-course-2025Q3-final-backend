@@ -26,3 +26,6 @@ out/
 .env
 .env.local
 .vercel
+
+.vercel
+.env*.local

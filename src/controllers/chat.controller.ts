@@ -1,28 +1,30 @@
 import { CONSTANTS } from '../constants/constants.ts';
 
-import type { TypedChatRequest } from '../types/ai.ts';
+import type { Difficulty, Task, TypedChatRequest } from '../types/ai.ts';
 
 import type { Response } from 'express';
 import { aiService, historyService, promptBuilder, taskService } from '../services';
-import { validateChatRequest } from '../utils/validation.ts';
+import { ChatRequestSchema } from '../utils/validation.ts';
+
+const initializeNewSession = (sessionId: string, topic: string, difficulty: Difficulty): void => {
+  const task: Task = taskService.getTaskForSession(topic, difficulty);
+  const systemPrompt: string = promptBuilder.buildJudgeSystemPrompt(task);
+
+  historyService.addMessage(sessionId, { role: 'system', content: systemPrompt });
+};
 
 export const chatController = async (request: TypedChatRequest, res: Response): Promise<void> => {
   try {
-    const { data, error } = validateChatRequest(request.body);
+    const parsedResult = ChatRequestSchema.safeParse(request.body);
 
-    if (error || !data) {
-      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).send({ data: null, error: error });
-      return;
-    }
-
-    const { message, topic, difficulty, sessionId } = data;
-
-    if (!message || !topic || !difficulty || !sessionId) {
+    if (!parsedResult.success) {
       res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({
-        error: 'Fields "message", "topic", "difficulty", and "sessionId" are required',
+        error: parsedResult.error.issues.map((er) => er.message).join(', '),
       });
       return;
     }
+
+    const { message, topic, difficulty, sessionId } = parsedResult.data;
 
     // Setting the titles for streaming
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
@@ -35,9 +37,7 @@ export const chatController = async (request: TypedChatRequest, res: Response): 
 
     // If the story is empty, this is the beginning of the dialogue. Setting the AI's "personality"
     if (history.length === 0) {
-      const task = await taskService.getTaskForSession(topic, difficulty);
-      const systemPrompt = promptBuilder.buildJudgeSystemPrompt(task);
-      historyService.addMessage(sessionId, { role: 'system', content: systemPrompt });
+      initializeNewSession(sessionId, topic, difficulty);
     }
 
     // Adding a new message from the user to the history

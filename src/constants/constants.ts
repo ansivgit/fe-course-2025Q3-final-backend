@@ -16,7 +16,7 @@ export const RES_ERROR_MESSAGES = {
 
 export const ROUTES = {
   HEALTH: '/health',
-  DOCS: '/api-docs',
+  DOCS: '/docs',
   CHAT: '/agent/chat',
   DICTIONARIES: '/agent/dictionaries',
   LOGIN: '/auth/login',

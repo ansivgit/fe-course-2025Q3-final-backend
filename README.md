@@ -1,6 +1,6 @@
 # Tandem Backend API
 
-Frontend repository [repo](https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final) 
+Frontend repository [repo](https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final)
 Backend service for the **Tandem** application (RS School Final Project).
 This server implements the **API Service Layer** architecture, handles AI Agent integration via Groq, and enforces strict code quality standards.
 

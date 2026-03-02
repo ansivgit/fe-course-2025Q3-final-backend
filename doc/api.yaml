@@ -176,7 +176,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/widget'
+                  $ref: '#/components/schemas/Widget'
         '404':
           description: Widget file not found
         '400':

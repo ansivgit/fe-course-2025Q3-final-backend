@@ -1,6 +1,7 @@
 import type { NextFunction, Request, Response } from 'express';
 
 import { WidgetService } from '../services';
+
 import { CONSTANTS } from '../constants';
 
 type WidgetParams = {

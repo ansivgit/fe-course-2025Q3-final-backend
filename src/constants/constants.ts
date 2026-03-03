@@ -15,8 +15,3 @@ export const ROUTES = {
   DATA: '/data',
   WIDGETS_BY_TYPE: '/:type',
 };
-
-export const WIDGET_TYPES = {
-  QUIZ: 'quiz',
-};
-

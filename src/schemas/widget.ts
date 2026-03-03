@@ -1,4 +1,4 @@
-import { z, type ZodType } from 'zod';
+import { type ZodType, z } from 'zod';
 
 export const QuizWidgetSchema = z.object({
   id: z.string(),

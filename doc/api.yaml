@@ -156,7 +156,7 @@ paths:
           description: Bad request. Login, password required and should be a string
         409:
           description: Conflict. Login already exists
-  /data/widget/{type}:
+  /data/{type}:
     get:
       summary: Get all widgets of a specific type
       tags:

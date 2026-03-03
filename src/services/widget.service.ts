@@ -29,9 +29,7 @@ export class WidgetService {
     const validationResult = validateWidgets<Widget>(data, QuizWidgetSchema);
 
     if (!validationResult.success) {
-      throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST, {
-        details: validationResult.errors,
-      });
+      throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 
     return validationResult.data;

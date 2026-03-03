@@ -16,7 +16,7 @@ export type QuizWidget = z.infer<typeof QuizWidgetSchema>;
 
 export type Widget = QuizWidget;
 
-export type ValidationResult<T> =
+type ValidationResult<T> =
   | { success: true; data: T[] }
   | {
       success: false;

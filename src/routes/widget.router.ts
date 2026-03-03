@@ -1,15 +1,12 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { Router } from 'express';
-import { z } from 'zod';
 
-import { QuizWidgetSchema } from '../schemas/index';
+import { validateQuizWidgets } from '../schemas/widget';
 
 import { CONSTANTS } from '../constants';
 
 const router = Router();
-
-const QuizWidgetsSchema = z.array(QuizWidgetSchema);
 
 router.get('/:type', async (req, res) => {
   const widgetType = req.params.type;
@@ -19,19 +16,16 @@ router.get('/:type', async (req, res) => {
     const rawData = await fs.readFile(filePath, 'utf8');
     const data = JSON.parse(rawData);
 
-    const parseResult = QuizWidgetsSchema.safeParse(data);
+    const validationResult = validateQuizWidgets(data);
 
-    if (!parseResult.success) {
-      const formattedErrors = parseResult.error.issues.map((issue) => ({
-        path: issue.path,
-        message: issue.message,
-        code: issue.code,
-      }));
-      return res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ error: 'Invalid widget data', 
-        details: formattedErrors });
+    if (!validationResult.success) {
+      return res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({
+        error: 'Invalid widget data',
+        details: validationResult.errors,
+      });
     }
 
-    res.json(parseResult.data);
+    res.json(validationResult.data);
   } catch (error: unknown) {
     if (isFileNotFoundError(error)) {
       return res.status(CONSTANTS.HTTP_STATUS_NOT_FOUND).json({ error: 'Widget file not found' });

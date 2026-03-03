@@ -4,9 +4,9 @@ import { WidgetController } from '../controllers';
 
 import { ROUTES } from '../constants';
 
-const widgetRouter = Router();
+const widgetRouter: Router = Router();
 
-const widgetController = new WidgetController();
+const widgetController: WidgetController = new WidgetController();
 
 widgetRouter.get(ROUTES.WIDGETS_BY_TYPE, widgetController.getWidgetsByType.bind(widgetController));
 

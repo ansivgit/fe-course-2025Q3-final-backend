@@ -5,6 +5,8 @@ import { z } from 'zod';
 
 import { QuizWidgetSchema } from '../schemas/index';
 
+import { CONSTANTS } from '../constants';
+
 const router = Router();
 
 const QuizWidgetsSchema = z.array(QuizWidgetSchema);
@@ -25,17 +27,18 @@ router.get('/:type', async (req, res) => {
         message: issue.message,
         code: issue.code,
       }));
-      return res.status(400).json({ error: 'Invalid widget data', details: formattedErrors });
+      return res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ error: 'Invalid widget data', 
+        details: formattedErrors });
     }
 
     res.json(parseResult.data);
   } catch (error: unknown) {
     if (isFileNotFoundError(error)) {
-      return res.status(404).json({ error: 'Widget file not found' });
+      return res.status(CONSTANTS.HTTP_STATUS_NOT_FOUND).json({ error: 'Widget file not found' });
     }
 
     console.error(error);
-    res.status(500).json({ error: 'Internal server error' });
+    res.status(CONSTANTS.HTTP_STATUS_INTERNAL_ERROR).json({ error: 'Internal server error' });
   }
 });
 

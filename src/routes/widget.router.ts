@@ -3,7 +3,7 @@ import path from 'node:path';
 import { Router } from 'express';
 import { z } from 'zod';
 
-import { QuizWidgetSchema } from '../schemas/quiz';
+import { QuizWidgetSchema } from '../schemas/widget';
 
 const router = Router();
 

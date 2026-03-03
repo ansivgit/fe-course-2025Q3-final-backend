@@ -29,7 +29,7 @@ const swaggerDocument: Record<string, unknown> = YAML.parse(file);
 app.use(ROUTES.DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/', authRouter);
-app.use('/data/widget', widgetRouter);
+app.use(ROUTES.DATA, widgetRouter);
 app.get(ROUTES.DICTIONARIES, dictionaryController);
 app.post(ROUTES.CHAT, chatController);
 

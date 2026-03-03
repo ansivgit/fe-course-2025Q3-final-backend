@@ -12,4 +12,5 @@ export const ROUTES = {
   DICTIONARIES: '/api/dictionaries',
   LOGIN: '/auth/login',
   SIGNUP: '/auth/signup',
+  DATA: '/data',
 };

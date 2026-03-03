@@ -16,7 +16,7 @@ export type QuizWidget = z.infer<typeof QuizWidgetSchema>;
 
 export type Widget = QuizWidget;
 
-type ValidationResult<T> =
+export type ValidationResult<T> =
   | { success: true; data: T[] }
   | {
       success: false;
@@ -24,7 +24,7 @@ type ValidationResult<T> =
     };
 
 export function validateWidgets<T>(data: unknown, schema: ZodType<T>): ValidationResult<T> {
-  const result = z.array(schema).safeParse(data);
+  const result: z.ZodSafeParseResult<T[]> = z.array(schema).safeParse(data);
 
   if (!result.success) {
     return {

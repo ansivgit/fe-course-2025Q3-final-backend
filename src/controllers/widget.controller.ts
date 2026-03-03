@@ -1,5 +1,6 @@
 import type { NextFunction, Request, Response } from 'express';
 
+import type { Widget } from '../schemas/widget';
 import { WidgetService } from '../services';
 
 import { CONSTANTS } from '../constants';
@@ -21,9 +22,9 @@ export class WidgetController {
     next: NextFunction,
   ): Promise<void> {
     try {
-      const widgetType = req.params.type;
+      const widgetType: string = req.params.type;
 
-      const widgets = await this.widgetService.getWidgetsByType(widgetType);
+      const widgets: Widget[] = await this.widgetService.getWidgetsByType(widgetType);
 
       res.status(CONSTANTS.HTTP_STATUS_OK).send({
         data: widgets,

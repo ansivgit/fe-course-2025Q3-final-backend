@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z, type ZodType } from 'zod';
 
 export const QuizWidgetSchema = z.object({
   id: z.string(),
@@ -14,25 +14,22 @@ export const QuizWidgetSchema = z.object({
 
 export type QuizWidget = z.infer<typeof QuizWidgetSchema>;
 
-const QuizWidgetsSchema = z.array(QuizWidgetSchema);
+export type Widget = QuizWidget;
 
 export type ValidationResult<T> =
-  | { success: true; data: T }
+  | { success: true; data: T[] }
   | {
       success: false;
       errors: { path: (string | number | symbol)[]; message: string }[];
     };
 
-export function validateQuizWidgets(data: unknown): ValidationResult<unknown[]> {
-  const result = QuizWidgetsSchema.safeParse(data);
+export function validateWidgets<T>(data: unknown, schema: ZodType<T>): ValidationResult<T> {
+  const result = z.array(schema).safeParse(data);
 
   if (!result.success) {
     return {
       success: false,
-      errors: result.error.issues.map((issue) => ({
-        path: issue.path,
-        message: issue.message,
-      })),
+      errors: result.error.issues.map((issue) => ({ path: issue.path, message: issue.message })),
     };
   }
 

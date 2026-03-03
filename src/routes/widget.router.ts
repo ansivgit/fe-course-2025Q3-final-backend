@@ -1,43 +1,62 @@
-import fs from 'node:fs/promises';
-import path from 'node:path';
 import { Router } from 'express';
 
-import { validateQuizWidgets } from '../schemas/widget';
+import { WidgetController } from '../controllers';
 
-import { CONSTANTS } from '../constants';
+import { ROUTES } from '../constants';
 
-const router = Router();
+const widgetRouter = Router();
 
-router.get('/:type', async (req, res) => {
-  const widgetType = req.params.type;
-  const filePath = path.resolve('data/widgets', `${widgetType}.json`);
+const widgetController = new WidgetController();
 
-  try {
-    const rawData = await fs.readFile(filePath, 'utf8');
-    const data = JSON.parse(rawData);
+widgetRouter.get(
+  ROUTES.WIDGETS_BY_TYPE,
+  widgetController.getWidgetsByType.bind(widgetController),
+);
 
-    const validationResult = validateQuizWidgets(data);
+export { widgetRouter };
 
-    if (!validationResult.success) {
-      return res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({
-        error: 'Invalid widget data',
-        details: validationResult.errors,
-      });
-    }
 
-    res.json(validationResult.data);
-  } catch (error: unknown) {
-    if (isFileNotFoundError(error)) {
-      return res.status(CONSTANTS.HTTP_STATUS_NOT_FOUND).json({ error: 'Widget file not found' });
-    }
 
-    console.error(error);
-    res.status(CONSTANTS.HTTP_STATUS_INTERNAL_ERROR).json({ error: 'Internal server error' });
-  }
-});
+// import fs from 'node:fs/promises';
+// import path from 'node:path';
+// import { Router } from 'express';
 
-function isFileNotFoundError(error: unknown): boolean {
-  return error instanceof Error && error.message.includes('no such file or directory');
-}
+// import { validateQuizWidgets } from '../schemas/widget';
 
-export { router as widgetRouter };
+// import { CONSTANTS } from '../constants';
+
+// const router = Router();
+
+// router.get('/:type', async (req, res) => {
+//   const widgetType = req.params.type;
+//   const filePath = path.resolve('data/widgets', `${widgetType}.json`);
+
+//   try {
+//     const rawData = await fs.readFile(filePath, 'utf8');
+//     const data = JSON.parse(rawData);
+
+//     const validationResult = validateQuizWidgets(data);
+
+//     if (!validationResult.success) {
+//       return res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({
+//         error: 'Invalid widget data',
+//         details: validationResult.errors,
+//       });
+//     }
+
+//     res.json(validationResult.data);
+//   } catch (error: unknown) {
+//     if (isFileNotFoundError(error)) {
+//       return res.status(CONSTANTS.HTTP_STATUS_NOT_FOUND).json({ error: 'Widget file not found' });
+//     }
+
+//     console.error(error);
+//     res.status(CONSTANTS.HTTP_STATUS_INTERNAL_ERROR).json({ error: 'Internal server error' });
+//   }
+// });
+
+// function isFileNotFoundError(error: unknown): boolean {
+//   return error instanceof Error && error.message.includes('no such file or directory');
+// }
+
+// export { router as widgetRouter };

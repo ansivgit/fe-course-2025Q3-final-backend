@@ -1,25 +1,22 @@
 import { BadRequestError } from '../errors';
 import type { Widget } from '../schemas/widget';
-import type { WidgetValidationResult } from '../utils/validation';
-import { validateWidgets } from '../utils/validation';
 import { QuizWidgetSchema } from '../schemas/widget';
+import { validateWidgets } from '../utils/validation';
 
 import { ERROR_MESSAGES } from '../constants';
 
 export class WidgetService {
   public async getWidgetsByType(widgetType: string): Promise<Widget[]> {
-    const imported: { default: unknown } = await import(`../../data/widgets/${widgetType}.json`);
-    const data: unknown = imported.default;
+    let data: unknown;
 
-    const validationResult: WidgetValidationResult<Widget> = validateWidgets<Widget>(
-      data,
-      QuizWidgetSchema,
-    );
-
-    if (!validationResult.success) {
+    try {
+      const imported: { default: unknown } = await import(`../../data/widgets/${widgetType}.json`);
+      data = imported.default;
+    } catch {
       throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 
-    return validationResult.data;
+    const validatedWidgets = validateWidgets<Widget>(data, QuizWidgetSchema);
+    return validatedWidgets;
   }
 }

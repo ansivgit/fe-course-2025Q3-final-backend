@@ -13,5 +13,4 @@ export const ROUTES = {
   LOGIN: '/auth/login',
   SIGNUP: '/auth/signup',
   DATA: '/data',
-  WIDGETS_BY_TYPE: '/:type',
 };

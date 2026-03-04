@@ -1,6 +1,8 @@
 import { BadRequestError } from '../errors';
-import type { ValidationResult, Widget } from '../schemas/widget';
-import { QuizWidgetSchema, validateWidgets } from '../schemas/widget';
+import type { Widget } from '../schemas/widget';
+import type { WidgetValidationResult } from '../utils/validation';
+import { validateWidgets } from '../utils/validation';
+import { QuizWidgetSchema } from '../schemas/widget';
 
 import { ERROR_MESSAGES } from '../constants';
 
@@ -9,7 +11,7 @@ export class WidgetService {
     const imported: { default: unknown } = await import(`../../data/widgets/${widgetType}.json`);
     const data: unknown = imported.default;
 
-    const validationResult: ValidationResult<Widget> = validateWidgets<Widget>(
+    const validationResult: WidgetValidationResult<Widget> = validateWidgets<Widget>(
       data,
       QuizWidgetSchema,
     );

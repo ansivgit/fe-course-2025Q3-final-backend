@@ -1,2 +1,2 @@
 export { authRouter } from './auth.router';
-export { widgetRouter } from './widget.router';
+export { dataRouter } from './data.router';

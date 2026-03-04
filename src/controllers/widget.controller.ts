@@ -23,7 +23,7 @@ export class WidgetController {
     next: NextFunction,
   ): Promise<void> {
     try {
-      const widgetType: string | undefined = req.params.type.trim();
+      const widgetType: string = req.params.type.trim();
 
       if (!widgetType) {
         throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);

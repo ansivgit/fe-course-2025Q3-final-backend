@@ -1,4 +1,4 @@
-import { CONSTANTS } from '../constants/constants.ts';
+import { CONSTANTS } from '../constants';
 
 import type { Difficulty, Task, TypedChatRequest } from '../types/ai.ts';
 

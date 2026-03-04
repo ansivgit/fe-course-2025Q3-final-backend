@@ -32,4 +32,6 @@ export type Task = {
   rubric: string[];
 };
 
+export type ValidationResult<T> = { success: true; data: T } | { success: false; error: string };
+
 export type TypedChatRequest = Request<Record<string, never>, unknown, ChatRequestBody>;

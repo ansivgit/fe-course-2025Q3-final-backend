@@ -1,6 +1,6 @@
 # Tandem Backend API
 
-Frontend repository [repo](https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final)
+Frontend repository [repo](https://github.com/ansivgit/fe-course-2025Q3-final)
 Backend service for the **Tandem** application (RS School Final Project).
 This server implements the **API Service Layer** architecture, handles AI Agent integration via Groq, and enforces strict code quality standards.
 
@@ -8,7 +8,8 @@ This server implements the **API Service Layer** architecture, handles AI Agent 
 
 The project is available online:
 
-- **Vercel:** [https://tandem-growlab.vercel.app](https://tandem-growlab.vercel.app)
+- **Vercel:** [Backend](https://growlab-server.vercel.app/health)
+- **Vercel:** [Frontend](https://tandem-growlab.vercel.app)
 
 
 ## 🛠 Tech Stack
@@ -29,7 +30,7 @@ Ensure you have **Node.js** (v18.x or higher) installed.
 Clone the repository and install dependencies:
 
 ```bash
-git clone <https://github.com/rss-mentoring-ansiv/fe-course-2025Q3-final-backend.git>
+git clone <https://github.com/ansivgit/fe-course-2025Q3-final-backend.git>
 cd fe-course-2025q3-final-backend
 npm install
 ```

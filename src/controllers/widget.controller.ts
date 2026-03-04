@@ -1,9 +1,10 @@
 import type { NextFunction, Request, Response } from 'express';
 
+import { BadRequestError } from '../errors';
 import type { Widget } from '../schemas/widget';
 import { WidgetService } from '../services';
 
-import { CONSTANTS } from '../constants';
+import { CONSTANTS, ERROR_MESSAGES } from '../constants';
 
 type WidgetParams = {
   type: string;
@@ -22,7 +23,11 @@ export class WidgetController {
     next: NextFunction,
   ): Promise<void> {
     try {
-      const widgetType: string = req.params.type;
+      const widgetType: string | undefined = req.params.type.trim();
+
+      if (!widgetType) {
+        throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
+      }
 
       const widgets: Widget[] = await this.widgetService.getWidgetsByType(widgetType);
 

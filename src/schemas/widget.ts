@@ -15,3 +15,5 @@ export const QuizWidgetSchema = z.object({
 export type QuizWidget = z.infer<typeof QuizWidgetSchema>;
 
 export type Widget = QuizWidget;
+
+export type WidgetValidation<T> = T[];

@@ -1,6 +1,7 @@
 import { type ZodType, z } from 'zod';
 
 import { DatabaseError } from '../errors';
+import type { WidgetValidation } from '../schemas/widget';
 
 import { DIFFICULTIES, TOPICS } from '../constants/dictionaries';
 import type { ChatRequestBody, Difficulty } from '../types/ai';
@@ -64,8 +65,6 @@ export const validateChatRequest = (body: unknown): ValidationResult => {
 };
 
 // Validation of widget data
-
-export type WidgetValidation<T> = T[];
 
 export function validateWidgets<T>(data: unknown, schema: ZodType<T>): WidgetValidation<T> {
   const result: z.ZodSafeParseResult<T[]> = z.array(schema).safeParse(data);

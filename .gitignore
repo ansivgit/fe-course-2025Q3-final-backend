@@ -12,6 +12,7 @@ node_modules/
 dist/
 build/
 out/
+.vercel/
 
 # OS
 .DS_Store

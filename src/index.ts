@@ -44,12 +44,13 @@ app.use(errorAuthHandler);
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-// Server startup function
-export const startServer = (): void => {
+// biome-ignore lint/style/noDefaultExport: we need it for deploying to Vercel
+export default app;
+
+// Server startup function if not running on Vercel environment
+if (process.env.VERCEL !== '1') {
   app.listen(port, () => {
     console.warn(`Server is running on http://localhost:${String(port)}`);
     console.warn(`Swagger API docs: http://localhost:${String(port)}/docs`);
   });
-};
-
-startServer();
+}

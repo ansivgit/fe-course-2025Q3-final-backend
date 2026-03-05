@@ -3,8 +3,8 @@
     "id": "890608b1-2d09-4510-af1d-58cf5a82bf1e",
     "name": "Max",
     "login": "max@example.com",
-    "password": "hashed_password_123",
-    "createdAt": 1655000000,
+    "password": "password1",
+    "createdAt": 1651000000,
     "updatedAt": 1755000000,
     "session": [],
     "settings": {}
@@ -13,9 +13,9 @@
     "id": "bb28d4fc-f6e7-4e7d-8480-b16f25aaaad7",
     "name": "Leo",
     "login": "leo@example.com",
-    "password": "hashed_password_456",
-    "createdAt": 1655000000,
-    "updatedAt": 1755000000,
+    "password": "password2",
+    "createdAt": 1652000000,
+    "updatedAt": 1725000000,
     "session": [],
     "settings": {}
   },
@@ -23,9 +23,9 @@
     "id": "77b1af41-e2a7-4448-97ac-92e8d57c166e",
     "name": "Mia",
     "login": "mia@example.com",
-    "password": "hashed_password_789",
+    "password": "password3",
     "createdAt": 1655000000,
-    "updatedAt": 1755000000,
+    "updatedAt": 1765000000,
     "session": [],
     "settings": {}
   },
@@ -34,8 +34,8 @@
     "name": "TestUser",
     "login": "test@example.com",
     "password": "test1234",
-    "createdAt": 1655000000,
-    "updatedAt": 1755000000,
+    "createdAt": 1675000000,
+    "updatedAt": 1785000000,
     "session": [],
     "settings": {}
   }

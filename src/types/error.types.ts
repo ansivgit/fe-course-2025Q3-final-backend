@@ -10,3 +10,5 @@ export type ErrorRes = {
     message: string;
   };
 };
+
+export type ValidationResult<T> = { success: true; data: T } | { success: false; error: string };

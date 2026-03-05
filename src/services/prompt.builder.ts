@@ -1,4 +1,4 @@
-import { SYSTEM_PROMPTS } from '../constants/prompts';
+import { SYSTEM_PROMPTS } from '../prompts/system.prompts';
 import type { Task } from '../types/ai';
 
 export class PromptBuilderService {

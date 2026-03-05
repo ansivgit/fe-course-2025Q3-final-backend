@@ -11,7 +11,7 @@ const initializeNewSession = async (
   topic: string,
   difficulty: Difficulty,
 ): Promise<void> => {
-  const task: Task = await taskService.getTaskForSession(topic, difficulty);
+  const task: Task = await taskService.getTask(topic, difficulty);
   const systemPrompt: string = promptBuilder.buildJudgeSystemPrompt(task);
 
   historyService.addMessage(sessionId, { role: 'system', content: systemPrompt });

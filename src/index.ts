@@ -4,12 +4,19 @@ import fs from 'node:fs';
 import path from 'node:path';
 import cors from 'cors';
 import express, { type Request, type Response } from 'express';
+import { MongoClient } from 'mongodb';
 import swaggerUi from 'swagger-ui-express';
 
 import { chatController } from './controllers/chat.controller';
 import { dictionaryController } from './controllers/dictionary.controller';
 import { errorAuthHandler, errorHandler, notFoundHandler } from './middleware';
 import { authRouter } from './routes';
+
+const uri = process.env.MONGODB_URI;
+if (!uri) {
+  throw new Error('MONGODB_URI not defined');
+}
+const client = new MongoClient(uri);
 
 import { CONSTANTS, ROUTES } from './constants';
 
@@ -53,3 +60,21 @@ if (process.env.VERCEL !== '1') {
     console.warn(`Swagger API docs: http://localhost:${String(port)}/docs`);
   });
 }
+
+async function run(): Promise<void> {
+  try {
+    await client.connect();
+    console.log('✅ Connected to MongoDB Atlas');
+
+    // test connection
+    const dbs = await client.db().admin().listDatabases();
+    console.log('DBs:', dbs.databases.map((database) => database));
+
+  } catch (error) {
+    console.error('❌ Connection error:', error);
+  } finally {
+    await client.close();
+  }
+}
+
+await run();

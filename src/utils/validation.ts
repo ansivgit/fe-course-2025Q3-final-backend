@@ -1,13 +1,13 @@
 import type { Task } from '../types/ai';
 import { ChatRequestSchema, TasksArraySchema, type ChatRequestParams } from '../schemas/chatRequest';
-import type { ValidationResult } from '../types/error.types';
+import type { SchemaValidationResult } from '../types/error.types';
 
 // An auxiliary function that verifies that the value is an object
 export function isObject(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null;
 }
 
-export const validateChatRequest = (data: unknown): ValidationResult<ChatRequestParams> => {
+export const validateChatRequest = (data: unknown): SchemaValidationResult<ChatRequestParams> => {
   const parsed = ChatRequestSchema.safeParse(data);
 
   if (!parsed.success) {
@@ -23,7 +23,7 @@ export const validateChatRequest = (data: unknown): ValidationResult<ChatRequest
   };
 };
 
-export const validateTasksData = (data: unknown): ValidationResult<Task[]> => {
+export const validateTasksData = (data: unknown): SchemaValidationResult<Task[]> => {
   const parsed = TasksArraySchema.safeParse(data);
 
   if (!parsed.success) {

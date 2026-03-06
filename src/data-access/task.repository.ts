@@ -1,29 +1,32 @@
+import { ERROR_MESSAGES } from '../constants';
 import tasksData from '../data/tasks.json';
+import { DatabaseError, ValidationError } from '../errors';
 import type { Difficulty, Task } from '../types/ai';
+import type { SchemaValidationResult } from '../types/error.types';
 import { validateTasksData } from '../utils/validation';
 
 export class TaskRepository {
-  public async getTasksByParams(topic: string, difficulty: Difficulty): Promise<Task[]> {
+  public async getAllTasks(): Promise<Task[]> {
+    let rawData;
     try {
-      const rawData = await tasksData;
-
-      // 2. Валидируем данные
-      const validationResult = validateTasksData(rawData);
-
-      if (!validationResult.success) {
-        throw new Error(`Database validation failed: ${validationResult.error}`);
-      }
-
-      const allTasks = validationResult.data;
-      const filteredTasks = allTasks.filter(
-        (task) => task.topic === topic && task.difficulty === difficulty,
-      );
-
-      return filteredTasks;
-
-    } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown database error';
-      throw new Error(`Database query failed: ${errorMessage}`);
+      rawData = await tasksData;
+    } catch {
+      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
+    const validationResult: SchemaValidationResult<Task[]> = validateTasksData(rawData);
+
+    if (!validationResult.success) {
+      throw new ValidationError(`Database validation failed: ${validationResult.error}`);
+    }
+
+    return validationResult.data;
+  }
+
+  public async getTasksByParams(topic: string, difficulty: Difficulty): Promise<Task[]> {
+    const allTasks: Task[] = await this.getAllTasks();
+
+    return allTasks.filter(
+      (task) => task.topic === topic && task.difficulty === difficulty,
+    );
   }
 }

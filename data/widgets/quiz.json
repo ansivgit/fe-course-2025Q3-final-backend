@@ -1,0 +1,73 @@
+[
+  {
+    "id": "quiz-01",
+    "type": "quiz",
+    "tags": ["js", "falsy"],
+    "payload": {
+      "question": "Which values are falsy in JavaScript?",
+      "options": [
+        { "id": "quiz-01-a", "name": "a", "value": "0" },
+        { "id": "quiz-01-b", "name": "b", "value": "{}" },
+        { "id": "quiz-01-c", "name": "c", "value": "null" },
+        { "id": "quiz-01-d", "name": "d", "value": "''" },
+        { "id": "quiz-01-e", "name": "e", "value": "undefined" }
+      ],
+      "correctAnswersIds": ["a", "c", "d", "e"],
+      "explanation": "0, null, '', and undefined are falsy; any object is always truthy."
+    }
+  },
+  {
+    "id": "quiz-02",
+    "type": "quiz",
+    "tags": ["js", "arrays"],
+    "payload": {
+      "question": "Which Array methods return a new array without modifying the original?",
+      "options": [
+        { "id": "quiz-02-a", "name": "a", "value": "map()" },
+        { "id": "quiz-02-b", "name": "b", "value": "forEach()" },
+        { "id": "quiz-02-c", "name": "c", "value": "filter()" },
+        { "id": "quiz-02-d", "name": "d", "value": "push()" },
+        { "id": "quiz-02-e", "name": "e", "value": "slice()" }
+      ],
+      "correctAnswersIds": ["a", "c", "e"],
+      "explanation": "map(), filter(), and slice() return new arrays; forEach() and push() modify the original."
+    }
+  },
+  {
+    "id": "quiz-03",
+    "type": "quiz",
+    "tags": ["js", "async"],
+    "payload": {
+      "question": "Which tasks are handled in the microtask queue?",
+      "options": [
+        {
+          "id": "quiz-03-a",
+          "name": "a",
+          "value": "Promise.then callbacks"
+        },
+        {
+          "id": "quiz-03-b",
+          "name": "b",
+          "value": "setTimeout callbacks"
+        },
+        {
+          "id": "quiz-03-c",
+          "name": "c",
+          "value": "MutationObserver callbacks"
+        },
+        {
+          "id": "quiz-03-d",
+          "name": "d",
+          "value": "fetch() response handling"
+        },
+        {
+          "id": "quiz-03-e",
+          "name": "e",
+          "value": "requestAnimationFrame callbacks"
+        }
+      ],
+      "correctAnswersIds": ["a", "c"],
+      "explanation": "Promise.then and MutationObserver callbacks are microtasks; setTimeout, fetch(), and requestAnimationFrame are macrotasks."
+    }
+  }
+]

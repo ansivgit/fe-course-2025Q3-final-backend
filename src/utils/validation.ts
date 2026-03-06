@@ -1,3 +1,8 @@
+import { type ZodType, z } from 'zod';
+
+import { DatabaseError } from '../errors';
+import type { WidgetValidation } from '../schemas/widget';
+
 import { DIFFICULTIES, TOPICS } from '../constants/dictionaries';
 import type { ChatRequestBody, Difficulty } from '../types/ai';
 
@@ -58,3 +63,17 @@ export const validateChatRequest = (body: unknown): ValidationResult => {
     error: null,
   };
 };
+
+// Validation of widget data
+
+export function validateWidgets<T>(data: unknown, schema: ZodType<T>): WidgetValidation<T> {
+  const result: z.ZodSafeParseResult<T[]> = z.array(schema).safeParse(data);
+
+  if (!result.success) {
+    throw new DatabaseError(
+      result.error.issues.map((issue) => `${issue.path.join('.')}: ${issue.message}`).join('; '),
+    );
+  }
+
+  return result.data;
+}

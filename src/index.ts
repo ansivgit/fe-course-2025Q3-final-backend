@@ -51,6 +51,6 @@ export default app;
 if (process.env.VERCEL !== '1') {
   app.listen(port, () => {
     console.warn(`Server is running on http://localhost:${String(port)}`);
-    console.warn(`Swagger API docs: http://localhost:${String(port)}/docs`);
+    console.warn(`Swagger API docs: http://localhost:${String(port)}${ROUTES.DOCS}`);
   });
 }

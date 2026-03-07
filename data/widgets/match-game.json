@@ -1,0 +1,199 @@
+[
+  {
+    "id": "match-game-01",
+    "type": "match-game",
+    "tags": ["variables", "objects"],
+    "payload": [
+      { "id": 1, "value": "var", "content": "var" },
+      { "id": 2, "value": "var", "content": "declare variable" },
+      {
+        "id": 3,
+        "value": "let / const",
+        "content": "let / const"
+      },
+      {
+        "id": 4,
+        "value": "let / const",
+        "content": "declare block-scoped variable"
+      },
+      {
+        "id": 5,
+        "value": "function declaration",
+        "content": "function declaration"
+      },
+      {
+        "id": 6,
+        "value": "function declaration",
+        "content": "define named function"
+      },
+      {
+        "id": 7,
+        "value": "arrow function",
+        "content": "arrow function"
+      },
+      {
+        "id": 8,
+        "value": "arrow function",
+        "content": "define function with => syntax"
+      },
+      {
+        "id": 9,
+        "value": "{}",
+        "content": "{}"
+      },
+      {
+        "id": 10,
+        "value": "{}",
+        "content": "empty object literal"
+      },
+      {
+        "id": 11,
+        "value": "modules (import/export)",
+        "content": "modules (import/export)"
+      },
+      {
+        "id": 12,
+        "value": "modules (import/export)",
+        "content": "import/export JS modules"
+      }
+    ]
+  },
+  {
+    "id": "match-game-02",
+    "type": "match-game",
+    "tags": ["operators", "syntax"],
+    "payload": [
+      {
+        "id": 13,
+        "value": "==",
+        "content": "=="
+      },
+      {
+        "id": 14,
+        "value": "==",
+        "content": "loose equality comparison"
+      },
+      {
+        "id": 15,
+        "value": "===",
+        "content": "==="
+      },
+      {
+        "id": 16,
+        "value": "===",
+        "content": "strict equality comparison"
+      },
+      {
+        "id": 17,
+        "value": "ternary operator",
+        "content": "ternary operator"
+      },
+      {
+        "id": 18,
+        "value": "ternary operator",
+        "content": "condition ? expr1 : expr2"
+      },
+      {
+        "id": 19,
+        "value": "&&",
+        "content": "&&"
+      },
+      {
+        "id": 20,
+        "value": "&&",
+        "content": "logical AND"
+      },
+      {
+        "id": 21,
+        "value": "||",
+        "content": "||"
+      },
+      {
+        "id": 22,
+        "value": "||",
+        "content": "logical OR"
+      },
+      {
+        "id": 23,
+        "value": "!",
+        "content": "!"
+      },
+      {
+        "id": 24,
+        "value": "!",
+        "content": "logical NOT"
+      }
+    ]
+  },
+  {
+    "id": "match-game-03",
+    "type": "match-game",
+    "tags": ["async", "timers", "JSON", "storage", "arrays", "strings"],
+    "payload": [
+      {
+        "id": 25,
+        "value": "map()",
+        "content": "map()"
+      },
+      {
+        "id": 26,
+        "value": "map()",
+        "content": "create new array by transforming elements"
+      },
+      {
+        "id": 27,
+        "value": "filter()",
+        "content": "filter()"
+      },
+      {
+        "id": 28,
+        "value": "filter()",
+        "content": "create new array with elements that pass test"
+      },
+      {
+        "id": 29,
+        "value": "reduce()",
+        "content": "reduce()"
+      },
+      {
+        "id": 30,
+        "value": "reduce()",
+        "content": "accumulate array values into single result"
+      },
+      {
+        "id": 31,
+        "value": "forEach()",
+        "content": "forEach()"
+      },
+
+      {
+        "id": 32,
+        "value": "forEach()",
+        "content": "iterate over array elements"
+      },
+      {
+        "id": 33,
+        "value": "Array.find()",
+        "content": "Array.find()"
+      },
+
+      {
+        "id": 34,
+        "value": "Array.find()",
+        "content": "return first element matching condition"
+      },
+
+      {
+        "id": 35,
+        "value": "Array.findIndex()",
+        "content": "Array.findIndex()"
+      },
+
+      {
+        "id": 36,
+        "value": "Array.findIndex()",
+        "content": "return index of first matching element"
+      }
+    ]
+  }
+]

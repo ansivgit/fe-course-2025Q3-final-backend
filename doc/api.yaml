@@ -165,7 +165,7 @@ paths:
         - name: type
           in: path
           required: true
-          description: Type of widget (quiz, etc.)
+          description: Type of widget (quiz, match-game, etc.)
           schema:
             type: string
       responses:

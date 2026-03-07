@@ -1,7 +1,7 @@
 import { DataRepository } from '../data-access/data.repository';
 import { BadRequestError } from '../errors';
 import type { Widget, WidgetValidation } from '../schemas/widget';
-import { QuizWidgetSchema } from '../schemas/widget';
+import { MatchWidgetSchema, QuizWidgetSchema } from '../schemas/widget';
 import { validateWidgets } from '../utils/validation';
 
 import { ERROR_MESSAGES } from '../constants';
@@ -20,9 +20,18 @@ export class WidgetService {
       throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 
-    const validatedWidgets: WidgetValidation<Widget> = validateWidgets<Widget>(
+    let schema;
+    if (widgetType === 'quiz') {
+      schema = QuizWidgetSchema;
+    } else if (widgetType === 'match-game') {
+      schema = MatchWidgetSchema;
+    } else {
+      throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
+    }
+
+    const validatedWidgets: WidgetValidation = validateWidgets<Widget>(
       data,
-      QuizWidgetSchema,
+      schema,
     );
 
     return validatedWidgets;

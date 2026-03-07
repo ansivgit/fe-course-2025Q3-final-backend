@@ -1,3 +1,5 @@
+import type z from 'zod';
+
 import { DataRepository } from '../data-access/data.repository';
 import { BadRequestError } from '../errors';
 import type { Widget, WidgetValidation } from '../schemas/widget';
@@ -20,7 +22,7 @@ export class WidgetService {
       throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 
-    let schema;
+    let schema: z.ZodType<Widget>;
     if (widgetType === 'quiz') {
       schema = QuizWidgetSchema;
     } else if (widgetType === 'match-game') {
@@ -29,10 +31,7 @@ export class WidgetService {
       throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 
-    const validatedWidgets: WidgetValidation = validateWidgets<Widget>(
-      data,
-      schema,
-    );
+    const validatedWidgets: WidgetValidation = validateWidgets<Widget>(data, schema);
 
     return validatedWidgets;
   }

@@ -11,4 +11,6 @@ export type ErrorRes = {
   };
 };
 
-export type SchemaValidationResult<T> = { success: true; data: T } | { success: false; error: string };
+export type SchemaValidationResult<T> =
+  | { success: true; data: T }
+  | { success: false; error: string };

@@ -1,7 +1,8 @@
 import { TaskRepository } from '../data-access';
 import { InternalError, NotFoundError } from '../errors/http-errors.js';
-import type { Difficulty, Task } from '../types/ai.js';
 import { getRandomElement } from '../utils/getRandomElement.js';
+
+import type { Difficulty, Task } from '../types/ai.js';
 
 export class TaskService {
   private readonly taskRepository: TaskRepository;
@@ -14,7 +15,9 @@ export class TaskService {
     const tasks: Task[] = await this.taskRepository.getTasksByParams(topic, difficulty);
 
     if (tasks.length === 0) {
-      throw new NotFoundError(`Tasks not found for topic: "${topic}" and difficulty: "${difficulty}"`);
+      throw new NotFoundError(
+        `Tasks not found for topic: "${topic}" and difficulty: "${difficulty}"`,
+      );
     }
 
     const randomItem: Task | undefined = getRandomElement(tasks);

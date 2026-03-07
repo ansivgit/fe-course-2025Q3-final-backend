@@ -1,13 +1,14 @@
-import { ERROR_MESSAGES } from '../constants';
 import tasksData from '../data/tasks.json';
 import { DatabaseError, ValidationError } from '../errors';
+import { validateTasksData } from '../utils/validation';
+
+import { ERROR_MESSAGES } from '../constants';
 import type { Difficulty, Task } from '../types/ai';
 import type { SchemaValidationResult } from '../types/error.types';
-import { validateTasksData } from '../utils/validation';
 
 export class TaskRepository {
   public async getAllTasks(): Promise<Task[]> {
-    let rawData;
+    let rawData: unknown;
     try {
       rawData = await tasksData;
     } catch {
@@ -25,8 +26,6 @@ export class TaskRepository {
   public async getTasksByParams(topic: string, difficulty: Difficulty): Promise<Task[]> {
     const allTasks: Task[] = await this.getAllTasks();
 
-    return allTasks.filter(
-      (task) => task.topic === topic && task.difficulty === difficulty,
-    );
+    return allTasks.filter((task) => task.topic === topic && task.difficulty === difficulty);
   }
 }

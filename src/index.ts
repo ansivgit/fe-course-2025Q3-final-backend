@@ -9,7 +9,7 @@ import swaggerUi from 'swagger-ui-express';
 import { chatController } from './controllers/chat.controller';
 import { dictionaryController } from './controllers/dictionary.controller';
 import { errorAuthHandler, errorHandler, notFoundHandler } from './middleware';
-import { authRouter } from './routes';
+import { authRouter, dataRouter } from './routes';
 
 import { CONSTANTS, ROUTES } from './constants';
 
@@ -29,6 +29,7 @@ const swaggerDocument: Record<string, unknown> = YAML.parse(file);
 app.use(ROUTES.DOCS, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/', authRouter);
+app.use(ROUTES.DATA, dataRouter);
 app.get(ROUTES.DICTIONARIES, dictionaryController);
 app.post(ROUTES.CHAT, chatController);
 
@@ -43,12 +44,13 @@ app.use(errorAuthHandler);
 app.use(notFoundHandler);
 app.use(errorHandler);
 
-// Server startup function
-export const startServer = (): void => {
+// biome-ignore lint/style/noDefaultExport: we need it for deploying to Vercel
+export default app;
+
+// Server startup function if not running on Vercel environment
+if (process.env.VERCEL !== '1') {
   app.listen(port, () => {
     console.warn(`Server is running on http://localhost:${String(port)}`);
     console.warn(`Swagger API docs: http://localhost:${String(port)}${ROUTES.DOCS}`);
   });
-};
-
-startServer();
+}

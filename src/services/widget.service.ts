@@ -3,7 +3,7 @@ import type z from 'zod';
 import { DataRepository } from '../data-access/data.repository';
 import { BadRequestError } from '../errors';
 import type { Widget, WidgetValidation } from '../schemas/widget';
-import { MatchWidgetSchema, QuizWidgetSchema } from '../schemas/widget';
+import { MatchWidgetSchema, QuizWidgetSchema } from '../schemas';
 import { validateWidgets } from '../utils/validation';
 
 import { ERROR_MESSAGES } from '../constants';

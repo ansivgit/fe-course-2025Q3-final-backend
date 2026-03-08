@@ -1,5 +1,9 @@
 import { z } from 'zod';
 
+import { BadRequestError } from '../errors';
+
+import { ERROR_MESSAGES } from '../constants';
+
 export const QuizWidgetSchema = z.object({
   id: z.string(),
   type: z.literal('quiz'),
@@ -31,3 +35,22 @@ export type MatchWidget = z.infer<typeof MatchWidgetSchema>;
 export type Widget = QuizWidget | MatchWidget;
 
 export type WidgetValidation<T extends Widget = Widget> = T[];
+
+const widgetSchemas = {
+  quiz: QuizWidgetSchema,
+  'match-game': MatchWidgetSchema,
+} as const;
+
+export type WidgetType = keyof typeof widgetSchemas;
+
+const isWidgetType = (type: string): type is WidgetType => {
+  return type in widgetSchemas;
+};
+
+export const getWidgetSchema = (type: string): z.ZodType<Widget> => {
+  if (!isWidgetType(type)) {
+    throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
+  }
+
+  return widgetSchemas[type];
+};

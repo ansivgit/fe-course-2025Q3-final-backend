@@ -23,7 +23,7 @@ let cachedClient: MongoClient | null = null;
 let cachedDb: Db | null = null;
 
 const MAX_RETRIES = 3;
-const RETRY_INTERVAL_MS = 1000;
+const RETRY_INTERVAL_MS = 3000;
 
 // try to connect to the database with multiple attempts
 const createConnection = async (): Promise<{ client: MongoClient; db: Db }> => {

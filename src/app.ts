@@ -8,7 +8,7 @@ import swaggerUi from 'swagger-ui-express';
 
 import { chatController } from './controllers/chat.controller';
 import { dictionaryController } from './controllers/dictionary.controller';
-import { connectToDatabase } from './data-access/db-connection';
+import { connectToDatabase } from './data-access';
 import { errorAuthHandler, errorHandler, notFoundHandler } from './middleware';
 import { authRouter } from './routes';
 

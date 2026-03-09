@@ -4,7 +4,7 @@ import { BadRequestError } from '../errors';
 
 import { ERROR_MESSAGES } from '../constants';
 
-export const QuizWidgetSchema = z.object({
+const QuizWidgetSchema = z.object({
   id: z.string(),
   type: z.literal('quiz'),
   tags: z.array(z.string()),
@@ -16,7 +16,7 @@ export const QuizWidgetSchema = z.object({
   }),
 });
 
-export const MatchWidgetSchema = z.object({
+const MatchWidgetSchema = z.object({
   id: z.string(),
   type: z.literal('match-game'),
   tags: z.array(z.string()),
@@ -29,8 +29,8 @@ export const MatchWidgetSchema = z.object({
   ),
 });
 
-export type QuizWidget = z.infer<typeof QuizWidgetSchema>;
-export type MatchWidget = z.infer<typeof MatchWidgetSchema>;
+type QuizWidget = z.infer<typeof QuizWidgetSchema>;
+type MatchWidget = z.infer<typeof MatchWidgetSchema>;
 
 export type Widget = QuizWidget | MatchWidget;
 
@@ -41,7 +41,7 @@ const widgetSchemas = {
   'match-game': MatchWidgetSchema,
 } as const;
 
-export type WidgetType = keyof typeof widgetSchemas;
+type WidgetType = keyof typeof widgetSchemas;
 
 const isWidgetType = (type: string): type is WidgetType => {
   return type in widgetSchemas;

@@ -51,7 +51,7 @@ export default defineConfig([
       '@typescript-eslint/no-unsafe-call': 'off', //* switched off for now
 
       // 🟡 Good practices
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'no-console': ['warn', { allow: ['info', 'error'] }],
       'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
       'max-lines-per-function': ['warn', { max: 60, skipBlankLines: true }],
       '@typescript-eslint/consistent-type-assertions': ['error', { assertionStyle: 'never' }],
@@ -73,8 +73,11 @@ export default defineConfig([
         {
           replacements: {
             args: false,
+            db: false,
             err: false,
+            err_msg: false,
             index: false,
+            msg: false,
             temp: false,
             params: false,
             props: false,
@@ -85,7 +88,8 @@ export default defineConfig([
         },
       ],
       'unicorn/prefer-node-protocol': 'error',
-      'unicorn/prefer-top-level-await': 'error',
+      'unicorn/prefer-top-level-await': 'warn',
+      'unicorn/prefer-export-from': ['error', {'ignoreUsedVariables': true}],
 
       // 🎨 Styles
       quotes: ['error', 'single', { avoidEscape: true }],
@@ -111,7 +115,7 @@ export default defineConfig([
       'unicorn/no-null': 'off',
       'unicorn/filename-case': 'off',
       'unicorn/number-literal-case': 'off',
-      'unicorn/prefer-query-selector': 'warn',
+      'unicorn/numeric-separators-style': 'off',
       '@typescript-eslint/no-misused-promises': 'off', //* switched off for now
       '@typescript-eslint/restrict-template-expressions': 'off', //* switched off for now
       '@typescript-eslint/no-inferrable-types': 'error',

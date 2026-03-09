@@ -18,7 +18,7 @@ export class AiService {
     const useMock = process.env.USE_MOCK === 'true';
 
     if (useMock) {
-      console.warn('⚠️ [AiService] Using MOCK mode');
+      console.info('⚠️ [AiService] Using MOCK mode');
       return this.getMockStream();
     }
 

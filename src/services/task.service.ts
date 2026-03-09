@@ -1,8 +1,8 @@
 import { TaskRepository } from '../data-access';
-import { InternalError, NotFoundError } from '../errors/http-errors.js';
-import { getRandomElement } from '../utils/getRandomElement.js';
+import { InternalError, NotFoundError } from '../errors';
+import { getRandomElement } from '../utils';
 
-import type { Difficulty, Task } from '../types/ai.js';
+import type { Difficulty, Task } from '../types';
 
 export class TaskService {
   private readonly taskRepository: TaskRepository;

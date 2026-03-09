@@ -1,4 +1,4 @@
-import type { Task } from '../types/ai.ts';
+import type { Task } from '../types';
 
 export const SYSTEM_PROMPTS = {
   JUDGE_PROMPT: (task: Task, rubricText: string): string =>

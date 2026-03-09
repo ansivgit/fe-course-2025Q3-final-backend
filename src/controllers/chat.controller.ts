@@ -1,10 +1,10 @@
 import type { Response } from 'express';
 
 import { aiService, historyService, promptBuilder, taskService } from '../services';
-import { validateChatRequest } from '../utils/validation.ts';
+import { validateChatRequest } from '../utils';
 
 import { CONSTANTS } from '../constants';
-import type { Difficulty, Task, TypedChatRequest } from '../types/ai.ts';
+import type { Difficulty, Task, TypedChatRequest } from '../types';
 
 const initializeNewSession = async (
   sessionId: string,

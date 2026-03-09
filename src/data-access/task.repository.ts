@@ -1,10 +1,9 @@
 import tasksData from '../data/tasks.json';
 import { DatabaseError, ValidationError } from '../errors';
-import { validateTasksData } from '../utils/validation';
+import { validateTasksData } from '../utils';
 
 import { ERROR_MESSAGES } from '../constants';
-import type { Difficulty, Task } from '../types/ai';
-import type { SchemaValidationResult } from '../types/error.types';
+import type { Difficulty, SchemaValidationResult, Task } from '../types';
 
 export class TaskRepository {
   public async getAllTasks(): Promise<Task[]> {

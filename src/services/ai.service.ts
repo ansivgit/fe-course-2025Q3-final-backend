@@ -1,6 +1,6 @@
-import { isObject } from '../utils/validation';
+import { isObject } from '../utils';
 
-import type { ChatMessage, GroqResponse } from '../types/ai';
+import type { ChatMessage, GroqResponse } from '../types';
 
 const MOCK_DELAY_MS = 50;
 const MODEL_ID = 'llama-3.3-70b-versatile';

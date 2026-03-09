@@ -213,7 +213,7 @@ components:
           properties:
             id:
               type: string
-              format: uuid
+              format: string
             login:
               type: string
               example: 'test@example.com'

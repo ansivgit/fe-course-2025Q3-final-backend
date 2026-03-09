@@ -10,3 +10,7 @@ export type ErrorRes = {
     message: string;
   };
 };
+
+export type SchemaValidationResult<T> =
+  | { success: true; data: T }
+  | { success: false; error: string };

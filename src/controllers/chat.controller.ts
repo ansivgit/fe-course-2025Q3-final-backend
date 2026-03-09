@@ -1,44 +1,49 @@
 import type { Response } from 'express';
 
-import { aiService } from '../services/ai.service';
-import { historyService } from '../services/history.service';
-import { promptBuilder } from '../services/prompt.builder';
-import { validateChatRequest } from '../utils/validation';
+import { aiService, historyService, promptBuilder, taskService } from '../services';
+import { validateChatRequest } from '../utils/validation.ts';
 
 import { CONSTANTS } from '../constants';
-import type { TypedChatRequest } from '../types/ai';
+import type { Difficulty, Task, TypedChatRequest } from '../types/ai.ts';
+
+const initializeNewSession = async (
+  sessionId: string,
+  topic: string,
+  difficulty: Difficulty,
+): Promise<void> => {
+  const task: Task = await taskService.getTask(topic, difficulty);
+  const systemPrompt: string = promptBuilder.buildJudgeSystemPrompt(task);
+
+  historyService.addMessage(sessionId, { role: 'system', content: systemPrompt });
+};
 
 export const chatController = async (request: TypedChatRequest, res: Response): Promise<void> => {
   try {
-    const { data, error } = validateChatRequest(request.body);
+    const validationResult = validateChatRequest(request.body);
 
-    if (error || !data) {
-      res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({ error: error });
-      return;
-    }
-
-    const { message, topic, difficulty, sessionId } = data;
-
-    if (!message || !topic || !difficulty || !sessionId) {
+    if (!validationResult.success) {
       res.status(CONSTANTS.HTTP_STATUS_BAD_REQUEST).json({
-        error: 'Fields "message", "topic", "difficulty", and "sessionId" are required',
+        error: validationResult.error,
       });
       return;
     }
 
+    const { message, topic, difficulty, sessionId } = validationResult.data;
+
     // Setting the titles for streaming
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-    res.setHeader('Transfer-Encoding', 'chunked');
-    res.setHeader('Cache-Control', 'no-cache');
-    res.setHeader('Connection', 'keep-alive');
+    res.set({
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Transfer-Encoding': 'chunked',
+      'Cache-Control': 'no-cache',
+      Connection: 'keep-alive',
+    });
 
     // Taking out the old story
     const history = historyService.getHistory(sessionId);
 
     // If the story is empty, this is the beginning of the dialogue. Setting the AI's "personality"
     if (history.length === 0) {
-      const systemPrompt = promptBuilder.buildInterviewPrompt(topic, difficulty);
-      historyService.addMessage(sessionId, { role: 'system', content: systemPrompt });
+      void initializeNewSession(sessionId, topic, difficulty);
     }
 
     // Adding a new message from the user to the history

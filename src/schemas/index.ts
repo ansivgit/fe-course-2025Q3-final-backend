@@ -1,1 +1,1 @@
-export { QuizWidgetSchema } from './widget';
+export { getWidgetSchema, type Widget, type WidgetValidation } from './widget';

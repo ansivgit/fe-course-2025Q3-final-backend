@@ -3,7 +3,7 @@ import { AppError } from '../errors';
 type AppErrorResponse = {
   data: null;
   error: {
-    code?: string;
+    errorCode?: string;
     message: string;
   };
 };
@@ -16,7 +16,7 @@ export const getHttpErrorResponse = (
     return {
       data: null,
       error: {
-        code: err.code,
+        errorCode: err.errorCode,
         message: err.message,
       },
     };

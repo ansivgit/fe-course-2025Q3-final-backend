@@ -7,5 +7,6 @@ export {
   InternalError,
   NotFoundError,
   UnauthorizedError,
+  UserNotFoundError,
   ValidationError,
 } from './http-errors';

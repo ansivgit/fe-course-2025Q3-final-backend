@@ -26,6 +26,12 @@ export class NotFoundError extends AppError {
   }
 }
 
+export class UserNotFoundError extends AppError {
+  constructor(message = ERROR_MESSAGES.USER_NOT_FOUND) {
+    super(message, ERROR_CODE_KEYS.USER_NOT_FOUND);
+  }
+}
+
 export class ConflictError extends AppError {
   constructor(message = ERROR_MESSAGES.CONFLICT) {
     super(message, ERROR_CODE_KEYS.CONFLICT);

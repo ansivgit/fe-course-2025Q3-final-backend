@@ -1,13 +1,12 @@
 import { ObjectId } from 'mongodb';
 
 import { UserRepository } from '../data-access';
-import { BadRequestError, ConflictError, DatabaseError, NotFoundError } from '../errors';
+import { BadRequestError, ConflictError, DatabaseError, UserNotFoundError } from '../errors';
 
 import { ERROR_MESSAGES } from '../constants';
 import type { LoginUser, MongoAnswer, NewUser, User, UserProfile } from '../types';
 
 const LOGIN_ERROR_MESSAGES = {
-  USER_NOT_FOUND: 'User not found. Please sign up',
   INVALID_PSWD: 'Invalid password',
   USER_EXISTS: 'User already exist. Please login',
 };
@@ -33,7 +32,7 @@ export class AuthService {
     const user: User | null = await this.getUser(login);
 
     if (!user) {
-      throw new NotFoundError(LOGIN_ERROR_MESSAGES.USER_NOT_FOUND);
+      throw new UserNotFoundError(ERROR_MESSAGES.USER_NOT_FOUND);
     }
 
     const isValid = password === user.password;

@@ -25,7 +25,8 @@
     "precommit": "npx lint-staged",
     "prepare": "husky",
     "predeploy": "pkgroll --env.NODE_ENV=production --minify && vercel",
-    "deploy": "pkgroll --env.NODE_ENV=production --minify && vercel --prod"
+    "deploy": "pkgroll --env.NODE_ENV=production --minify && vercel --prod",
+    "seed:users": "tsx scripts/seedUsers.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.14",

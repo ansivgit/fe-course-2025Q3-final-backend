@@ -5,6 +5,7 @@
     "module": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
+    "incremental": true,
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -26,6 +27,6 @@
     "noImplicitAny": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["src"],
+  "include": ["src", "scripts"],
   "exclude": ["node_modules", "out"]
 }

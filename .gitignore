@@ -13,7 +13,6 @@ dist/
 build/
 out/
 .vercel/
-seeds/
 
 # OS
 .DS_Store

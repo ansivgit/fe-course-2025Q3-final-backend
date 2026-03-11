@@ -1,0 +1,39 @@
+[
+  {
+    "name": "Max",
+    "login": "max@example.com",
+    "password": "password1",
+    "createdAt": 1651000000,
+    "updatedAt": 1755000000,
+    "session": [],
+    "settings": {}
+  },
+  {
+    "name": "Leo",
+    "login": "leo@example.com",
+    "password": "password2",
+    "createdAt": 1652000000,
+    "updatedAt": 1725000000,
+    "session": [],
+    "settings": {}
+  },
+  {
+    "id": "77b1af41-e2a7-4448-97ac-92e8d57c166e",
+    "name": "Mia",
+    "login": "mia@example.com",
+    "password": "password3",
+    "createdAt": 1655000000,
+    "updatedAt": 1765000000,
+    "session": [],
+    "settings": {}
+  },
+  {
+    "name": "TestUser",
+    "login": "test@example.com",
+    "password": "test1234",
+    "createdAt": 1675000000,
+    "updatedAt": 1785000000,
+    "session": [],
+    "settings": {}
+  }
+]

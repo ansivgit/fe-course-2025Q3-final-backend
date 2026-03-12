@@ -9,7 +9,7 @@ import swaggerUi from 'swagger-ui-express';
 import { chatController, dictionaryController } from './controllers';
 import { connectToDatabase } from './data-access/db-connection';
 import { errorAuthHandler, errorHandler, notFoundHandler } from './middleware';
-import { authRouter } from './routes';
+import { authRouter, dataRouter } from './routes';
 
 import { CONSTANTS, ROUTES } from './constants';
 
@@ -33,6 +33,7 @@ app.get(ROUTES.HEALTH, (_req, res: Response): void => {
 });
 
 app.use('/', authRouter);
+app.use(ROUTES.DATA, dataRouter);
 //TODO: move methods to routes
 app.get(ROUTES.DICTIONARIES, dictionaryController);
 app.post(ROUTES.CHAT, chatController);

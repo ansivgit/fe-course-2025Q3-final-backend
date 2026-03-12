@@ -1,6 +1,6 @@
-import { DataRepository } from '../data-access/data.repository';
+import { DataRepository } from '../data-access';
 import { BadRequestError } from '../errors';
-import { QuizWidgetSchema, type Widget, type WidgetValidation } from '../schemas';
+import { getWidgetSchema, type Widget, type WidgetValidation } from '../schemas';
 import { validateWidgets } from '../utils';
 
 import { ERROR_MESSAGES } from '../constants';
@@ -19,10 +19,9 @@ export class WidgetService {
       throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 
-    const validatedWidgets: WidgetValidation<Widget> = validateWidgets<Widget>(
-      data,
-      QuizWidgetSchema,
-    );
+    const schema = getWidgetSchema(widgetType);
+
+    const validatedWidgets: WidgetValidation = validateWidgets<Widget>(data, schema);
 
     return validatedWidgets;
   }

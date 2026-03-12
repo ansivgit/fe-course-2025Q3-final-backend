@@ -211,7 +211,7 @@ components:
     User:
           type: object
           properties:
-            id:
+            _id:
               type: string
               format: string
             login:

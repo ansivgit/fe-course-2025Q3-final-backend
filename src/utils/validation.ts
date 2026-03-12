@@ -69,7 +69,9 @@ export function userSeedValidation(data: unknown): Omit<User, '_id'> {
   if (result.success) {
     return result.data;
   } else {
-    throw new ValidationError(result.error.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; '));
+    throw new ValidationError(
+      result.error.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; '),
+    );
   }
 }
 
@@ -81,7 +83,9 @@ export function requestValidation(schema: ZodType): RequestHandler {
       next();
     } catch (error) {
       if (error instanceof z.ZodError) {
-        throw new ValidationError(error.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; '));
+        throw new ValidationError(
+          error.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; '),
+        );
       } else {
         next(error);
       }

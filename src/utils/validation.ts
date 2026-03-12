@@ -1,3 +1,4 @@
+import type { NextFunction, Request, Response } from 'express';
 import { type ZodType, z } from 'zod';
 
 import { DatabaseError, ValidationError } from '../errors';
@@ -8,7 +9,7 @@ import {
   TasksArraySchema,
 } from '../schemas/chatRequest';
 
-import type { NewUser, SchemaValidationResult, User } from '../types';
+import type { SchemaValidationResult, User } from '../types';
 import type { Task } from '../types/ai';
 
 // An auxiliary function that verifies that the value is an object
@@ -61,7 +62,8 @@ export function validateWidgets<T>(data: unknown, schema: ZodType<T>): WidgetVal
   return result.data;
 }
 
-export function userDataValidation(data: unknown): Omit<User, '_id'> {
+// Validation of data for seeding users
+export function userSeedValidation(data: unknown): Omit<User, '_id'> {
   const result = UserSchema.safeParse(data);
 
   if (result.success) {
@@ -71,12 +73,12 @@ export function userDataValidation(data: unknown): Omit<User, '_id'> {
   }
 }
 
-export function userRegisterValidation(data: unknown): NewUser {
-  const result = NewUserSchema.safeParse(data);
-
-  if (result.success) {
-    return result.data;
-  } else {
-    throw new ValidationError(result.error.issues.map((issue) => issue.message).join('; '));
+// Validation of data for registering new user
+export function userRegisterValidation(req: Request, _: Response, next: NextFunction): void {
+  try {
+    NewUserSchema.parse(req.body);
+    next();
+  } catch (error) {
+    next(error);
   }
 }

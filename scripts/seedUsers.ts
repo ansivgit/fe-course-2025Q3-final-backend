@@ -1,7 +1,7 @@
 import 'dotenv/config';
 
 import { closeDbConnection, getDb, UserRepository } from '../src/data-access';
-import { userDataValidation } from '../src/utils';
+import { userSeedValidation } from '../src/utils';
 
 import type { MongoAnswer, User } from '../src/types';
 
@@ -18,7 +18,7 @@ const seed = async (): Promise<void> => {
   } else {
     for (const item of seedingData) {
       try {
-        userDataValidation(item);
+        userSeedValidation(item);
         console.info(`✅ Validation passed for entity ${item.login}`);
       } catch (error) {
         console.error(`❌ Error creating entity ${item.login}:`, error);

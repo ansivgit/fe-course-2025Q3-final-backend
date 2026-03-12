@@ -1,2 +1,2 @@
 export { getHttpErrorResponse } from './helpers';
-export { userDataValidation, userRegisterValidation } from './validation';
+export { userRegisterValidation, userSeedValidation } from './validation';

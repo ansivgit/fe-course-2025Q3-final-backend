@@ -6,7 +6,7 @@ import { userDataValidation } from '../src/utils';
 import type { MongoAnswer, User } from '../src/types';
 
 const seed = async (): Promise<void> => {
-  const imported: { default: Omit<User, '_id'>[] } = await import('../data/users.json');
+  const imported: { default: Omit<User, '_id'>[] } = await import('./data/users.json');
   if (imported.default.length === 0) {
     throw new Error('Seeding data is not defined');
   }

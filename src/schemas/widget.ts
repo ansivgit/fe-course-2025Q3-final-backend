@@ -1,6 +1,10 @@
 import { z } from 'zod';
 
-export const QuizWidgetSchema = z.object({
+import { BadRequestError } from '../errors';
+
+import { ERROR_MESSAGES } from '../constants';
+
+const QuizWidgetSchema = z.object({
   id: z.string(),
   type: z.literal('quiz'),
   tags: z.array(z.string()),
@@ -12,8 +16,41 @@ export const QuizWidgetSchema = z.object({
   }),
 });
 
-export type QuizWidget = z.infer<typeof QuizWidgetSchema>;
+const MatchWidgetSchema = z.object({
+  id: z.string(),
+  type: z.literal('match-game'),
+  tags: z.array(z.string()),
+  payload: z.array(
+    z.object({
+      id: z.number(),
+      value: z.string(),
+      content: z.string(),
+    }),
+  ),
+});
 
-export type Widget = QuizWidget;
+type QuizWidget = z.infer<typeof QuizWidgetSchema>;
+type MatchWidget = z.infer<typeof MatchWidgetSchema>;
 
-export type WidgetValidation<T> = T[];
+export type Widget = QuizWidget | MatchWidget;
+
+export type WidgetValidation<T extends Widget = Widget> = T[];
+
+const widgetSchemas = {
+  quiz: QuizWidgetSchema,
+  'match-game': MatchWidgetSchema,
+} as const;
+
+type WidgetType = keyof typeof widgetSchemas;
+
+const isWidgetType = (type: string): type is WidgetType => {
+  return type in widgetSchemas;
+};
+
+export const getWidgetSchema = (type: string): z.ZodType<Widget> => {
+  if (!isWidgetType(type)) {
+    throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
+  }
+
+  return widgetSchemas[type];
+};

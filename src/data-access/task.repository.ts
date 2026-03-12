@@ -1,4 +1,4 @@
-import tasksData from '../data/tasks.json';
+import tasksData from '../../data/tasks.json';
 import { DatabaseError, ValidationError } from '../errors';
 import { validateTasksData } from '../utils';
 

@@ -1,4 +1,4 @@
-import { SYSTEM_PROMPTS } from '../prompts/system.prompts';
+import { SYSTEM_PROMPTS } from '../prompts';
 
 import type { Task } from '../types';
 

@@ -1,8 +1,8 @@
-import type { NextFunction, Request, Response } from 'express';
+import type { NextFunction, Request, RequestHandler, Response } from 'express';
 import { type ZodType, z } from 'zod';
 
 import { DatabaseError, ValidationError } from '../errors';
-import { NewUserSchema, UserSchema, type WidgetValidation } from '../schemas';
+import { UserSchema, type WidgetValidation } from '../schemas';
 import {
   type ChatRequestParams,
   ChatRequestSchema,
@@ -73,12 +73,14 @@ export function userSeedValidation(data: unknown): Omit<User, '_id'> {
   }
 }
 
-// Validation of data for registering new user
-export function userRegisterValidation(req: Request, _: Response, next: NextFunction): void {
-  try {
-    NewUserSchema.parse(req.body);
-    next();
-  } catch (error) {
-    next(error);
-  }
+// Validation of request body in request handler
+export function requestValidation(schema: ZodType): RequestHandler {
+  return (req: Request, _: Response, next: NextFunction): void => {
+    try {
+      schema.parse(req.body);
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
 }

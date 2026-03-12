@@ -97,7 +97,7 @@ export const connectToDatabase = async (): Promise<Db> => {
 export const getDb = connectToDatabase;
 
 // soft close connection
-export const closeDbConnection = async(): Promise<void> => {
+export const closeDbConnection = async (): Promise<void> => {
   if (cachedClient) {
     await cachedClient.close();
     cachedClient = null;

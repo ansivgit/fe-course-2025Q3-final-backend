@@ -1,6 +1,7 @@
 import 'dotenv/config';
 
 import { closeDbConnection, getDb, UserRepository } from '../src/data-access';
+import { userDataValidation } from '../src/utils';
 
 import type { MongoAnswer, User } from '../src/types';
 
@@ -11,6 +12,20 @@ const seed = async (): Promise<void> => {
   }
 
   const seedingData = imported.default;
+
+  if (seedingData.length === 0) {
+    throw new Error('Seeding data is empty');
+  } else {
+    for (const item of seedingData) {
+      try {
+        userDataValidation(item);
+        console.info(`✅ Validation passed for entity ${item.login}`);
+      } catch (error) {
+        console.error(`❌ Error creating entity ${item.login}:`, error);
+        throw new Error('Validation failed');
+      }
+    }
+  }
 
   console.info('🌱 DB seeding started...');
 

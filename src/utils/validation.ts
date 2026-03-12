@@ -1,15 +1,15 @@
 import { type ZodType, z } from 'zod';
 
-import { DatabaseError } from '../errors';
+import { DatabaseError, ValidationError } from '../errors';
+import { NewUserSchema, UserSchema, type WidgetValidation } from '../schemas';
 import {
   type ChatRequestParams,
   ChatRequestSchema,
   TasksArraySchema,
 } from '../schemas/chatRequest';
-import type { WidgetValidation } from '../schemas/widget';
 
+import type { NewUser, SchemaValidationResult, User } from '../types';
 import type { Task } from '../types/ai';
-import type { SchemaValidationResult } from '../types/error.types';
 
 // An auxiliary function that verifies that the value is an object
 export function isObject(value: unknown): value is Record<string, unknown> {
@@ -59,4 +59,24 @@ export function validateWidgets<T>(data: unknown, schema: ZodType<T>): WidgetVal
   }
 
   return result.data;
+}
+
+export function userDataValidation(data: unknown): Omit<User, '_id'> {
+  const result = UserSchema.safeParse(data);
+
+  if (result.success) {
+    return result.data;
+  } else {
+    throw new ValidationError(result.error.issues.map((issue) => issue.message).join('; '));
+  }
+}
+
+export function userRegisterValidation(data: unknown): NewUser {
+  const result = NewUserSchema.safeParse(data);
+
+  if (result.success) {
+    return result.data;
+  } else {
+    throw new ValidationError(result.error.issues.map((issue) => issue.message).join('; '));
+  }
 }

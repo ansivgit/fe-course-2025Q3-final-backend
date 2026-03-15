@@ -9,6 +9,7 @@ export const ERROR_CODE_KEYS = {
   INTERNAL_ERROR: 'INTERNAL_ERROR',
   VALIDATION_ERROR: 'VALIDATION_ERROR',
   DATABASE_ERROR: 'DATABASE_ERROR',
+  USER_NOT_FOUND: 'USER_NOT_FOUND',
 } as const;
 
 export const STATUS_BY_ERROR_CODE: Record<ErrorCode, ErrorStatusCode> = {
@@ -20,6 +21,7 @@ export const STATUS_BY_ERROR_CODE: Record<ErrorCode, ErrorStatusCode> = {
   [ERROR_CODE_KEYS.INTERNAL_ERROR]: 500,
   [ERROR_CODE_KEYS.VALIDATION_ERROR]: 400,
   [ERROR_CODE_KEYS.DATABASE_ERROR]: 500,
+  [ERROR_CODE_KEYS.USER_NOT_FOUND]: 404,
 };
 
 export const ERROR_MESSAGES: Record<ErrorCode, string> = {
@@ -31,4 +33,5 @@ export const ERROR_MESSAGES: Record<ErrorCode, string> = {
   [ERROR_CODE_KEYS.INTERNAL_ERROR]: 'Internal server error',
   [ERROR_CODE_KEYS.VALIDATION_ERROR]: 'Validation failed',
   [ERROR_CODE_KEYS.DATABASE_ERROR]: 'Database error',
+  [ERROR_CODE_KEYS.USER_NOT_FOUND]: 'User not found. Please sign up',
 };

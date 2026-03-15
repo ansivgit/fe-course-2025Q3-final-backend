@@ -1,32 +1,46 @@
-import users from '../../data/users.json';
+import type { Collection } from 'mongodb';
+
 import { DatabaseError } from '../errors';
+import { getDb } from './db-connection';
 
 import { ERROR_MESSAGES } from '../constants';
-import type { User, UserProfile } from '../types';
+import type { MongoAnswer, User } from '../types';
+
+const COLLECTION = 'users';
 
 export class UserRepository {
-  public async getUsersList(): Promise<User[]> {
+  private async getDbCollection(): Promise<Collection<User>> {
     try {
-      const usersList: User[] = await users;
-      return usersList;
+      const db = await getDb();
+
+      return db.collection(COLLECTION);
     } catch {
       throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
   }
 
-  public async getUser(login: User['login']): Promise<User | undefined> {
-    const usersList: User[] = await this.getUsersList();
-    return usersList.find((user) => user.login === login);
+  public async getUsersList(): Promise<User[]> {
+    const collection = await this.getDbCollection();
+    const usersList: User[] = await collection.find().toArray();
+
+    return usersList;
   }
 
-  public async create(user: User): Promise<UserProfile | undefined> {
-    const usersList: User[] = await this.getUsersList();
+  public async getUser(login: User['login']): Promise<User | null> {
+    const collection = await this.getDbCollection();
+    const user: User | null = await collection.findOne({ login });
 
+    return user;
+  }
+
+  public async create(user: Omit<User, '_id'>): Promise<MongoAnswer> {
     try {
-      usersList.push(user);
-      return user;
+      const db = await getDb();
+      const result: MongoAnswer = await db.collection(COLLECTION).insertOne(user);
+
+      return result;
     } catch {
-      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
+      throw new DatabaseError('User creation failed');
     }
   }
 }

@@ -23,7 +23,7 @@ let cachedClient: MongoClient | null = null;
 let cachedDb: Db | null = null;
 
 const MAX_RETRIES = 3;
-const RETRY_INTERVAL_MS = 1000;
+const RETRY_INTERVAL_MS = 3000;
 
 // try to connect to the database with multiple attempts
 const createConnection = async (): Promise<{ client: MongoClient; db: Db }> => {
@@ -96,4 +96,11 @@ export const connectToDatabase = async (): Promise<Db> => {
 /* From an architectural perspective, we need two functions: one for a new connection and one for retrieving an existing connection. For consistency, we can use a single function (to avoid code duplication) */
 export const getDb = connectToDatabase;
 
-// console.log(555, db);
+// soft close connection
+export const closeDbConnection = async (): Promise<void> => {
+  if (cachedClient) {
+    await cachedClient.close();
+    cachedClient = null;
+    cachedDb = null;
+  }
+};

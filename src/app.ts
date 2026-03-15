@@ -7,7 +7,7 @@ import express, { type Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
 import { chatController, dictionaryController } from './controllers';
-import { connectToDatabase } from './data-access/db-connection';
+import { connectToDatabase } from './data-access';
 import { errorAuthHandler, errorHandler, notFoundHandler } from './middleware';
 import { authRouter, dataRouter } from './routes';
 

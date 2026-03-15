@@ -1,14 +1,16 @@
+import type { NextFunction, Request, RequestHandler, Response } from 'express';
 import { type ZodType, z } from 'zod';
 
-import { DatabaseError } from '../errors';
+import { DatabaseError, ValidationError } from '../errors';
 import {
   type ChatRequestParams,
   ChatRequestSchema,
   TasksArraySchema,
+  UserSchema,
   type WidgetValidation,
 } from '../schemas';
 
-import type { SchemaValidationResult, Task } from '../types';
+import type { SchemaValidationResult, Task, User } from '../types';
 
 // An auxiliary function that verifies that the value is an object
 export function isObject(value: unknown): value is Record<string, unknown> {
@@ -58,4 +60,35 @@ export function validateWidgets<T>(data: unknown, schema: ZodType<T>): WidgetVal
   }
 
   return result.data;
+}
+
+// Validation of data for seeding users
+export function userSeedValidation(data: unknown): Omit<User, '_id'> {
+  const result = UserSchema.safeParse(data);
+
+  if (result.success) {
+    return result.data;
+  } else {
+    throw new ValidationError(
+      result.error.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; '),
+    );
+  }
+}
+
+// Validation of request body in request handler
+export function requestValidation(schema: ZodType): RequestHandler {
+  return (req: Request, _: Response, next: NextFunction): void => {
+    try {
+      schema.parse(req.body);
+      next();
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        throw new ValidationError(
+          error.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; '),
+        );
+      } else {
+        next(error);
+      }
+    }
+  };
 }

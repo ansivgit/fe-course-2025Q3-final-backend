@@ -1,3 +1,3 @@
-export type { ChatRequestParams } from './chatRequest';
-export { ChatRequestSchema, TasksArraySchema } from './chatRequest';
+export { type ChatRequestParams, ChatRequestSchema, TasksArraySchema } from './chatRequest';
+export { NewUserSchema, UserSchema } from './user';
 export { getWidgetSchema, type Widget, type WidgetValidation } from './widget';

@@ -1,13 +1,12 @@
-import { v4 } from 'uuid';
+import { ObjectId } from 'mongodb';
 
 import { UserRepository } from '../data-access';
-import { BadRequestError, ConflictError, DatabaseError, NotFoundError } from '../errors';
+import { BadRequestError, ConflictError, DatabaseError, UserNotFoundError } from '../errors';
 
 import { ERROR_MESSAGES } from '../constants';
-import type { LoginUser, NewUser, User, UserProfile } from '../types';
+import type { LoginUser, MongoAnswer, NewUser, User, UserProfile } from '../types';
 
 const LOGIN_ERROR_MESSAGES = {
-  USER_NOT_FOUND: 'User not found. Please sign up',
   INVALID_PSWD: 'Invalid password',
   USER_EXISTS: 'User already exist. Please login',
 };
@@ -19,7 +18,7 @@ export class AuthService {
     this.userRepository = new UserRepository();
   }
 
-  private async getUser(login: string): Promise<User | undefined> {
+  private async getUser(login: string): Promise<User | null> {
     try {
       return await this.userRepository.getUser(login);
     } catch {
@@ -30,10 +29,10 @@ export class AuthService {
   public async login(userData: LoginUser): Promise<UserProfile> {
     const { login, password } = userData;
 
-    const user: User | undefined = await this.getUser(login);
+    const user: User | null = await this.getUser(login);
 
     if (!user) {
-      throw new NotFoundError(LOGIN_ERROR_MESSAGES.USER_NOT_FOUND);
+      throw new UserNotFoundError(ERROR_MESSAGES.USER_NOT_FOUND);
     }
 
     const isValid = password === user.password;
@@ -49,7 +48,7 @@ export class AuthService {
   public async signup(userData: NewUser): Promise<UserProfile> {
     const { login, password, name } = userData;
 
-    const user: User | undefined = await this.getUser(login);
+    const user: User | null = await this.getUser(login);
 
     if (user) {
       throw new ConflictError(LOGIN_ERROR_MESSAGES.USER_EXISTS);
@@ -59,9 +58,8 @@ export class AuthService {
       throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 
-    const userInfo: User = {
+    const userInfo: Omit<User, '_id'> = {
       ...userData,
-      id: v4(),
       createdAt: Date.now(),
       updatedAt: Date.now(),
       session: [],
@@ -69,12 +67,12 @@ export class AuthService {
     };
 
     try {
-      await this.userRepository.create(userInfo);
+      const result: MongoAnswer = await this.userRepository.create(userInfo);
+      const { password: _, ...rest } = userInfo;
+
+      return { ...rest, _id: new ObjectId(result.insertedId) };
     } catch {
       throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
-
-    const { password: _, ...rest } = userInfo;
-    return rest;
   }
 }

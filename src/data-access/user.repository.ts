@@ -1,4 +1,4 @@
-import type { Collection } from 'mongodb';
+import type { Collection, ObjectId } from 'mongodb';
 
 import { DatabaseError } from '../errors';
 import { getDb } from './db-connection';
@@ -41,6 +41,36 @@ export class UserRepository {
       return result;
     } catch {
       throw new DatabaseError('User creation failed');
+    }
+  }
+
+  public async update(
+    userId: ObjectId,
+    userData: Partial<Omit<User, '_id'>>,
+  ): Promise<User | null> {
+    try {
+      const collection = await this.getDbCollection();
+
+      const result: User | null = await collection.findOneAndUpdate(
+        { _id: userId },
+        { $set: userData },
+        { returnDocument: 'after' },
+      );
+
+      return result;
+    } catch {
+      throw new DatabaseError('User update failed');
+    }
+  }
+
+  public async remove(userId: ObjectId): Promise<boolean> {
+    try {
+      const collection = await this.getDbCollection();
+      const result = await collection.deleteOne({ _id: userId }); // method returns number of deleted documents
+
+      return result.deletedCount === 1;
+    } catch {
+      throw new DatabaseError('User delete failed');
     }
   }
 }

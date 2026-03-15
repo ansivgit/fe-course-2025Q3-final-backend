@@ -3,6 +3,7 @@ export { getHttpErrorResponse } from './helpers';
 export {
   isObject,
   requestValidation,
+  userNameValidation,
   userSeedValidation,
   validateChatRequest,
   validateTasksData,

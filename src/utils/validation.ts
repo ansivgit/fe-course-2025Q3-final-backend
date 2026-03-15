@@ -75,6 +75,19 @@ export function userSeedValidation(data: unknown): Omit<User, '_id'> {
   }
 }
 
+// Validation of users' name when User update
+export function userNameValidation(data: unknown): Pick<User, 'name'> {
+  const result = UserSchema.pick({ name: true }).safeParse(data);
+
+  if (result.success) {
+    return result.data;
+  } else {
+    throw new ValidationError(
+      result.error.issues.map((issue) => `${issue.path}: ${issue.message}`).join('; '),
+    );
+  }
+}
+
 // Validation of request body in request handler
 export function requestValidation(schema: ZodType): RequestHandler {
   return (req: Request, _: Response, next: NextFunction): void => {

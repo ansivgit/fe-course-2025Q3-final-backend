@@ -1,2 +1,10 @@
+export { getRandomElement } from './getRandomElement';
 export { getHttpErrorResponse } from './helpers';
-export { requestValidation, userSeedValidation } from './validation';
+export {
+  isObject,
+  requestValidation,
+  userSeedValidation,
+  validateChatRequest,
+  validateTasksData,
+  validateWidgets,
+} from './validation';

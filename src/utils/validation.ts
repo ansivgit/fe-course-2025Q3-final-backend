@@ -2,15 +2,15 @@ import type { NextFunction, Request, RequestHandler, Response } from 'express';
 import { type ZodType, z } from 'zod';
 
 import { DatabaseError, ValidationError } from '../errors';
-import { UserSchema, type WidgetValidation } from '../schemas';
 import {
   type ChatRequestParams,
   ChatRequestSchema,
   TasksArraySchema,
-} from '../schemas/chatRequest';
+  UserSchema,
+  type WidgetValidation,
+} from '../schemas';
 
-import type { SchemaValidationResult, User } from '../types';
-import type { Task } from '../types/ai';
+import type { SchemaValidationResult, Task, User } from '../types';
 
 // An auxiliary function that verifies that the value is an object
 export function isObject(value: unknown): value is Record<string, unknown> {

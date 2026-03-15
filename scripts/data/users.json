@@ -3,8 +3,8 @@
     "name": "Max",
     "login": "max@example.com",
     "password": "password1",
-    "createdAt": 1651000000,
-    "updatedAt": 1755000000,
+    "createdAt": 1760551000000,
+    "updatedAt": 1773420956089,
     "session": [],
     "settings": {}
   },
@@ -12,8 +12,8 @@
     "name": "Leo",
     "login": "leo@example.com",
     "password": "password2",
-    "createdAt": 1652000000,
-    "updatedAt": 1725000000,
+    "createdAt": 1700052000000,
+    "updatedAt": 1700052000000,
     "session": [],
     "settings": {}
   },
@@ -22,8 +22,8 @@
     "name": "Mia",
     "login": "mia@example.com",
     "password": "password3",
-    "createdAt": 1655000000,
-    "updatedAt": 1765000000,
+    "createdAt": 1755000000000,
+    "updatedAt": 1765000000000,
     "session": [],
     "settings": {}
   },
@@ -31,8 +31,8 @@
     "name": "TestUser",
     "login": "test@example.com",
     "password": "test1234",
-    "createdAt": 1675000000,
-    "updatedAt": 1785000000,
+    "createdAt": 1765000000000,
+    "updatedAt": 1768000000000,
     "session": [],
     "settings": {}
   }

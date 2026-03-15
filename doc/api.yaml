@@ -72,7 +72,7 @@ paths:
   /auth/login:
     post:
       tags:
-        - Login
+        - Auth
       security: []
       summary: Login
       description: Logins a user and returns a User object
@@ -111,7 +111,7 @@ paths:
   /auth/signup:
     post:
       tags:
-        - Signup
+        - Auth
       security: [ ]
       summary: Signup
       description: Signup a user
@@ -156,6 +156,75 @@ paths:
           description: Bad request. Login, password required and should be a string
         409:
           description: Conflict. Login already exists
+
+  /user:
+    put:
+      tags:
+        - User
+      security: [ ]
+      summary: Update a user's name
+      description: Updates a user's name by ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                id:
+                  type: string
+                  length: 24
+                  example: '69b444a0192673f1930fb6a1'
+                  description: UserId
+                name:
+                  type: string
+                  minLength: 3
+                  maxLength: 255
+                  example: 'NewUserName'
+                  description: New user name
+              required:
+                - id
+                - name
+      responses:
+        200:
+          description: The user has been updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Bad request. UserId is invalid (not an ObjectId)
+        404:
+          description: User not found
+    delete:
+      tags:
+        - User
+      summary: Delete user
+      description: Deletes user by ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                id:
+                  type: string
+                  length: 24
+                  example: '69b346d295eb8482c95370e2'
+                  description: UserId
+              required:
+                - id
+      responses:
+        204:
+          description: The user has been deleted
+        400:
+          description: Bad request. UserId is invalid (not an ObjectId)
+        404:
+          description: User not found
+
   /data/{type}:
     get:
       summary: Get all widgets of a specific type

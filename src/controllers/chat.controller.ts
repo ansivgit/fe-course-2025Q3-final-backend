@@ -1,10 +1,10 @@
 import type { Response } from 'express';
 
 import { aiService, historyService, promptBuilder, taskService } from '../services';
-import { validateChatRequest } from '../utils/validation.ts';
+import { validateChatRequest } from '../utils';
 
 import { CONSTANTS } from '../constants';
-import type { Difficulty, Task, TypedChatRequest } from '../types/ai.ts';
+import type { Difficulty, Task, TypedChatRequest } from '../types';
 
 const initializeNewSession = async (
   sessionId: string,
@@ -43,7 +43,7 @@ export const chatController = async (request: TypedChatRequest, res: Response): 
 
     // If the story is empty, this is the beginning of the dialogue. Setting the AI's "personality"
     if (history.length === 0) {
-      void initializeNewSession(sessionId, topic, difficulty);
+      await initializeNewSession(sessionId, topic, difficulty);
     }
 
     // Adding a new message from the user to the history

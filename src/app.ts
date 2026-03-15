@@ -6,8 +6,7 @@ import cors from 'cors';
 import express, { type Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
-import { chatController } from './controllers/chat.controller';
-import { dictionaryController } from './controllers/dictionary.controller';
+import { chatController, dictionaryController } from './controllers';
 import { connectToDatabase } from './data-access/db-connection';
 import { errorAuthHandler, errorHandler, notFoundHandler } from './middleware';
 import { authRouter, dataRouter } from './routes';

@@ -5,11 +5,10 @@ import {
   type ChatRequestParams,
   ChatRequestSchema,
   TasksArraySchema,
-} from '../schemas/chatRequest';
-import type { WidgetValidation } from '../schemas/widget';
+  type WidgetValidation,
+} from '../schemas';
 
-import type { Task } from '../types/ai';
-import type { SchemaValidationResult } from '../types/error.types';
+import type { SchemaValidationResult, Task } from '../types';
 
 // An auxiliary function that verifies that the value is an object
 export function isObject(value: unknown): value is Record<string, unknown> {

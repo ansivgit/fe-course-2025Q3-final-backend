@@ -1,6 +1,6 @@
-import { SYSTEM_PROMPTS } from '../prompts/system.prompts';
+import { SYSTEM_PROMPTS } from '../prompts';
 
-import type { Task } from '../types/ai';
+import type { Task } from '../types';
 
 export class PromptBuilderService {
   // A system prompt for an AI agent based on theme and complexity

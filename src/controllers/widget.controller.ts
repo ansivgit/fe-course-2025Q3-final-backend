@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from 'express';
 
 import { BadRequestError } from '../errors';
-import type { Widget } from '../schemas/widget';
+import type { Widget } from '../schemas';
 import { WidgetService } from '../services';
 
 import { CONSTANTS, ERROR_MESSAGES } from '../constants';

@@ -1,7 +1,7 @@
 import { DataRepository } from '../data-access';
 import { BadRequestError } from '../errors';
 import { getWidgetSchema, type Widget, type WidgetValidation } from '../schemas';
-import { validateWidgets } from '../utils/validation';
+import { validateWidgets } from '../utils';
 
 import { ERROR_MESSAGES } from '../constants';
 

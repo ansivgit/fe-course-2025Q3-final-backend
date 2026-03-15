@@ -1,4 +1,4 @@
-import type { ChatMessage } from '../types/ai';
+import type { ChatMessage } from '../types';
 
 const sessionStore = new Map<string, ChatMessage[]>();
 

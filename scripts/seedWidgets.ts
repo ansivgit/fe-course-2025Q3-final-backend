@@ -2,8 +2,6 @@ import 'dotenv/config';
 
 import { closeDbConnection, DataRepository, getDb } from '../src/data-access';
 
-// import { userSeedValidation } from '../src/utils';
-
 import type { Widget } from '../src/schemas';
 import { getWidgetSchema } from '../src/schemas';
 import { validateWidgets } from '../src/utils';

@@ -7,6 +7,7 @@ import {
   ChatRequestSchema,
   TasksArraySchema,
   UserSchema,
+  type Widget,
   type WidgetValidation,
 } from '../schemas';
 
@@ -50,7 +51,10 @@ export const validateTasksData = (data: unknown): SchemaValidationResult<Task[]>
 };
 
 // Validation of widget data
-export function validateWidgets<T>(data: unknown, schema: ZodType<T>): WidgetValidation<T> {
+export function validateWidgets<T extends Widget>(
+  data: unknown,
+  schema: ZodType<T>,
+): WidgetValidation<T> {
   const result: z.ZodSafeParseResult<T[]> = z.array(schema).safeParse(data);
 
   if (!result.success) {

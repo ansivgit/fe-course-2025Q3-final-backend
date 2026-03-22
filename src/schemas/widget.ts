@@ -29,8 +29,8 @@ const MatchWidgetSchema = z.object({
   ),
 });
 
-export type QuizWidget = z.infer<typeof QuizWidgetSchema>;
-export type MatchWidget = z.infer<typeof MatchWidgetSchema>;
+type QuizWidget = z.infer<typeof QuizWidgetSchema>;
+type MatchWidget = z.infer<typeof MatchWidgetSchema>;
 
 export type Widget = QuizWidget | MatchWidget;
 

@@ -2,8 +2,6 @@ export { type ChatRequestParams, ChatRequestSchema, TasksArraySchema } from './c
 export { NewUserSchema, UserSchema } from './user';
 export {
   getWidgetSchema,
-  type MatchWidget,
-  type QuizWidget,
   type Widget,
   type WidgetValidation,
 } from './widget';

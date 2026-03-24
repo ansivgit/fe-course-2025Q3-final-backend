@@ -2,7 +2,7 @@
   {
     "id": "match-game-01",
     "type": "match-game",
-    "tags": ["variables", "objects"],
+    "tags": ["javaScript"],
     "payload": [
       { "id": 1, "value": "var", "content": "var" },
       { "id": 2, "value": "var", "content": "declare variable" },
@@ -61,7 +61,7 @@
   {
     "id": "match-game-02",
     "type": "match-game",
-    "tags": ["operators", "syntax"],
+    "tags": ["javaScript"],
     "payload": [
       {
         "id": 13,
@@ -128,7 +128,7 @@
   {
     "id": "match-game-03",
     "type": "match-game",
-    "tags": ["async", "timers", "JSON", "storage", "arrays", "strings"],
+    "tags": ["javaScript"],
     "payload": [
       {
         "id": 25,

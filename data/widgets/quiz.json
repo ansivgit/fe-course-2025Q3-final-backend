@@ -2,7 +2,7 @@
   {
     "id": "quiz-01",
     "type": "quiz",
-    "tags": ["js", "falsy"],
+    "tags": ["javaScript"],
     "payload": {
       "question": "Which values are falsy in JavaScript?",
       "options": [
@@ -19,7 +19,7 @@
   {
     "id": "quiz-02",
     "type": "quiz",
-    "tags": ["js", "arrays"],
+    "tags": ["javaScript"],
     "payload": {
       "question": "Which Array methods return a new array without modifying the original?",
       "options": [
@@ -36,7 +36,7 @@
   {
     "id": "quiz-03",
     "type": "quiz",
-    "tags": ["js", "async"],
+    "tags": ["javaScript"],
     "payload": {
       "question": "Which tasks are handled in the microtask queue?",
       "options": [

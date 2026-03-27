@@ -387,8 +387,6 @@ components:
         updatedAt:
           type: number
           example: 1655000000
-        session: []
-        settings: {}
       required:
         - id
         - login

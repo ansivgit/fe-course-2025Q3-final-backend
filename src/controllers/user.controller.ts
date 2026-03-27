@@ -15,13 +15,13 @@ export class UserController {
 
   public async getUser(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-      const userData: Record<string, unknown> = req.body;
+      const { userId } = req.params;
 
-      if (typeof userData.id !== 'string') {
+      if (typeof userId !== 'string') {
         throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
       }
 
-      const user: UserProfile = await this.userService.getUserById(userData.id);
+      const user: UserProfile = await this.userService.getUserById(userId);
 
       res.status(CONSTANTS.HTTP_STATUS_OK).send({
         data: user,

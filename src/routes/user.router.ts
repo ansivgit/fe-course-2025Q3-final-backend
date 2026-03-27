@@ -6,7 +6,7 @@ const userRouter = Router();
 
 const userController = new UserController();
 
-userRouter.get('/', userController.getUser.bind(userController));
+userRouter.get('/:userId', userController.getUser.bind(userController));
 
 userRouter.put('/', userController.update.bind(userController));
 

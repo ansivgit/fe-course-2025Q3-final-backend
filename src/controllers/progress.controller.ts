@@ -15,13 +15,13 @@ export class ProgressController {
 
   public async getProgress(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-      const userData: Record<string, unknown> = req.body;
+      const { userId } = req.params;
 
-      if (typeof userData.id !== 'string') {
+      if (typeof userId !== 'string') {
         throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
       }
 
-      const entity: ProgressData = await this.progressService.getProgress(userData.id);
+      const entity: ProgressData = await this.progressService.getProgress(userId);
 
       res.status(CONSTANTS.HTTP_STATUS_OK).send({
         data: entity,
@@ -34,15 +34,14 @@ export class ProgressController {
 
   public async update(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
-      const userData: Record<string, unknown> = req.body;
+      const { userId } = req.params;
+      const progressData: Record<string, unknown> = req.body;
 
-      if (typeof userData.id !== 'string') {
+      if (typeof userId !== 'string') {
         throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
       }
 
-      const { id, ...rest } = userData;
-
-      const entity: ProgressData = await this.progressService.updateProgress(id, rest);
+      const entity: ProgressData = await this.progressService.updateProgress(userId, progressData);
 
       res.status(CONSTANTS.HTTP_STATUS_OK).send({
         data: entity,

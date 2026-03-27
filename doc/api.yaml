@@ -157,6 +157,33 @@ paths:
         409:
           description: Conflict. Login already exists
 
+  /user/{userId}:
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        description: User ID as string
+        schema:
+          type: string
+          example: '69c681924fb2c9bd302e938b'
+    get:
+      tags:
+        - User
+      security: [ ]
+      summary: Get User profile
+      description: Get User's profile by ID
+      responses:
+        200:
+          description: The user profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Bad request. UserId is invalid (not a valid string)
+        404:
+          description: User not found
+
   /user:
     put:
       tags:
@@ -194,7 +221,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/User'
         400:
-          description: Bad request. UserId is invalid (not an ObjectId)
+          description: Bad request. UserId is invalid (not a valid string)
         404:
           description: User not found
     delete:
@@ -221,7 +248,71 @@ paths:
         204:
           description: The user has been deleted
         400:
-          description: Bad request. UserId is invalid (not an ObjectId)
+          description: Bad request. UserId is invalid (not a valid string)
+        404:
+          description: User not found
+
+  /progress/{userId}:
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        description: User ID as string
+        schema:
+          type: string
+          example: '69c681924fb2c9bd302e938b'
+    get:
+      tags:
+        - Progress
+      security: [ ]
+      summary: Get User progress
+      description: Get User's progress by userID
+      responses:
+        200:
+          description: The user progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Progress'
+        400:
+          description: Bad request. UserId is invalid (not a valid string)
+        404:
+          description: User not found
+    put:
+      tags:
+        - Progress
+      security: [ ]
+      summary: Update a user's progress
+      description: Updates a user's progress by userID
+      requestBody:
+        required: true
+        description: New progress data - example
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                userAchievements:
+                  type: array
+                  example: 'a5'
+                progress:
+                  type: object
+                  example: {
+                    javascript: 100,
+                    typescript: 1000,
+                    react: 10,
+                    nodejs: 0
+                  }
+      responses:
+        200:
+          description: The progress has been updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Progress'
+        400:
+          description: Bad request. UserId is invalid (not a valid string)
         404:
           description: User not found
 
@@ -277,29 +368,81 @@ components:
           type: string
         name:
           type: string
+
     User:
+      type: object
+      properties:
+        _id:
+          type: string
+          format: string
+        login:
+          type: string
+          example: 'test@example.com'
+        name:
+          type: string
+          example: 'TestUser'
+        createdAt:
+          type: number
+          example: 1655000000
+        updatedAt:
+          type: number
+          example: 1655000000
+        session: []
+        settings: {}
+      required:
+        - id
+        - login
+
+    Progress:
+      type: object
+      properties:
+        _id:
+          type: string
+          format: string
+        userId:
+          type: string
+          example: '69b444a0192673f1930fb6a1'
+        userAchievements:
+          type: array
+          items:
+            type: string
+            example: 'a5'
+        progress:
           type: object
           properties:
-            _id:
-              type: string
-              format: string
-            login:
-              type: string
-              example: 'test@example.com'
-            name:
-              type: string
-              example: 'TestUser'
-            createdAt:
+            javascript:
               type: number
-              example: 1655000000
-            updatedAt:
+              example: 10
+            typescript:
               type: number
-              example: 1655000000
-            session: []
-            settings: {}
-          required:
-            - id
-            - login
+              example: 10
+            react:
+              type: number
+              example: 10
+            nodejs:
+              type: number
+              example: 0
+
+        solvedWidgets:
+          type: object
+          properties:
+            quiz:
+              type: array
+              items:
+                type: string
+                example: 'quiz-02'
+            matchGame:
+              type: array
+              items:
+                type: string
+                example: 'match-game-01'
+
+        updatedAt:
+          type: number
+          example: 1655000000
+      required:
+        - userId
+
     Widget:
       type: object
       properties:

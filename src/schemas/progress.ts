@@ -3,7 +3,6 @@ import { z } from 'zod';
 export const ProgressSchema = z.object({
   userId: z.string(),
   userAchievements: z.string().array(),
-  updatedAt: z.number(),
 
   progress: z.object({
     javascript: z.number(),

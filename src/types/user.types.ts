@@ -17,8 +17,3 @@ type Session = unknown;
 export type NewUser = Pick<User, 'login' | 'password' | 'name'>;
 export type LoginUser = Pick<User, 'login' | 'password'>;
 export type UserProfile = Omit<User, 'password'>;
-
-export type MongoAnswer = {
-  acknowledged: boolean;
-  insertedId: ObjectId;
-};

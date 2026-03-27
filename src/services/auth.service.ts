@@ -18,9 +18,9 @@ export class AuthService {
     this.userRepository = new UserRepository();
   }
 
-  private async getUser(login: string): Promise<User | null> {
+  private async getUserByLogin(login: string): Promise<User | null> {
     try {
-      return await this.userRepository.getUser(login);
+      return await this.userRepository.getUserByLogin(login);
     } catch {
       throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
@@ -29,7 +29,7 @@ export class AuthService {
   public async login(userData: LoginUser): Promise<UserProfile> {
     const { login, password } = userData;
 
-    const user: User | null = await this.getUser(login);
+    const user: User | null = await this.getUserByLogin(login);
 
     if (!user) {
       throw new UserNotFoundError(ERROR_MESSAGES.USER_NOT_FOUND);
@@ -48,7 +48,7 @@ export class AuthService {
   public async signup(userData: NewUser): Promise<UserProfile> {
     const { login, password, name } = userData;
 
-    const user: User | null = await this.getUser(login);
+    const user: User | null = await this.getUserByLogin(login);
 
     if (user) {
       throw new ConflictError(LOGIN_ERROR_MESSAGES.USER_EXISTS);

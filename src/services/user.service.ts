@@ -21,6 +21,19 @@ export class UserService {
     return new ObjectId(id);
   }
 
+  public async getUserById(id: string): Promise<UserProfile> {
+    const objectId = this.getUserId(id);
+
+    const result: User | null = await this.userRepository.getUserById(objectId);
+    if (!result) {
+      throw new UserNotFoundError(ERROR_MESSAGES.USER_NOT_FOUND);
+    }
+
+    const { password: _, ...rest } = result;
+
+    return { ...rest };
+  }
+
   public async updateUser(id: string, userData: Partial<User>): Promise<UserProfile> {
     const objectId = this.getUserId(id);
     const validatedData = userNameValidation(userData);

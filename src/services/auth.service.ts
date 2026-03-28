@@ -62,8 +62,6 @@ export class AuthService {
       ...userData,
       createdAt: Date.now(),
       updatedAt: Date.now(),
-      session: [],
-      settings: {},
     };
 
     try {

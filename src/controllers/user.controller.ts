@@ -13,6 +13,25 @@ export class UserController {
     this.userService = new UserService();
   }
 
+  public async getUser(req: Request, res: Response, next: NextFunction): Promise<void> {
+    try {
+      const { userId } = req.params;
+
+      if (typeof userId !== 'string') {
+        throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
+      }
+
+      const user: UserProfile = await this.userService.getUserById(userId);
+
+      res.status(CONSTANTS.HTTP_STATUS_OK).send({
+        data: user,
+        error: null,
+      });
+    } catch (error: unknown) {
+      next(error);
+    }
+  }
+
   public async update(req: Request, res: Response, next: NextFunction): Promise<void> {
     try {
       const userData: Record<string, unknown> = req.body;

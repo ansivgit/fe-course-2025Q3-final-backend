@@ -4,6 +4,7 @@ export {
   isObject,
   requestValidation,
   userNameValidation,
+  userProgressValidation,
   userSeedValidation,
   validateChatRequest,
   validateTasksData,

@@ -16,4 +16,10 @@ export const ROUTES = {
   SIGNUP: '/auth/signup',
   DATA: '/data',
   USER: '/user',
+  PROGRESS: '/progress',
+};
+
+export const DB_COLLECTIONS = {
+  USERS: 'users',
+  PROGRESS: 'progress',
 };

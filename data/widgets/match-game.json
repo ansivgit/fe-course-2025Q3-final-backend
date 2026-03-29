@@ -365,7 +365,7 @@
       {
         "id": 64,
         "value": "filter",
-        "content": "create new array with elements that pass test"
+        "content": "filter elements by condition"
       },
       {
         "id": 65,
@@ -615,7 +615,7 @@
       {
         "id": 106,
         "value": "key",
-        "content": "unique identifier in list"
+        "content": "unique identifier in the list"
       },
 
       {

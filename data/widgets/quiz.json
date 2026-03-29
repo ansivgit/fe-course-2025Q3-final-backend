@@ -159,7 +159,6 @@
       "explanation": "Type annotations, interfaces, and union types help TypeScript catch errors at compile time."
     }
   },
-
   {
     "id": "quiz-react-02",
     "type": "quiz",
@@ -177,7 +176,6 @@
       "explanation": "React provides useState, useEffect, useContext, useReducer, etc. There is no useRender hook."
     }
   },
-
   {
     "id": "quiz-node-02",
     "type": "quiz",
@@ -195,7 +193,6 @@
       "explanation": "Node.js supports CommonJS (require) and ES Modules (import). include/module and export/module are invalid for importing."
     }
   },
-
   {
     "id": "quiz-js-05",
     "type": "quiz",
@@ -259,7 +256,6 @@
       "explanation": "`any` and `unknown` can hold any value. void is for no return, never for unreachable code, object for non-primitive objects."
     }
   },
-
   {
     "id": "quiz-react-03",
     "type": "quiz",
@@ -297,7 +293,6 @@
       "explanation": "Components can be class-based or functional. Option `a` is missing a return statement. Option `d` is invalid syntax."
     }
   },
-
   {
     "id": "quiz-node-03",
     "type": "quiz",
@@ -315,7 +310,6 @@
       "explanation": "fs, http, and path are core Node.js modules. express and lodash are third-party packages."
     }
   },
-
   {
     "id": "quiz-js-07",
     "type": "quiz",
@@ -420,7 +414,6 @@
       "explanation": "Lifecycle methods include componentDidMount, componentWillUnmount, componentDidUpdate, and render. useEffect is a hook for functional components."
     }
   },
-
   {
     "id": "quiz-node-04",
     "type": "quiz",
@@ -438,7 +431,6 @@
       "explanation": "Node.js supports callbacks, Promises, async/await, and setTimeout for async code. Synchronous loops block the event loop."
     }
   },
-
   {
     "id": "quiz-js-09",
     "type": "quiz",
@@ -460,7 +452,6 @@
       "explanation": "Objects can be created via literals, constructors, Object.create(), and functions. Array() creates an array."
     }
   },
-
   {
     "id": "quiz-js-10",
     "type": "quiz",
@@ -478,7 +469,6 @@
       "explanation": "Higher-order functions are functions that take other functions as arguments or return functions."
     }
   },
-
   {
     "id": "quiz-ts-05",
     "type": "quiz",
@@ -496,7 +486,6 @@
       "explanation": "TypeScript supports public, private, protected, and readonly modifiers. 'internal' does not exist."
     }
   },
-
   {
     "id": "quiz-react-05",
     "type": "quiz",
@@ -514,7 +503,6 @@
       "explanation": "Arrays can be created with [], new Array(), Array.of(). {} creates an object, not an array."
     }
   },
-
   {
     "id": "quiz-node-05",
     "type": "quiz",
@@ -532,7 +520,6 @@
       "explanation": "You can create servers using http.createServer(), express(), and net.createServer(). fs module does not create servers."
     }
   },
-
   {
     "id": "quiz-js-11",
     "type": "quiz",
@@ -570,7 +557,6 @@
       "explanation": "In JavaScript, `this` behaves differently depending on context: global function, method, arrow function, or strict mode."
     }
   },
-
   {
     "id": "quiz-js-12",
     "type": "quiz",
@@ -600,7 +586,6 @@
       "explanation": "Functions can be declared as declarations, expressions, arrow functions, or class methods."
     }
   },
-
   {
     "id": "quiz-ts-06",
     "type": "quiz",
@@ -622,7 +607,6 @@
       "explanation": "Optional properties can be declared using `?` or by union with undefined. `?=` is invalid. Union with null is not optional."
     }
   },
-
   {
     "id": "quiz-react-06",
     "type": "quiz",
@@ -660,7 +644,6 @@
       "explanation": "React uses camelCase events like onClick. Handlers can be arrow functions or bound methods. Lowercase onclick is invalid."
     }
   },
-
   {
     "id": "quiz-node-06",
     "type": "quiz",
@@ -678,7 +661,6 @@
       "explanation": "fs.readFileSync() and fs.readFile() are used to read files. fs.readStream() is incorrect. fs.open() opens files but does not read them directly."
     }
   },
-
   {
     "id": "quiz-js-13",
     "type": "quiz",
@@ -716,7 +698,6 @@
       "explanation": "ES6 modules can export multiple bindings, have a default export, and always use strict mode. They can export any binding, not only functions."
     }
   },
-
   {
     "id": "quiz-js-14",
     "type": "quiz",
@@ -754,7 +735,6 @@
       "explanation": "Default parameters can be set directly in the parameter list, via destructuring, or using `a = a || default`."
     }
   },
-
   {
     "id": "quiz-ts-07",
     "type": "quiz",
@@ -772,7 +752,6 @@
       "explanation": "Type inference, generics, enums, and type aliases improve type safety. 'any' disables type checking."
     }
   },
-
   {
     "id": "quiz-react-07",
     "type": "quiz",
@@ -798,7 +777,6 @@
       "explanation": "In functional components, you update state via the setter returned by useState. 'this.setState' is for class components, and calling useState again does not update state."
     }
   },
-
   {
     "id": "quiz-node-07",
     "type": "quiz",
@@ -836,7 +814,6 @@
       "explanation": "Node.js uses a single thread for JS, handles async operations via the event loop, and manages callback queues. It does not run JS on multiple threads by default."
     }
   },
-
   {
     "id": "quiz-js-15",
     "type": "quiz",
@@ -854,7 +831,6 @@
       "explanation": "Arrays can be iterated using loops (for, while) and higher-order functions like map() and forEach(). Object.keys() is for objects."
     }
   },
-
   {
     "id": "quiz-js-16",
     "type": "quiz",
@@ -872,7 +848,6 @@
       "explanation": "`var`, `let` and `const` are valid variable declarations in JavaScript."
     }
   },
-
   {
     "id": "quiz-ts-08",
     "type": "quiz",
@@ -890,7 +865,6 @@
       "explanation": "`never` represents values that never occur. Void, undefined, null, unknown have different meanings."
     }
   },
-
   {
     "id": "quiz-react-08",
     "type": "quiz",
@@ -928,7 +902,6 @@
       "explanation": "Conditional rendering in React is usually done via ternary operators or logical AND (&&). Direct if/switch cannot be used inline in JSX."
     }
   },
-
   {
     "id": "quiz-node-08",
     "type": "quiz",
@@ -946,7 +919,6 @@
       "explanation": "npm install, npm start, and npm run are valid. npm init is valid but not 'npm init/project'. npm create/module is invalid."
     }
   },
-
   {
     "id": "quiz-js-17",
     "type": "quiz",
@@ -964,7 +936,6 @@
       "explanation": "true, empty object `{}`, and empty array `[]` are truthy. 0 and null are falsy."
     }
   },
-
   {
     "id": "quiz-js-18",
     "type": "quiz",
@@ -1002,7 +973,6 @@
       "explanation": "Function declaration, function expression, and arrow function are valid."
     }
   },
-
   {
     "id": "quiz-ts-09",
     "type": "quiz",
@@ -1073,7 +1043,6 @@
       "explanation": "useEffect and useLayoutEffect handle side effects. useContext accesses context. Other hooks serve state or memoization purposes."
     }
   },
-
   {
     "id": "quiz-node-09",
     "type": "quiz",
@@ -1095,7 +1064,6 @@
       "explanation": "Node.js supports module.exports, exports.method (CommonJS), and export default/function (ESM). require.export is invalid."
     }
   },
-
   {
     "id": "quiz-js-19",
     "type": "quiz",
@@ -1134,7 +1102,6 @@
       "explanation": "JS comments use // for single line and /* */ for multi-line. HTML, hash style, and template literals are invalid."
     }
   },
-
   {
     "id": "quiz-ts-10",
     "type": "quiz",
@@ -1189,7 +1156,6 @@
       "explanation": "React.memo prevents unnecessary re-render of components. useCallback memoizes functions to avoid passing new references."
     }
   },
-
   {
     "id": "quiz-node-10",
     "type": "quiz",

@@ -341,10 +341,10 @@
       "question": "Which statements about JavaScript closures are true?",
       "options": [
         {
-        "id": "quiz-js-08-a",
-        "name": "a",
-        "value": "Closures only work inside loops"
-      },
+          "id": "quiz-js-08-a",
+          "name": "a",
+          "value": "Closures only work inside loops"
+        },
         {
           "id": "quiz-js-08-b",
           "name": "b",

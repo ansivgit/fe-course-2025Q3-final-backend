@@ -330,7 +330,7 @@
         { "id": "quiz-js-07-e", "name": "e", "value": "Number()" }
       ],
       "correctAnswersIds": ["b", "c", "e"],
-      "explanation": "`Number()`, `parseInt()`, and `parseFloat()` convert strings to numbers; `toString()` does the opposite."
+      "explanation": "`Number()`, `parseInt()`, and `parseFloat()` convert strings to numbers. `toString()` does the opposite."
     }
   },
   {
@@ -341,10 +341,10 @@
       "question": "Which statements about JavaScript closures are true?",
       "options": [
         {
-          "id": "quiz-js-08-a",
-          "name": "a",
-          "value": "A closure is a function that remembers its lexical scope"
-        },
+        "id": "quiz-js-08-a",
+        "name": "a",
+        "value": "Closures only work inside loops"
+      },
         {
           "id": "quiz-js-08-b",
           "name": "b",
@@ -359,9 +359,14 @@
           "id": "quiz-js-08-d",
           "name": "d",
           "value": "Closures prevent garbage collection"
+        },
+        {
+          "id": "quiz-js-08-e",
+          "name": "e",
+          "value": "A closure is a function that remembers its lexical scope"
         }
       ],
-      "correctAnswersIds": ["a", "b"],
+      "correctAnswersIds": ["b", "e"],
       "explanation": "Closures remember their lexical scope and can access variables outside their own scope."
     }
   },
@@ -391,7 +396,7 @@
         }
       ],
       "correctAnswersIds": ["a", "b", "d"],
-      "explanation": "Tuples are arrays with fixed types and length: `[string, number]`, `[number]`, `[number, string, boolean]`. `tuple<...>` is invalid, Array<any> is not fixed."
+      "explanation": "Tuples are arrays with fixed types and length: `[string, number]`, `[number]`, `[number, string, boolean]`. `tuple<...>` is invalid. Array<any> is not fixed."
     }
   },
   {
@@ -452,7 +457,7 @@
         { "id": "quiz-js-09-e", "name": "e", "value": "Function()" }
       ],
       "correctAnswersIds": ["a", "b", "c", "e"],
-      "explanation": "Objects can be created via literals, constructors, Object.create(), and functions; Array() creates an array."
+      "explanation": "Objects can be created via literals, constructors, Object.create(), and functions. Array() creates an array."
     }
   },
 
@@ -470,7 +475,7 @@
         { "id": "quiz-js-10-e", "name": "e", "value": "forEach()" }
       ],
       "correctAnswersIds": ["a", "b", "c", "e"],
-      "explanation": "Higher-order functions are functions that take other functions as arguments or return functions: map, filter, reduce, forEach."
+      "explanation": "Higher-order functions are functions that take other functions as arguments or return functions."
     }
   },
 
@@ -562,7 +567,7 @@
         }
       ],
       "correctAnswersIds": ["a", "c", "d", "e"],
-      "explanation": "In JS, `this` behaves differently depending on context: global function, method, arrow function, or strict mode."
+      "explanation": "In JavaScript, `this` behaves differently depending on context: global function, method, arrow function, or strict mode."
     }
   },
 
@@ -670,7 +675,7 @@
         { "id": "quiz-node-06-e", "name": "e", "value": "fs.open()" }
       ],
       "correctAnswersIds": ["a", "b"],
-      "explanation": "fs.readFileSync() and fs.readFile() are used to read files. fs.readStream() is incorrect; fs.open() opens files but does not read them directly."
+      "explanation": "fs.readFileSync() and fs.readFile() are used to read files. fs.readStream() is incorrect. fs.open() opens files but does not read them directly."
     }
   },
 
@@ -864,7 +869,7 @@
         { "id": "quiz-js-16-e", "name": "e", "value": "int" }
       ],
       "correctAnswersIds": ["b", "c", "d"],
-      "explanation": "`var`, `let` and `const` are valid variable declarations in JS. `int` does not exist."
+      "explanation": "`var`, `let` and `const` are valid variable declarations in JavaScript."
     }
   },
 
@@ -879,7 +884,7 @@
         { "id": "quiz-ts-08-b", "name": "b", "value": "void" },
         { "id": "quiz-ts-08-c", "name": "c", "value": "undefined" },
         { "id": "quiz-ts-08-d", "name": "d", "value": "null" },
-        { "id": "quiz-ts-08-e", "name": "a", "value": "never" }
+        { "id": "quiz-ts-08-e", "name": "e", "value": "never" }
       ],
       "correctAnswersIds": ["e"],
       "explanation": "`never` represents values that never occur. Void, undefined, null, unknown have different meanings."
@@ -931,11 +936,11 @@
     "payload": {
       "question": "Which of the following are valid npm commands?",
       "options": [
-        { "id": "quiz-node-08-a", "name": "a", "value": "npm install/package" },
-        { "id": "quiz-node-08-b", "name": "b", "value": "npm init/project" },
+        { "id": "quiz-node-08-a", "name": "a", "value": "npm install package" },
+        { "id": "quiz-node-08-b", "name": "b", "value": "npm init project" },
         { "id": "quiz-node-08-c", "name": "c", "value": "npm start" },
-        { "id": "quiz-node-08-d", "name": "d", "value": "npm run/script" },
-        { "id": "quiz-node-08-e", "name": "e", "value": "npm create/module" }
+        { "id": "quiz-node-08-d", "name": "d", "value": "npm run script" },
+        { "id": "quiz-node-08-e", "name": "e", "value": "npm create module" }
       ],
       "correctAnswersIds": ["a", "c", "d"],
       "explanation": "npm install, npm start, and npm run are valid. npm init is valid but not 'npm init/project'. npm create/module is invalid."
@@ -956,7 +961,7 @@
         { "id": "quiz-js-17-e", "name": "e", "value": "null" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
-      "explanation": "true, empty object `{}`, and empty array `[]` are truthy. 0 is falsy."
+      "explanation": "true, empty object `{}`, and empty array `[]` are truthy. 0 and null are falsy."
     }
   },
 
@@ -1065,7 +1070,7 @@
         }
       ],
       "correctAnswersIds": ["b", "d"],
-      "explanation": "useEffect and useLayoutEffect handle side effects; useContext accesses context. Other hooks serve state or memoization purposes."
+      "explanation": "useEffect and useLayoutEffect handle side effects. useContext accesses context. Other hooks serve state or memoization purposes."
     }
   },
 
@@ -1105,7 +1110,7 @@
         { "id": "quiz-js-19-e", "name": "e", "value": "object#key" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
-      "explanation": "Dot notation, bracket notation, and optional chaining (`?.`) are valid."
+      "explanation": "Dot notation, bracket notation, and optional chaining ('?.') are valid."
     }
   },
   {
@@ -1181,7 +1186,7 @@
         { "id": "quiz-react-10-e", "name": "e", "value": "useEffect/render" }
       ],
       "correctAnswersIds": ["a", "b"],
-      "explanation": "React.memo prevents unnecessary re-render of components; useCallback memoizes functions to avoid passing new references."
+      "explanation": "React.memo prevents unnecessary re-render of components. useCallback memoizes functions to avoid passing new references."
     }
   },
 

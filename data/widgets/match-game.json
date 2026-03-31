@@ -1,6 +1,6 @@
 [
   {
-    "id": "match-game-js-01",
+    "id": "match-game-01",
     "type": "match-game",
     "tags": ["javaScript"],
     "payload": [
@@ -59,7 +59,7 @@
     ]
   },
   {
-    "id": "match-game-js-02",
+    "id": "match-game-02",
     "type": "match-game",
     "tags": ["javaScript"],
     "payload": [
@@ -126,7 +126,7 @@
     ]
   },
   {
-    "id": "match-game-ts-01",
+    "id": "match-game-03",
     "type": "match-game",
     "tags": ["typeScript"],
     "payload": [
@@ -198,7 +198,7 @@
     ]
   },
   {
-    "id": "match-game-react-01",
+    "id": "match-game-04",
     "type": "match-game",
     "tags": ["react"],
     "payload": [
@@ -271,7 +271,7 @@
   },
 
   {
-    "id": "match-game-node-01",
+    "id": "match-game-05",
     "type": "match-game",
     "tags": ["nodejs"],
     "payload": [
@@ -343,7 +343,7 @@
     ]
   },
   {
-    "id": "match-game-js-03",
+    "id": "match-game-06",
     "type": "match-game",
     "tags": ["javaScript"],
     "payload": [
@@ -414,7 +414,7 @@
     ]
   },
   {
-    "id": "match-game-js-04",
+    "id": "match-game-07",
     "type": "match-game",
     "tags": ["javaScript"],
     "payload": [
@@ -487,7 +487,7 @@
   },
 
   {
-    "id": "match-game-ts-02",
+    "id": "match-game-08",
     "type": "match-game",
     "tags": ["typeScript"],
     "payload": [
@@ -559,7 +559,7 @@
     ]
   },
   {
-    "id": "match-game-react-02",
+    "id": "match-game-09",
     "type": "match-game",
     "tags": ["react"],
     "payload": [
@@ -631,7 +631,7 @@
     ]
   },
   {
-    "id": "match-game-node-02",
+    "id": "match-game-10",
     "type": "match-game",
     "tags": ["nodejs"],
     "payload": [

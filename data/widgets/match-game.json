@@ -128,71 +128,577 @@
   {
     "id": "match-game-03",
     "type": "match-game",
-    "tags": ["javaScript"],
+    "tags": ["typeScript"],
     "payload": [
       {
         "id": 25,
-        "value": "map()",
-        "content": "map()"
+        "value": "string",
+        "content": "string"
       },
       {
         "id": 26,
-        "value": "map()",
-        "content": "create new array by transforming elements"
+        "value": "string",
+        "content": "text type"
       },
+
       {
         "id": 27,
-        "value": "filter()",
-        "content": "filter()"
+        "value": "number",
+        "content": "number"
       },
       {
         "id": 28,
-        "value": "filter()",
-        "content": "create new array with elements that pass test"
+        "value": "number",
+        "content": "numeric type"
       },
+
       {
         "id": 29,
-        "value": "reduce()",
-        "content": "reduce()"
+        "value": "boolean",
+        "content": "boolean"
       },
       {
         "id": 30,
-        "value": "reduce()",
-        "content": "accumulate array values into single result"
+        "value": "boolean",
+        "content": "true or false"
       },
+
       {
         "id": 31,
-        "value": "forEach()",
-        "content": "forEach()"
+        "value": "any",
+        "content": "any"
       },
-
       {
         "id": 32,
-        "value": "forEach()",
-        "content": "iterate over array elements"
-      },
-      {
-        "id": 33,
-        "value": "Array.find()",
-        "content": "Array.find()"
+        "value": "any",
+        "content": "disables type checking"
       },
 
       {
+        "id": 33,
+        "value": "unknown",
+        "content": "unknown"
+      },
+      {
         "id": 34,
-        "value": "Array.find()",
-        "content": "return first element matching condition"
+        "value": "unknown",
+        "content": "safe alternative to any"
       },
 
       {
         "id": 35,
-        "value": "Array.findIndex()",
+        "value": "void",
+        "content": "void"
+      },
+      {
+        "id": 36,
+        "value": "void",
+        "content": "no return value"
+      }
+    ]
+  },
+  {
+    "id": "match-game-04",
+    "type": "match-game",
+    "tags": ["react"],
+    "payload": [
+      {
+        "id": 37,
+        "value": "useState",
+        "content": "useState"
+      },
+      {
+        "id": 38,
+        "value": "useState",
+        "content": "manage component state"
+      },
+
+      {
+        "id": 39,
+        "value": "useEffect",
+        "content": "useEffect"
+      },
+      {
+        "id": 40,
+        "value": "useEffect",
+        "content": "run side effects"
+      },
+
+      {
+        "id": 41,
+        "value": "useContext",
+        "content": "useContext"
+      },
+      {
+        "id": 42,
+        "value": "useContext",
+        "content": "access context value"
+      },
+
+      {
+        "id": 43,
+        "value": "useRef",
+        "content": "useRef"
+      },
+      {
+        "id": 44,
+        "value": "useRef",
+        "content": "store mutable value"
+      },
+
+      {
+        "id": 45,
+        "value": "useMemo",
+        "content": "useMemo"
+      },
+      {
+        "id": 46,
+        "value": "useMemo",
+        "content": "memoize computed value"
+      },
+
+      {
+        "id": 47,
+        "value": "useCallback",
+        "content": "useCallback"
+      },
+      {
+        "id": 48,
+        "value": "useCallback",
+        "content": "memoize function"
+      }
+    ]
+  },
+
+  {
+    "id": "match-game-05",
+    "type": "match-game",
+    "tags": ["nodejs"],
+    "payload": [
+      {
+        "id": 49,
+        "value": "node",
+        "content": "Node.js"
+      },
+      {
+        "id": 50,
+        "value": "node",
+        "content": "JavaScript runtime"
+      },
+
+      {
+        "id": 51,
+        "value": "fs",
+        "content": "fs"
+      },
+      {
+        "id": 52,
+        "value": "fs",
+        "content": "work with file system"
+      },
+
+      {
+        "id": 53,
+        "value": "path",
+        "content": "path"
+      },
+      {
+        "id": 54,
+        "value": "path",
+        "content": "handle file paths"
+      },
+
+      {
+        "id": 55,
+        "value": "http",
+        "content": "http"
+      },
+      {
+        "id": 56,
+        "value": "http",
+        "content": "create HTTP server"
+      },
+
+      {
+        "id": 57,
+        "value": "require",
+        "content": "require()"
+      },
+      {
+        "id": 58,
+        "value": "require",
+        "content": "import module (CommonJS)"
+      },
+
+      {
+        "id": 59,
+        "value": "module-exports",
+        "content": "module.exports"
+      },
+      {
+        "id": 60,
+        "value": "module-exports",
+        "content": "export module"
+      }
+    ]
+  },
+  {
+    "id": "match-game-06",
+    "type": "match-game",
+    "tags": ["javaScript"],
+    "payload": [
+      {
+        "id": 61,
+        "value": "map",
+        "content": "map()"
+      },
+      {
+        "id": 62,
+        "value": "map",
+        "content": "create new array by transforming elements"
+      },
+      {
+        "id": 63,
+        "value": "filter",
+        "content": "filter()"
+      },
+      {
+        "id": 64,
+        "value": "filter",
+        "content": "filter elements by condition"
+      },
+      {
+        "id": 65,
+        "value": "reduce",
+        "content": "reduce()"
+      },
+      {
+        "id": 66,
+        "value": "reduce",
+        "content": "accumulate array values into single result"
+      },
+      {
+        "id": 67,
+        "value": "forEach",
+        "content": "forEach()"
+      },
+
+      {
+        "id": 68,
+        "value": "forEach",
+        "content": "iterate over array elements"
+      },
+      {
+        "id": 69,
+        "value": "Array.find",
+        "content": "Array.find()"
+      },
+
+      {
+        "id": 70,
+        "value": "Array.find",
+        "content": "return first element matching condition"
+      },
+
+      {
+        "id": 71,
+        "value": "Array.findIndex",
         "content": "Array.findIndex()"
       },
 
       {
-        "id": 36,
-        "value": "Array.findIndex()",
+        "id": 72,
+        "value": "Array.findIndex",
         "content": "return index of first matching element"
+      }
+    ]
+  },
+  {
+    "id": "match-game-07",
+    "type": "match-game",
+    "tags": ["javaScript"],
+    "payload": [
+      {
+        "id": 73,
+        "value": "Object.keys",
+        "content": "Object.keys()"
+      },
+      {
+        "id": 74,
+        "value": "Object.keys",
+        "content": "returns array of object keys"
+      },
+
+      {
+        "id": 75,
+        "value": "Object.values",
+        "content": "Object.values()"
+      },
+      {
+        "id": 76,
+        "value": "Object.values",
+        "content": "returns array of object values"
+      },
+
+      {
+        "id": 77,
+        "value": "Object.entries",
+        "content": "Object.entries()"
+      },
+      {
+        "id": 78,
+        "value": "Object.entries",
+        "content": "returns array of [key, value] pairs"
+      },
+
+      {
+        "id": 79,
+        "value": "Object.assign",
+        "content": "Object.assign()"
+      },
+      {
+        "id": 80,
+        "value": "Object.assign",
+        "content": "copies properties into target object"
+      },
+
+      {
+        "id": 81,
+        "value": "Object.freeze",
+        "content": "Object.freeze()"
+      },
+      {
+        "id": 82,
+        "value": "Object.freeze",
+        "content": "makes object immutable"
+      },
+
+      {
+        "id": 83,
+        "value": "Object.seal",
+        "content": "Object.seal()"
+      },
+      {
+        "id": 84,
+        "value": "Object.seal",
+        "content": "no adding or removing properties"
+      }
+    ]
+  },
+
+  {
+    "id": "match-game-08",
+    "type": "match-game",
+    "tags": ["typeScript"],
+    "payload": [
+      {
+        "id": 85,
+        "value": "interface",
+        "content": "interface"
+      },
+      {
+        "id": 86,
+        "value": "interface",
+        "content": "define object shape"
+      },
+
+      {
+        "id": 87,
+        "value": "type",
+        "content": "type"
+      },
+      {
+        "id": 88,
+        "value": "type",
+        "content": "create custom type"
+      },
+
+      {
+        "id": 89,
+        "value": "union",
+        "content": "union (|)"
+      },
+      {
+        "id": 90,
+        "value": "union",
+        "content": "multiple possible types"
+      },
+
+      {
+        "id": 91,
+        "value": "intersection",
+        "content": "intersection (&)"
+      },
+      {
+        "id": 92,
+        "value": "intersection",
+        "content": "combine multiple types"
+      },
+
+      {
+        "id": 93,
+        "value": "partial",
+        "content": "Partial<T>"
+      },
+      {
+        "id": 94,
+        "value": "partial",
+        "content": "make all properties optional"
+      },
+
+      {
+        "id": 95,
+        "value": "readonly",
+        "content": "Readonly<T>"
+      },
+      {
+        "id": 96,
+        "value": "readonly",
+        "content": "make properties immutable"
+      }
+    ]
+  },
+  {
+    "id": "match-game-09",
+    "type": "match-game",
+    "tags": ["react"],
+    "payload": [
+      {
+        "id": 97,
+        "value": "jsx",
+        "content": "JSX"
+      },
+      {
+        "id": 98,
+        "value": "jsx",
+        "content": "HTML-like syntax in JavaScript"
+      },
+
+      {
+        "id": 99,
+        "value": "props",
+        "content": "props"
+      },
+      {
+        "id": 100,
+        "value": "props",
+        "content": "pass data to component"
+      },
+
+      {
+        "id": 101,
+        "value": "component",
+        "content": "component"
+      },
+      {
+        "id": 102,
+        "value": "component",
+        "content": "reusable UI block"
+      },
+
+      {
+        "id": 103,
+        "value": "state",
+        "content": "state"
+      },
+      {
+        "id": 104,
+        "value": "state",
+        "content": "internal component data"
+      },
+
+      {
+        "id": 105,
+        "value": "key",
+        "content": "key"
+      },
+      {
+        "id": 106,
+        "value": "key",
+        "content": "unique identifier in the list"
+      },
+
+      {
+        "id": 107,
+        "value": "fragment",
+        "content": "fragment"
+      },
+      {
+        "id": 108,
+        "value": "fragment",
+        "content": "group elements without extra DOM"
+      }
+    ]
+  },
+  {
+    "id": "match-game-10",
+    "type": "match-game",
+    "tags": ["nodejs"],
+    "payload": [
+      {
+        "id": 109,
+        "value": "req",
+        "content": "req"
+      },
+      {
+        "id": 110,
+        "value": "req",
+        "content": "incoming request object"
+      },
+
+      {
+        "id": 111,
+        "value": "res",
+        "content": "res"
+      },
+      {
+        "id": 112,
+        "value": "res",
+        "content": "server response object"
+      },
+
+      {
+        "id": 113,
+        "value": "res.send",
+        "content": "res.send()"
+      },
+      {
+        "id": 114,
+        "value": "res.send",
+        "content": "send response to client"
+      },
+
+      {
+        "id": 115,
+        "value": "res.json",
+        "content": "res.json()"
+      },
+      {
+        "id": 116,
+        "value": "res.json",
+        "content": "send JSON response"
+      },
+
+      {
+        "id": 117,
+        "value": "async/await",
+        "content": "async/await"
+      },
+      {
+        "id": 118,
+        "value": "async/await",
+        "content": "handle asynchronous code"
+      },
+
+      {
+        "id": 119,
+        "value": "promise",
+        "content": "Promise"
+      },
+      {
+        "id": 120,
+        "value": "promise",
+        "content": "represents future value"
       }
     ]
   }

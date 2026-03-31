@@ -1,68 +1,68 @@
 [
   {
-    "id": "quiz-js-01",
+    "id": "quiz-01",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which values are falsy in JavaScript?",
       "options": [
-        { "id": "quiz-js-01-a", "name": "a", "value": "0" },
-        { "id": "quiz-js-01-b", "name": "b", "value": "{}" },
-        { "id": "quiz-js-01-c", "name": "c", "value": "null" },
-        { "id": "quiz-js-01-d", "name": "d", "value": "''" },
-        { "id": "quiz-js-01-e", "name": "e", "value": "undefined" }
+        { "id": "quiz-01-a", "name": "a", "value": "0" },
+        { "id": "quiz-01-b", "name": "b", "value": "{}" },
+        { "id": "quiz-01-c", "name": "c", "value": "null" },
+        { "id": "quiz-01-d", "name": "d", "value": "''" },
+        { "id": "quiz-01-e", "name": "e", "value": "undefined" }
       ],
       "correctAnswersIds": ["a", "c", "d", "e"],
       "explanation": "0, null, '', and undefined are falsy; any object is always truthy."
     }
   },
   {
-    "id": "quiz-js-02",
+    "id": "quiz-02",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which Array methods return a new array without modifying the original?",
       "options": [
-        { "id": "quiz-js-02-a", "name": "a", "value": "map()" },
-        { "id": "quiz-js-02-b", "name": "b", "value": "forEach()" },
-        { "id": "quiz-js-02-c", "name": "c", "value": "filter()" },
-        { "id": "quiz-js-02-d", "name": "d", "value": "push()" },
-        { "id": "quiz-js-02-e", "name": "e", "value": "slice()" }
+        { "id": "quiz-02-a", "name": "a", "value": "map()" },
+        { "id": "quiz-02-b", "name": "b", "value": "forEach()" },
+        { "id": "quiz-02-c", "name": "c", "value": "filter()" },
+        { "id": "quiz-02-d", "name": "d", "value": "push()" },
+        { "id": "quiz-02-e", "name": "e", "value": "slice()" }
       ],
       "correctAnswersIds": ["a", "c", "e"],
       "explanation": "map(), filter(), and slice() return new arrays; forEach() and push() modify the original."
     }
   },
   {
-    "id": "quiz-ts-01",
+    "id": "quiz-03",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following are valid TypeScript basic types?",
       "options": [
-        { "id": "quiz-ts-01-a", "name": "a", "value": "string" },
-        { "id": "quiz-ts-01-b", "name": "b", "value": "boolean" },
-        { "id": "quiz-ts-01-c", "name": "c", "value": "number" },
-        { "id": "quiz-ts-01-d", "name": "d", "value": "char" },
-        { "id": "quiz-ts-01-e", "name": "e", "value": "any" }
+        { "id": "quiz-03-a", "name": "a", "value": "string" },
+        { "id": "quiz-03-b", "name": "b", "value": "boolean" },
+        { "id": "quiz-03-c", "name": "c", "value": "number" },
+        { "id": "quiz-03-d", "name": "d", "value": "char" },
+        { "id": "quiz-03-e", "name": "e", "value": "any" }
       ],
       "correctAnswersIds": ["a", "b", "c", "e"],
       "explanation": "TypeScript basic types include string, boolean, number, any, unknown, void, null, and undefined."
     }
   },
   {
-    "id": "quiz-react-01",
+    "id": "quiz-04",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following are valid ways to manage state in React?",
       "options": [
-        { "id": "quiz-react-01-a", "name": "a", "value": "this.setState" },
-        { "id": "quiz-react-01-b", "name": "b", "value": "useState hook" },
-        { "id": "quiz-react-01-c", "name": "c", "value": "useEffect hook" },
-        { "id": "quiz-react-01-d", "name": "d", "value": "Redux" },
+        { "id": "quiz-04-a", "name": "a", "value": "this.setState" },
+        { "id": "quiz-04-b", "name": "b", "value": "useState hook" },
+        { "id": "quiz-04-c", "name": "c", "value": "useEffect hook" },
+        { "id": "quiz-04-d", "name": "d", "value": "Redux" },
         {
-          "id": "quiz-react-01-e",
+          "id": "quiz-04-e",
           "name": "e",
           "value": "Local component state"
         }
@@ -72,51 +72,51 @@
     }
   },
   {
-    "id": "quiz-node-01",
+    "id": "quiz-05",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are valid Node.js global objects?",
       "options": [
-        { "id": "quiz-node-01-a", "name": "a", "value": "process" },
-        { "id": "quiz-node-01-b", "name": "b", "value": "console" },
-        { "id": "quiz-node-01-c", "name": "c", "value": "window" },
-        { "id": "quiz-node-01-d", "name": "d", "value": "global" },
-        { "id": "quiz-node-01-e", "name": "e", "value": "document" }
+        { "id": "quiz-05-a", "name": "a", "value": "process" },
+        { "id": "quiz-05-b", "name": "b", "value": "console" },
+        { "id": "quiz-05-c", "name": "c", "value": "window" },
+        { "id": "quiz-05-d", "name": "d", "value": "global" },
+        { "id": "quiz-05-e", "name": "e", "value": "document" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
       "explanation": "Node.js has global objects like process, console, and global. Window and document are browser objects."
     }
   },
   {
-    "id": "quiz-js-03",
+    "id": "quiz-06",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which tasks are handled in the microtask queue?",
       "options": [
         {
-          "id": "quiz-js-03-a",
+          "id": "quiz-06-a",
           "name": "a",
           "value": "Promise.then callbacks"
         },
         {
-          "id": "quiz-js-03-b",
+          "id": "quiz-06-b",
           "name": "b",
           "value": "setTimeout callbacks"
         },
         {
-          "id": "quiz-js-03-c",
+          "id": "quiz-06-c",
           "name": "c",
           "value": "MutationObserver callbacks"
         },
         {
-          "id": "quiz-js-03-d",
+          "id": "quiz-06-d",
           "name": "d",
           "value": "fetch() response handling"
         },
         {
-          "id": "quiz-js-03-e",
+          "id": "quiz-06-e",
           "name": "e",
           "value": "requestAnimationFrame callbacks"
         }
@@ -126,165 +126,165 @@
     }
   },
   {
-    "id": "quiz-js-04",
+    "id": "quiz-07",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "What is the output of `typeof NaN`?",
       "options": [
-        { "id": "quiz-js-04-a", "name": "a", "value": "'undefined'" },
-        { "id": "quiz-js-04-b", "name": "b", "value": "'NaN'" },
-        { "id": "quiz-js-04-c", "name": "c", "value": "'number'" },
-        { "id": "quiz-js-04-d", "name": "d", "value": "'object'" },
-        { "id": "quiz-js-04-e", "name": "e", "value": "'string'" }
+        { "id": "quiz-07-a", "name": "a", "value": "'undefined'" },
+        { "id": "quiz-07-b", "name": "b", "value": "'NaN'" },
+        { "id": "quiz-07-c", "name": "c", "value": "'number'" },
+        { "id": "quiz-07-d", "name": "d", "value": "'object'" },
+        { "id": "quiz-07-e", "name": "e", "value": "'string'" }
       ],
       "correctAnswersIds": ["c"],
       "explanation": "In JavaScript, NaN is considered a number, so `typeof NaN` returns 'number'."
     }
   },
   {
-    "id": "quiz-ts-02",
+    "id": "quiz-08",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following TypeScript features help catch errors at compile time?",
       "options": [
-        { "id": "quiz-ts-02-a", "name": "a", "value": "Type annotations" },
-        { "id": "quiz-ts-02-b", "name": "b", "value": "Interfaces" },
-        { "id": "quiz-ts-02-c", "name": "c", "value": "Optional chaining" },
-        { "id": "quiz-ts-02-d", "name": "d", "value": "Union types" },
-        { "id": "quiz-ts-02-e", "name": "e", "value": "Template literals" }
+        { "id": "quiz-08-a", "name": "a", "value": "Type annotations" },
+        { "id": "quiz-08-b", "name": "b", "value": "Interfaces" },
+        { "id": "quiz-08-c", "name": "c", "value": "Optional chaining" },
+        { "id": "quiz-08-d", "name": "d", "value": "Union types" },
+        { "id": "quiz-08-e", "name": "e", "value": "Template literals" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
       "explanation": "Type annotations, interfaces, and union types help TypeScript catch errors at compile time."
     }
   },
   {
-    "id": "quiz-react-02",
+    "id": "quiz-09",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following are valid React hooks?",
       "options": [
-        { "id": "quiz-react-02-a", "name": "a", "value": "useRender" },
-        { "id": "quiz-react-02-b", "name": "b", "value": "useEffect" },
-        { "id": "quiz-react-02-c", "name": "c", "value": "useContext" },
-        { "id": "quiz-react-02-d", "name": "d", "value": "useState" },
-        { "id": "quiz-react-02-e", "name": "e", "value": "useReducer" }
+        { "id": "quiz-09-a", "name": "a", "value": "useRender" },
+        { "id": "quiz-09-b", "name": "b", "value": "useEffect" },
+        { "id": "quiz-09-c", "name": "c", "value": "useContext" },
+        { "id": "quiz-09-d", "name": "d", "value": "useState" },
+        { "id": "quiz-09-e", "name": "e", "value": "useReducer" }
       ],
       "correctAnswersIds": ["b", "c", "d", "e"],
       "explanation": "React provides useState, useEffect, useContext, useReducer, etc. There is no useRender hook."
     }
   },
   {
-    "id": "quiz-node-02",
+    "id": "quiz-10",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are valid ways to import modules in Node.js?",
       "options": [
-        { "id": "quiz-node-02-a", "name": "a", "value": "require/module" },
-        { "id": "quiz-node-02-b", "name": "b", "value": "import/module" },
-        { "id": "quiz-node-02-c", "name": "c", "value": "include/module" },
-        { "id": "quiz-node-02-d", "name": "d", "value": "require/import" },
-        { "id": "quiz-node-02-e", "name": "e", "value": "export/module" }
+        { "id": "quiz-10-a", "name": "a", "value": "require/module" },
+        { "id": "quiz-10-b", "name": "b", "value": "import/module" },
+        { "id": "quiz-10-c", "name": "c", "value": "include/module" },
+        { "id": "quiz-10-d", "name": "d", "value": "require/import" },
+        { "id": "quiz-10-e", "name": "e", "value": "export/module" }
       ],
       "correctAnswersIds": ["a", "b"],
       "explanation": "Node.js supports CommonJS (require) and ES Modules (import). include/module and export/module are invalid for importing."
     }
   },
   {
-    "id": "quiz-js-05",
+    "id": "quiz-11",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are primitive types in JavaScript?",
       "options": [
-        { "id": "quiz-js-05-a", "name": "a", "value": "string" },
-        { "id": "quiz-js-05-b", "name": "b", "value": "object" },
-        { "id": "quiz-js-05-c", "name": "c", "value": "boolean" },
-        { "id": "quiz-js-05-d", "name": "d", "value": "undefined" },
-        { "id": "quiz-js-05-e", "name": "e", "value": "symbol" }
+        { "id": "quiz-11-a", "name": "a", "value": "string" },
+        { "id": "quiz-11-b", "name": "b", "value": "object" },
+        { "id": "quiz-11-c", "name": "c", "value": "boolean" },
+        { "id": "quiz-11-d", "name": "d", "value": "undefined" },
+        { "id": "quiz-11-e", "name": "e", "value": "symbol" }
       ],
       "correctAnswersIds": ["a", "c", "d", "e"],
       "explanation": "Primitive types: string, number, boolean, null, undefined, symbol, bigint. Object is not primitive."
     }
   },
   {
-    "id": "quiz-js-06",
+    "id": "quiz-12",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "What does `===` operator check?",
       "options": [
         {
-          "id": "quiz-js-06-a",
+          "id": "quiz-12-a",
           "name": "a",
           "value": "Equality of value only"
         },
-        { "id": "quiz-js-06-b", "name": "b", "value": "Equality of type only" },
+        { "id": "quiz-12-b", "name": "b", "value": "Equality of type only" },
         {
-          "id": "quiz-js-06-c",
+          "id": "quiz-12-c",
           "name": "c",
           "value": "Reference equality for objects"
         },
         {
-          "id": "quiz-js-06-d",
+          "id": "quiz-12-d",
           "name": "d",
           "value": "Equality of value and type"
         },
-        { "id": "quiz-js-06-e", "name": "e", "value": "Always returns true" }
+        { "id": "quiz-12-e", "name": "e", "value": "Always returns true" }
       ],
       "correctAnswersIds": ["d"],
       "explanation": "`===` checks both value and type equality in JavaScript."
     }
   },
   {
-    "id": "quiz-ts-03",
+    "id": "quiz-13",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following TypeScript types can hold any value?",
       "options": [
-        { "id": "quiz-ts-03-a", "name": "a", "value": "any" },
-        { "id": "quiz-ts-03-b", "name": "b", "value": "unknown" },
-        { "id": "quiz-ts-03-c", "name": "c", "value": "void" },
-        { "id": "quiz-ts-03-d", "name": "d", "value": "never" },
-        { "id": "quiz-ts-03-e", "name": "e", "value": "object" }
+        { "id": "quiz-13-a", "name": "a", "value": "any" },
+        { "id": "quiz-13-b", "name": "b", "value": "unknown" },
+        { "id": "quiz-13-c", "name": "c", "value": "void" },
+        { "id": "quiz-13-d", "name": "d", "value": "never" },
+        { "id": "quiz-13-e", "name": "e", "value": "object" }
       ],
       "correctAnswersIds": ["a", "b"],
       "explanation": "`any` and `unknown` can hold any value. void is for no return, never for unreachable code, object for non-primitive objects."
     }
   },
   {
-    "id": "quiz-react-03",
+    "id": "quiz-14",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following are valid ways to create a React component?",
       "options": [
         {
-          "id": "quiz-react-03-a",
+          "id": "quiz-14-a",
           "name": "a",
           "value": "function MyComponent() {}"
         },
         {
-          "id": "quiz-react-03-b",
+          "id": "quiz-14-b",
           "name": "b",
           "value": "class MyComponent extends React.Component {}"
         },
         {
-          "id": "quiz-react-03-c",
+          "id": "quiz-14-c",
           "name": "c",
           "value": "const MyComponent = () => {}"
         },
         {
-          "id": "quiz-react-03-d",
+          "id": "quiz-14-d",
           "name": "d",
           "value": "component MyComponent {}"
         },
         {
-          "id": "quiz-react-03-e",
+          "id": "quiz-14-e",
           "name": "e",
           "value": "function MyComponent() { return <div />; }"
         }
@@ -294,68 +294,68 @@
     }
   },
   {
-    "id": "quiz-node-03",
+    "id": "quiz-15",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are core Node.js modules?",
       "options": [
-        { "id": "quiz-node-03-a", "name": "a", "value": "fs" },
-        { "id": "quiz-node-03-b", "name": "b", "value": "http" },
-        { "id": "quiz-node-03-c", "name": "c", "value": "express" },
-        { "id": "quiz-node-03-d", "name": "d", "value": "path" },
-        { "id": "quiz-node-03-e", "name": "e", "value": "lodash" }
+        { "id": "quiz-15-a", "name": "a", "value": "fs" },
+        { "id": "quiz-15-b", "name": "b", "value": "http" },
+        { "id": "quiz-15-c", "name": "c", "value": "express" },
+        { "id": "quiz-15-d", "name": "d", "value": "path" },
+        { "id": "quiz-15-e", "name": "e", "value": "lodash" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
       "explanation": "fs, http, and path are core Node.js modules. express and lodash are third-party packages."
     }
   },
   {
-    "id": "quiz-js-07",
+    "id": "quiz-16",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which methods can convert a string to a number?",
       "options": [
-        { "id": "quiz-js-07-a", "name": "a", "value": "String()" },
-        { "id": "quiz-js-07-b", "name": "b", "value": "parseInt()" },
-        { "id": "quiz-js-07-c", "name": "c", "value": "parseFloat()" },
-        { "id": "quiz-js-07-d", "name": "d", "value": "toString()" },
-        { "id": "quiz-js-07-e", "name": "e", "value": "Number()" }
+        { "id": "quiz-16-a", "name": "a", "value": "String()" },
+        { "id": "quiz-16-b", "name": "b", "value": "parseInt()" },
+        { "id": "quiz-16-c", "name": "c", "value": "parseFloat()" },
+        { "id": "quiz-16-d", "name": "d", "value": "toString()" },
+        { "id": "quiz-16-e", "name": "e", "value": "Number()" }
       ],
       "correctAnswersIds": ["b", "c", "e"],
       "explanation": "`Number()`, `parseInt()`, and `parseFloat()` convert strings to numbers. `toString()` does the opposite."
     }
   },
   {
-    "id": "quiz-js-08",
+    "id": "quiz-17",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which statements about JavaScript closures are true?",
       "options": [
         {
-          "id": "quiz-js-08-a",
+          "id": "quiz-17-a",
           "name": "a",
           "value": "Closures only work inside loops"
         },
         {
-          "id": "quiz-js-08-b",
+          "id": "quiz-17-b",
           "name": "b",
           "value": "Closures can access variables outside their scope"
         },
         {
-          "id": "quiz-js-08-c",
+          "id": "quiz-17-c",
           "name": "c",
           "value": "Closures are only used with async code"
         },
         {
-          "id": "quiz-js-08-d",
+          "id": "quiz-17-d",
           "name": "d",
           "value": "Closures prevent garbage collection"
         },
         {
-          "id": "quiz-js-08-e",
+          "id": "quiz-17-e",
           "name": "e",
           "value": "A closure is a function that remembers its lexical scope"
         }
@@ -365,26 +365,26 @@
     }
   },
   {
-    "id": "quiz-ts-04",
+    "id": "quiz-18",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following are valid ways to define a tuple in TypeScript?",
       "options": [
         {
-          "id": "quiz-ts-04-a",
+          "id": "quiz-18-a",
           "name": "a",
           "value": "let t: [string, number]"
         },
         {
-          "id": "quiz-ts-04-b",
+          "id": "quiz-18-b",
           "name": "b",
           "value": "let t: [number, string, boolean]"
         },
-        { "id": "quiz-ts-04-c", "name": "c", "value": "let t: Array<any>" },
-        { "id": "quiz-ts-04-d", "name": "d", "value": "let t: [number]" },
+        { "id": "quiz-18-c", "name": "c", "value": "let t: Array<any>" },
+        { "id": "quiz-18-d", "name": "d", "value": "let t: [number]" },
         {
-          "id": "quiz-ts-04-e",
+          "id": "quiz-18-e",
           "name": "e",
           "value": "let t: tuple<number, string>"
         }
@@ -394,161 +394,161 @@
     }
   },
   {
-    "id": "quiz-react-04",
+    "id": "quiz-19",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following are valid lifecycle methods in class components?",
       "options": [
-        { "id": "quiz-react-04-a", "name": "a", "value": "componentDidMount" },
+        { "id": "quiz-19-a", "name": "a", "value": "componentDidMount" },
         {
-          "id": "quiz-react-04-b",
+          "id": "quiz-19-b",
           "name": "b",
           "value": "componentWillUnmount"
         },
-        { "id": "quiz-react-04-c", "name": "c", "value": "render" },
-        { "id": "quiz-react-04-d", "name": "d", "value": "useEffect" },
-        { "id": "quiz-react-04-e", "name": "e", "value": "componentDidUpdate" }
+        { "id": "quiz-19-c", "name": "c", "value": "render" },
+        { "id": "quiz-19-d", "name": "d", "value": "useEffect" },
+        { "id": "quiz-19-e", "name": "e", "value": "componentDidUpdate" }
       ],
       "correctAnswersIds": ["b", "c", "e"],
       "explanation": "Lifecycle methods include componentDidMount, componentWillUnmount, componentDidUpdate, and render. useEffect is a hook for functional components."
     }
   },
   {
-    "id": "quiz-node-04",
+    "id": "quiz-20",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are valid ways to handle asynchronous code in Node.js?",
       "options": [
-        { "id": "quiz-node-04-a", "name": "a", "value": "callbacks" },
-        { "id": "quiz-node-04-b", "name": "b", "value": "Promises" },
-        { "id": "quiz-node-04-c", "name": "c", "value": "async/await" },
-        { "id": "quiz-node-04-d", "name": "d", "value": "synchronous loops" },
-        { "id": "quiz-node-04-e", "name": "e", "value": "setTimeout" }
+        { "id": "quiz-20-a", "name": "a", "value": "callbacks" },
+        { "id": "quiz-20-b", "name": "b", "value": "Promises" },
+        { "id": "quiz-20-c", "name": "c", "value": "async/await" },
+        { "id": "quiz-20-d", "name": "d", "value": "synchronous loops" },
+        { "id": "quiz-20-e", "name": "e", "value": "setTimeout" }
       ],
       "correctAnswersIds": ["a", "b", "c", "e"],
       "explanation": "Node.js supports callbacks, Promises, async/await, and setTimeout for async code. Synchronous loops block the event loop."
     }
   },
   {
-    "id": "quiz-js-09",
+    "id": "quiz-21",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are ways to create objects in JavaScript?",
       "options": [
         {
-          "id": "quiz-js-09-a",
+          "id": "quiz-21-a",
           "name": "a",
           "value": "Object literal `{}`"
         },
-        { "id": "quiz-js-09-b", "name": "b", "value": "new Object()" },
-        { "id": "quiz-js-09-c", "name": "c", "value": "Object.create()" },
-        { "id": "quiz-js-09-d", "name": "d", "value": "Array()" },
-        { "id": "quiz-js-09-e", "name": "e", "value": "Function()" }
+        { "id": "quiz-21-b", "name": "b", "value": "new Object()" },
+        { "id": "quiz-21-c", "name": "c", "value": "Object.create()" },
+        { "id": "quiz-21-d", "name": "d", "value": "Array()" },
+        { "id": "quiz-21-e", "name": "e", "value": "Function()" }
       ],
       "correctAnswersIds": ["a", "b", "c", "e"],
       "explanation": "Objects can be created via literals, constructors, Object.create(), and functions. Array() creates an array."
     }
   },
   {
-    "id": "quiz-js-10",
+    "id": "quiz-22",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of these functions are higher-order functions?",
       "options": [
-        { "id": "quiz-js-10-a", "name": "a", "value": "map()" },
-        { "id": "quiz-js-10-b", "name": "b", "value": "filter()" },
-        { "id": "quiz-js-10-c", "name": "c", "value": "reduce()" },
-        { "id": "quiz-js-10-d", "name": "d", "value": "for loop" },
-        { "id": "quiz-js-10-e", "name": "e", "value": "forEach()" }
+        { "id": "quiz-22-a", "name": "a", "value": "map()" },
+        { "id": "quiz-22-b", "name": "b", "value": "filter()" },
+        { "id": "quiz-22-c", "name": "c", "value": "reduce()" },
+        { "id": "quiz-22-d", "name": "d", "value": "for loop" },
+        { "id": "quiz-22-e", "name": "e", "value": "forEach()" }
       ],
       "correctAnswersIds": ["a", "b", "c", "e"],
       "explanation": "Higher-order functions are functions that take other functions as arguments or return functions."
     }
   },
   {
-    "id": "quiz-ts-05",
+    "id": "quiz-23",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following are valid TypeScript access modifiers?",
       "options": [
-        { "id": "quiz-ts-05-a", "name": "a", "value": "public" },
-        { "id": "quiz-ts-05-b", "name": "b", "value": "private" },
-        { "id": "quiz-ts-05-c", "name": "c", "value": "protected" },
-        { "id": "quiz-ts-05-d", "name": "d", "value": "internal" },
-        { "id": "quiz-ts-05-e", "name": "e", "value": "readonly" }
+        { "id": "quiz-23-a", "name": "a", "value": "public" },
+        { "id": "quiz-23-b", "name": "b", "value": "private" },
+        { "id": "quiz-23-c", "name": "c", "value": "protected" },
+        { "id": "quiz-23-d", "name": "d", "value": "internal" },
+        { "id": "quiz-23-e", "name": "e", "value": "readonly" }
       ],
       "correctAnswersIds": ["a", "b", "c", "e"],
       "explanation": "TypeScript supports public, private, protected, and readonly modifiers. 'internal' does not exist."
     }
   },
   {
-    "id": "quiz-react-05",
+    "id": "quiz-24",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are valid ways to create an array in JavaScript?",
       "options": [
-        { "id": "quiz-react-05-a", "name": "a", "value": "[]" },
-        { "id": "quiz-react-05-b", "name": "b", "value": "new Array(5)" },
-        { "id": "quiz-react-05-c", "name": "c", "value": "Array.of(1,2,3)" },
-        { "id": "quiz-react-05-d", "name": "d", "value": "{}" },
-        { "id": "quiz-react-05-e", "name": "e", "value": "Array(3)" }
+        { "id": "quiz-24-a", "name": "a", "value": "[]" },
+        { "id": "quiz-24-b", "name": "b", "value": "new Array(5)" },
+        { "id": "quiz-24-c", "name": "c", "value": "Array.of(1,2,3)" },
+        { "id": "quiz-24-d", "name": "d", "value": "{}" },
+        { "id": "quiz-24-e", "name": "e", "value": "Array(3)" }
       ],
       "correctAnswersIds": ["a", "b", "c", "e"],
       "explanation": "Arrays can be created with [], new Array(), Array.of(). {} creates an object, not an array."
     }
   },
   {
-    "id": "quiz-node-05",
+    "id": "quiz-25",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are ways to create an HTTP server in Node.js?",
       "options": [
-        { "id": "quiz-node-05-a", "name": "a", "value": "http.createServer()" },
-        { "id": "quiz-node-05-b", "name": "b", "value": "express()" },
-        { "id": "quiz-node-05-c", "name": "c", "value": "fs.createServer()" },
-        { "id": "quiz-node-05-d", "name": "d", "value": "net.createServer()" },
-        { "id": "quiz-node-05-e", "name": "e", "value": "server.listen()" }
+        { "id": "quiz-25-a", "name": "a", "value": "http.createServer()" },
+        { "id": "quiz-25-b", "name": "b", "value": "express()" },
+        { "id": "quiz-25-c", "name": "c", "value": "fs.createServer()" },
+        { "id": "quiz-25-d", "name": "d", "value": "net.createServer()" },
+        { "id": "quiz-25-e", "name": "e", "value": "server.listen()" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
       "explanation": "You can create servers using http.createServer(), express(), and net.createServer(). fs module does not create servers."
     }
   },
   {
-    "id": "quiz-js-11",
+    "id": "quiz-26",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following statements are true about `this` in JavaScript?",
       "options": [
         {
-          "id": "quiz-js-11-a",
+          "id": "quiz-26-a",
           "name": "a",
           "value": "`this` refers to the global object in a function call"
         },
         {
-          "id": "quiz-js-11-b",
+          "id": "quiz-26-b",
           "name": "b",
           "value": "`this` is always the function itself"
         },
         {
-          "id": "quiz-js-11-c",
+          "id": "quiz-26-c",
           "name": "c",
           "value": "`this` refers to the object calling the method"
         },
         {
-          "id": "quiz-js-11-d",
+          "id": "quiz-26-d",
           "name": "d",
           "value": "Arrow functions do not have their own `this`"
         },
         {
-          "id": "quiz-js-11-e",
+          "id": "quiz-26-e",
           "name": "e",
           "value": "`this` is undefined in strict mode functions"
         }
@@ -558,26 +558,26 @@
     }
   },
   {
-    "id": "quiz-js-12",
+    "id": "quiz-27",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are ways to declare functions in JavaScript?",
       "options": [
         {
-          "id": "quiz-js-12-a",
+          "id": "quiz-27-a",
           "name": "a",
           "value": "Function declaration"
         },
         {
-          "id": "quiz-js-12-b",
+          "id": "quiz-27-b",
           "name": "b",
           "value": "Function expression"
         },
-        { "id": "quiz-js-12-c", "name": "c", "value": "Arrow function" },
-        { "id": "quiz-js-12-d", "name": "d", "value": "Class method" },
+        { "id": "quiz-27-c", "name": "c", "value": "Arrow function" },
+        { "id": "quiz-27-d", "name": "d", "value": "Class method" },
         {
-          "id": "quiz-js-12-e",
+          "id": "quiz-27-e",
           "name": "e",
           "value": "Object literal property"
         }
@@ -587,55 +587,55 @@
     }
   },
   {
-    "id": "quiz-ts-06",
+    "id": "quiz-28",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following are valid ways to make a property optional in TypeScript?",
       "options": [
-        { "id": "quiz-ts-06-a", "name": "a", "value": "name?: string" },
+        { "id": "quiz-28-a", "name": "a", "value": "name?: string" },
         {
-          "id": "quiz-ts-06-b",
+          "id": "quiz-28-b",
           "name": "b",
           "value": "age: number | undefined"
         },
-        { "id": "quiz-ts-06-c", "name": "c", "value": "address?= string" },
-        { "id": "quiz-ts-06-d", "name": "d", "value": "email?: string" },
-        { "id": "quiz-ts-06-e", "name": "e", "value": "phone: string | null" }
+        { "id": "quiz-28-c", "name": "c", "value": "address?= string" },
+        { "id": "quiz-28-d", "name": "d", "value": "email?: string" },
+        { "id": "quiz-28-e", "name": "e", "value": "phone: string | null" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
       "explanation": "Optional properties can be declared using `?` or by union with undefined. `?=` is invalid. Union with null is not optional."
     }
   },
   {
-    "id": "quiz-react-06",
+    "id": "quiz-29",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following are valid ways to handle events in React?",
       "options": [
         {
-          "id": "quiz-react-06-a",
+          "id": "quiz-29-a",
           "name": "a",
           "value": "<button onclick={handleClick} />"
         },
         {
-          "id": "quiz-react-06-b",
+          "id": "quiz-29-b",
           "name": "b",
           "value": "<button onClick={handleClick} />"
         },
         {
-          "id": "quiz-react-06-c",
+          "id": "quiz-29-c",
           "name": "c",
           "value": "const handleClick = () => {}"
         },
         {
-          "id": "quiz-react-06-d",
+          "id": "quiz-29-d",
           "name": "d",
           "value": "this.handleClick = this.handleClick.bind(this)"
         },
         {
-          "id": "quiz-react-06-e",
+          "id": "quiz-29-e",
           "name": "e",
           "value": "onClick={handleClick}"
         }
@@ -645,51 +645,51 @@
     }
   },
   {
-    "id": "quiz-node-06",
+    "id": "quiz-30",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are ways to read files in Node.js?",
       "options": [
-        { "id": "quiz-node-06-a", "name": "a", "value": "fs.readFileSync()" },
-        { "id": "quiz-node-06-b", "name": "b", "value": "fs.readFile()" },
-        { "id": "quiz-node-06-c", "name": "c", "value": "fs.read()" },
-        { "id": "quiz-node-06-d", "name": "d", "value": "fs.readStream()" },
-        { "id": "quiz-node-06-e", "name": "e", "value": "fs.open()" }
+        { "id": "quiz-30-a", "name": "a", "value": "fs.readFileSync()" },
+        { "id": "quiz-30-b", "name": "b", "value": "fs.readFile()" },
+        { "id": "quiz-30-c", "name": "c", "value": "fs.read()" },
+        { "id": "quiz-30-d", "name": "d", "value": "fs.readStream()" },
+        { "id": "quiz-30-e", "name": "e", "value": "fs.open()" }
       ],
       "correctAnswersIds": ["a", "b"],
       "explanation": "fs.readFileSync() and fs.readFile() are used to read files. fs.readStream() is incorrect. fs.open() opens files but does not read them directly."
     }
   },
   {
-    "id": "quiz-js-13",
+    "id": "quiz-31",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following statements about ES6 modules are true?",
       "options": [
         {
-          "id": "quiz-js-13-a",
+          "id": "quiz-31-a",
           "name": "a",
           "value": "Modules can export multiple bindings"
         },
         {
-          "id": "quiz-js-13-b",
+          "id": "quiz-31-b",
           "name": "b",
           "value": "Modules can have a default export"
         },
         {
-          "id": "quiz-js-13-c",
+          "id": "quiz-31-c",
           "name": "c",
           "value": "Modules are loaded synchronously"
         },
         {
-          "id": "quiz-js-13-d",
+          "id": "quiz-31-d",
           "name": "d",
           "value": "Modules are always in strict mode"
         },
         {
-          "id": "quiz-js-13-e",
+          "id": "quiz-31-e",
           "name": "e",
           "value": "Modules can only export functions"
         }
@@ -699,34 +699,34 @@
     }
   },
   {
-    "id": "quiz-js-14",
+    "id": "quiz-32",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are valid ways to define default function parameters?",
       "options": [
         {
-          "id": "quiz-js-14-a",
+          "id": "quiz-32-a",
           "name": "a",
           "value": "function f(a = 1) {}"
         },
         {
-          "id": "quiz-js-14-b",
+          "id": "quiz-32-b",
           "name": "b",
           "value": "function f(a) { a = a || 1; }"
         },
         {
-          "id": "quiz-js-14-c",
+          "id": "quiz-32-c",
           "name": "c",
           "value": "function f([a = 1]) {}"
         },
         {
-          "id": "quiz-js-14-d",
+          "id": "quiz-32-d",
           "name": "d",
           "value": "function f(...a = 1) {}"
         },
         {
-          "id": "quiz-js-14-e",
+          "id": "quiz-32-e",
           "name": "e",
           "value": "function f({a = 1}) {}"
         }
@@ -736,76 +736,76 @@
     }
   },
   {
-    "id": "quiz-ts-07",
+    "id": "quiz-33",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following TypeScript features help with type safety?",
       "options": [
-        { "id": "quiz-ts-07-a", "name": "a", "value": "Type inference" },
-        { "id": "quiz-ts-07-b", "name": "b", "value": "Generics" },
-        { "id": "quiz-ts-07-c", "name": "c", "value": "Any type" },
-        { "id": "quiz-ts-07-d", "name": "d", "value": "Enums" },
-        { "id": "quiz-ts-07-e", "name": "e", "value": "Type aliases" }
+        { "id": "quiz-33-a", "name": "a", "value": "Type inference" },
+        { "id": "quiz-33-b", "name": "b", "value": "Generics" },
+        { "id": "quiz-33-c", "name": "c", "value": "Any type" },
+        { "id": "quiz-33-d", "name": "d", "value": "Enums" },
+        { "id": "quiz-33-e", "name": "e", "value": "Type aliases" }
       ],
       "correctAnswersIds": ["a", "b", "d", "e"],
       "explanation": "Type inference, generics, enums, and type aliases improve type safety. 'any' disables type checking."
     }
   },
   {
-    "id": "quiz-react-07",
+    "id": "quiz-34",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following are valid ways to update state in a functional component?",
       "options": [
-        { "id": "quiz-react-07-a", "name": "a", "value": "setCount(5)" },
+        { "id": "quiz-34-a", "name": "a", "value": "setCount(5)" },
         {
-          "id": "quiz-react-07-b",
+          "id": "quiz-34-b",
           "name": "b",
           "value": "setCount(prev => prev + 1)"
         },
         {
-          "id": "quiz-react-07-c",
+          "id": "quiz-34-c",
           "name": "c",
           "value": "this.setState({ count: 5 })"
         },
-        { "id": "quiz-react-07-d", "name": "d", "value": "useState(5)" },
-        { "id": "quiz-react-07-e", "name": "e", "value": "setCount(count + 1)" }
+        { "id": "quiz-34-d", "name": "d", "value": "useState(5)" },
+        { "id": "quiz-34-e", "name": "e", "value": "setCount(count + 1)" }
       ],
       "correctAnswersIds": ["a", "b", "e"],
       "explanation": "In functional components, you update state via the setter returned by useState. 'this.setState' is for class components, and calling useState again does not update state."
     }
   },
   {
-    "id": "quiz-node-07",
+    "id": "quiz-35",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are true about the Node.js event loop?",
       "options": [
         {
-          "id": "quiz-node-07-a",
+          "id": "quiz-35-a",
           "name": "a",
           "value": "handles asynchronous operations"
         },
         {
-          "id": "quiz-node-07-b",
+          "id": "quiz-35-b",
           "name": "b",
           "value": "runs on multiple threads by default"
         },
         {
-          "id": "quiz-node-07-c",
+          "id": "quiz-35-c",
           "name": "c",
           "value": "uses a single thread for JavaScript execution"
         },
         {
-          "id": "quiz-node-07-d",
+          "id": "quiz-35-d",
           "name": "d",
           "value": "blocks the main thread for I/O"
         },
         {
-          "id": "quiz-node-07-e",
+          "id": "quiz-35-e",
           "name": "e",
           "value": "manages callback queues"
         }
@@ -815,85 +815,85 @@
     }
   },
   {
-    "id": "quiz-js-15",
+    "id": "quiz-36",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are ways to iterate over arrays in JavaScript?",
       "options": [
-        { "id": "quiz-js-15-a", "name": "a", "value": "Object.keys()" },
-        { "id": "quiz-js-15-b", "name": "b", "value": "while loop" },
-        { "id": "quiz-js-15-c", "name": "c", "value": "map()" },
-        { "id": "quiz-js-15-d", "name": "d", "value": "forEach()" },
-        { "id": "quiz-js-15-e", "name": "e", "value": "for loop" }
+        { "id": "quiz-36-a", "name": "a", "value": "Object.keys()" },
+        { "id": "quiz-36-b", "name": "b", "value": "while loop" },
+        { "id": "quiz-36-c", "name": "c", "value": "map()" },
+        { "id": "quiz-36-d", "name": "d", "value": "forEach()" },
+        { "id": "quiz-36-e", "name": "e", "value": "for loop" }
       ],
       "correctAnswersIds": ["b", "c", "d", "e"],
       "explanation": "Arrays can be iterated using loops (for, while) and higher-order functions like map() and forEach(). Object.keys() is for objects."
     }
   },
   {
-    "id": "quiz-js-16",
+    "id": "quiz-37",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are ways to declare variables in JavaScript?",
       "options": [
-        { "id": "quiz-js-16-a", "name": "a", "value": "define" },
-        { "id": "quiz-js-16-b", "name": "b", "value": "let" },
-        { "id": "quiz-js-16-c", "name": "c", "value": "const" },
-        { "id": "quiz-js-16-d", "name": "d", "value": "var" },
-        { "id": "quiz-js-16-e", "name": "e", "value": "int" }
+        { "id": "quiz-37-a", "name": "a", "value": "define" },
+        { "id": "quiz-37-b", "name": "b", "value": "let" },
+        { "id": "quiz-37-c", "name": "c", "value": "const" },
+        { "id": "quiz-37-d", "name": "d", "value": "var" },
+        { "id": "quiz-37-e", "name": "e", "value": "int" }
       ],
       "correctAnswersIds": ["b", "c", "d"],
       "explanation": "`var`, `let` and `const` are valid variable declarations in JavaScript."
     }
   },
   {
-    "id": "quiz-ts-08",
+    "id": "quiz-38",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following TypeScript types can represent values that will never occur?",
       "options": [
-        { "id": "quiz-ts-08-a", "name": "a", "value": "unknown" },
-        { "id": "quiz-ts-08-b", "name": "b", "value": "void" },
-        { "id": "quiz-ts-08-c", "name": "c", "value": "undefined" },
-        { "id": "quiz-ts-08-d", "name": "d", "value": "null" },
-        { "id": "quiz-ts-08-e", "name": "e", "value": "never" }
+        { "id": "quiz-38-a", "name": "a", "value": "unknown" },
+        { "id": "quiz-38-b", "name": "b", "value": "void" },
+        { "id": "quiz-38-c", "name": "c", "value": "undefined" },
+        { "id": "quiz-38-d", "name": "d", "value": "null" },
+        { "id": "quiz-38-e", "name": "e", "value": "never" }
       ],
       "correctAnswersIds": ["e"],
       "explanation": "`never` represents values that never occur. Void, undefined, null, unknown have different meanings."
     }
   },
   {
-    "id": "quiz-react-08",
+    "id": "quiz-39",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following are valid ways to conditionally render JSX?",
       "options": [
         {
-          "id": "quiz-react-08-a",
+          "id": "quiz-39-a",
           "name": "a",
           "value": "condition? render/else"
         },
         {
-          "id": "quiz-react-08-b",
+          "id": "quiz-39-b",
           "name": "b",
           "value": "condition && render/element"
         },
         {
-          "id": "quiz-react-08-c",
+          "id": "quiz-39-c",
           "name": "c",
           "value": "if (condition) {render}"
         },
         {
-          "id": "quiz-react-08-d",
+          "id": "quiz-39-d",
           "name": "d",
           "value": "switch (condition) {case:true:render}"
         },
         {
-          "id": "quiz-react-08-e",
+          "id": "quiz-39-e",
           "name": "e",
           "value": "render/element/always"
         }
@@ -903,68 +903,68 @@
     }
   },
   {
-    "id": "quiz-node-08",
+    "id": "quiz-40",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are valid npm commands?",
       "options": [
-        { "id": "quiz-node-08-a", "name": "a", "value": "npm install package" },
-        { "id": "quiz-node-08-b", "name": "b", "value": "npm init project" },
-        { "id": "quiz-node-08-c", "name": "c", "value": "npm start" },
-        { "id": "quiz-node-08-d", "name": "d", "value": "npm run script" },
-        { "id": "quiz-node-08-e", "name": "e", "value": "npm create module" }
+        { "id": "quiz-40-a", "name": "a", "value": "npm install package" },
+        { "id": "quiz-40-b", "name": "b", "value": "npm init project" },
+        { "id": "quiz-40-c", "name": "c", "value": "npm start" },
+        { "id": "quiz-40-d", "name": "d", "value": "npm run script" },
+        { "id": "quiz-40-e", "name": "e", "value": "npm create module" }
       ],
       "correctAnswersIds": ["a", "c", "d"],
       "explanation": "npm install, npm start, and npm run are valid. npm init is valid but not 'npm init/project'. npm create/module is invalid."
     }
   },
   {
-    "id": "quiz-js-17",
+    "id": "quiz-41",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following values are considered truthy in JavaScript?",
       "options": [
-        { "id": "quiz-js-17-a", "name": "a", "value": "true" },
-        { "id": "quiz-js-17-b", "name": "b", "value": "{}" },
-        { "id": "quiz-js-17-c", "name": "c", "value": "0" },
-        { "id": "quiz-js-17-d", "name": "d", "value": "[]" },
-        { "id": "quiz-js-17-e", "name": "e", "value": "null" }
+        { "id": "quiz-41-a", "name": "a", "value": "true" },
+        { "id": "quiz-41-b", "name": "b", "value": "{}" },
+        { "id": "quiz-41-c", "name": "c", "value": "0" },
+        { "id": "quiz-41-d", "name": "d", "value": "[]" },
+        { "id": "quiz-41-e", "name": "e", "value": "null" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
       "explanation": "true, empty object `{}`, and empty array `[]` are truthy. 0 and null are falsy."
     }
   },
   {
-    "id": "quiz-js-18",
+    "id": "quiz-42",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following statements are valid ways to write a function?",
       "options": [
         {
-          "id": "quiz-js-18-a",
+          "id": "quiz-42-a",
           "name": "a",
           "value": "function greet() {}"
         },
         {
-          "id": "quiz-js-18-b",
+          "id": "quiz-42-b",
           "name": "b",
           "value": "const greet = function() {}"
         },
         {
-          "id": "quiz-js-18-c",
+          "id": "quiz-42-c",
           "name": "c",
           "value": "const greet = () => {}"
         },
         {
-          "id": "quiz-js-18-d",
+          "id": "quiz-42-d",
           "name": "d",
           "value": "function = greet() {}"
         },
         {
-          "id": "quiz-js-18-e",
+          "id": "quiz-42-e",
           "name": "e",
           "value": "const function greet() {}"
         }
@@ -974,30 +974,30 @@
     }
   },
   {
-    "id": "quiz-ts-09",
+    "id": "quiz-43",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following are valid TypeScript array types?",
       "options": [
         {
-          "id": "quiz-ts-09-a",
+          "id": "quiz-43-a",
           "name": "a",
           "value": "let arr: array<number>"
         },
-        { "id": "quiz-ts-09-b", "name": "b", "value": "let arr: number[]" },
+        { "id": "quiz-43-b", "name": "b", "value": "let arr: number[]" },
         {
-          "id": "quiz-ts-09-c",
+          "id": "quiz-43-c",
           "name": "c",
           "value": "let arr: Array<string>"
         },
         {
-          "id": "quiz-ts-09-d",
+          "id": "quiz-43-d",
           "name": "d",
           "value": "let arr: ReadonlyArray<boolean>"
         },
         {
-          "id": "quiz-ts-209-e",
+          "id": "quiz-43-e",
           "name": "e",
           "value": "let arr: [number, string]"
         }
@@ -1007,34 +1007,34 @@
     }
   },
   {
-    "id": "quiz-react-09",
+    "id": "quiz-44",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following hooks are used for side effects or context access?",
       "options": [
         {
-          "id": "quiz-react-09-a",
+          "id": "quiz-44-a",
           "name": "a",
           "value": "useState/useReducer"
         },
         {
-          "id": "quiz-react-09-b",
+          "id": "quiz-44-b",
           "name": "b",
           "value": "useEffect/useContext"
         },
         {
-          "id": "quiz-react-09-c",
+          "id": "quiz-44-c",
           "name": "c",
           "value": "useMemo/useCallback"
         },
         {
-          "id": "quiz-react-09-d",
+          "id": "quiz-44-d",
           "name": "d",
           "value": "useRef/useLayoutEffect"
         },
         {
-          "id": "quiz-react-09-e",
+          "id": "quiz-44-e",
           "name": "e",
           "value": "useDebugValue/useState"
         }
@@ -1044,143 +1044,143 @@
     }
   },
   {
-    "id": "quiz-node-09",
+    "id": "quiz-45",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are valid Node.js ways to export functionality?",
       "options": [
         {
-          "id": "quiz-node-09-a",
+          "id": "quiz-45-a",
           "name": "a",
           "value": "module.exports/object"
         },
-        { "id": "quiz-node-09-b", "name": "b", "value": "exports.method" },
-        { "id": "quiz-node-09-c", "name": "c", "value": "export default" },
-        { "id": "quiz-node-09-d", "name": "d", "value": "export function" },
-        { "id": "quiz-node-09-e", "name": "e", "value": "require.export" }
+        { "id": "quiz-45-b", "name": "b", "value": "exports.method" },
+        { "id": "quiz-45-c", "name": "c", "value": "export default" },
+        { "id": "quiz-45-d", "name": "d", "value": "export function" },
+        { "id": "quiz-45-e", "name": "e", "value": "require.export" }
       ],
       "correctAnswersIds": ["a", "b", "c", "d"],
       "explanation": "Node.js supports module.exports, exports.method (CommonJS), and export default/function (ESM). require.export is invalid."
     }
   },
   {
-    "id": "quiz-js-19",
+    "id": "quiz-46",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are valid ways to access object properties?",
       "options": [
-        { "id": "quiz-js-19-a", "name": "a", "value": "object.key" },
-        { "id": "quiz-js-19-b", "name": "b", "value": "object['key']" },
-        { "id": "quiz-js-19-c", "name": "c", "value": "object->key" },
-        { "id": "quiz-js-19-d", "name": "d", "value": "object?.key" },
-        { "id": "quiz-js-19-e", "name": "e", "value": "object#key" }
+        { "id": "quiz-46-a", "name": "a", "value": "object.key" },
+        { "id": "quiz-46-b", "name": "b", "value": "object['key']" },
+        { "id": "quiz-46-c", "name": "c", "value": "object->key" },
+        { "id": "quiz-46-d", "name": "d", "value": "object?.key" },
+        { "id": "quiz-46-e", "name": "e", "value": "object#key" }
       ],
       "correctAnswersIds": ["a", "b", "d"],
       "explanation": "Dot notation, bracket notation, and optional chaining ('?.') are valid."
     }
   },
   {
-    "id": "quiz-js-20",
+    "id": "quiz-47",
     "type": "quiz",
     "tags": ["javaScript"],
     "payload": {
       "question": "Which of the following are valid ways to comment in JavaScript?",
       "options": [
-        { "id": "quiz-js-20-a", "name": "a", "value": "// single line" },
-        { "id": "quiz-js-20-b", "name": "b", "value": "/* multi-line */" },
+        { "id": "quiz-47-a", "name": "a", "value": "// single line" },
+        { "id": "quiz-47-b", "name": "b", "value": "/* multi-line */" },
         {
-          "id": "quiz-js-20-c",
+          "id": "quiz-47-c",
           "name": "c",
           "value": "<!-- html style -->"
         },
-        { "id": "quiz-js-20-d", "name": "d", "value": "# hash style" },
-        { "id": "quiz-js-20-e", "name": "e", "value": "`template comment`" }
+        { "id": "quiz-47-d", "name": "d", "value": "# hash style" },
+        { "id": "quiz-47-e", "name": "e", "value": "`template comment`" }
       ],
       "correctAnswersIds": ["a", "b"],
       "explanation": "JS comments use // for single line and /* */ for multi-line. HTML, hash style, and template literals are invalid."
     }
   },
   {
-    "id": "quiz-ts-10",
+    "id": "quiz-48",
     "type": "quiz",
     "tags": ["typeScript"],
     "payload": {
       "question": "Which of the following are valid TypeScript union types?",
       "options": [
-        { "id": "quiz-ts-10-a", "name": "a", "value": "type Status = string" },
+        { "id": "quiz-48-a", "name": "a", "value": "type Status = string" },
         {
-          "id": "quiz-ts-10-b",
+          "id": "quiz-48-b",
           "name": "b",
           "value": "type Status = 'success' | 'error'"
         },
         {
-          "id": "quiz-ts-10-c",
+          "id": "quiz-48-c",
           "name": "c",
           "value": "type Status = number | boolean"
         },
         {
-          "id": "quiz-ts-10-d",
+          "id": "quiz-48-d",
           "name": "d",
           "value": "type Status = string & number"
         },
-        { "id": "quiz-ts-10-e", "name": "e", "value": "type Status = any" }
+        { "id": "quiz-48-e", "name": "e", "value": "type Status = any" }
       ],
       "correctAnswersIds": ["b", "c"],
       "explanation": "Union types combine multiple types using |. Intersections (&) and single types or any are not union types."
     }
   },
   {
-    "id": "quiz-react-10",
+    "id": "quiz-49",
     "type": "quiz",
     "tags": ["react"],
     "payload": {
       "question": "Which of the following are ways to prevent unnecessary re-renders?",
       "options": [
         {
-          "id": "quiz-react-10-a",
+          "id": "quiz-49-a",
           "name": "a",
           "value": "React.memo/component"
         },
         {
-          "id": "quiz-react-10-b",
+          "id": "quiz-49-b",
           "name": "b",
           "value": "useCallback/function"
         },
-        { "id": "quiz-react-10-c", "name": "c", "value": "useState/mount" },
-        { "id": "quiz-react-10-d", "name": "d", "value": "direct/mutation" },
-        { "id": "quiz-react-10-e", "name": "e", "value": "useEffect/render" }
+        { "id": "quiz-49-c", "name": "c", "value": "useState/mount" },
+        { "id": "quiz-49-d", "name": "d", "value": "direct/mutation" },
+        { "id": "quiz-49-e", "name": "e", "value": "useEffect/render" }
       ],
       "correctAnswersIds": ["a", "b"],
       "explanation": "React.memo prevents unnecessary re-render of components. useCallback memoizes functions to avoid passing new references."
     }
   },
   {
-    "id": "quiz-node-10",
+    "id": "quiz-50",
     "type": "quiz",
     "tags": ["nodeJS"],
     "payload": {
       "question": "Which of the following are true about Node.js streams?",
       "options": [
         {
-          "id": "quiz-node-10-a",
+          "id": "quiz-50-a",
           "name": "a",
           "value": "allow handling data in chunks"
         },
-        { "id": "quiz-node-10-b", "name": "b", "value": "readable/writable" },
+        { "id": "quiz-50-b", "name": "b", "value": "readable/writable" },
         {
-          "id": "quiz-node-10-c",
+          "id": "quiz-50-c",
           "name": "c",
           "value": "block the event loop"
         },
         {
-          "id": "quiz-node-10-d",
+          "id": "quiz-50-d",
           "name": "d",
           "value": "pipe data between streams"
         },
         {
-          "id": "quiz-node-10-e",
+          "id": "quiz-50-e",
           "name": "e",
           "value": "store all data in memory before processing"
         }

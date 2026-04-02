@@ -273,7 +273,7 @@
   {
     "id": "match-game-05",
     "type": "match-game",
-    "tags": ["nodejs"],
+    "tags": ["nodeJS"],
     "payload": [
       {
         "id": 49,
@@ -633,7 +633,7 @@
   {
     "id": "match-game-10",
     "type": "match-game",
-    "tags": ["nodejs"],
+    "tags": ["nodeJS"],
     "payload": [
       {
         "id": 109,

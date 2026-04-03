@@ -489,18 +489,18 @@
   {
     "id": "quiz-24",
     "type": "quiz",
-    "tags": ["javaScript"],
+    "tags": ["react"],
     "payload": {
-      "question": "Which of the following are valid ways to create an array in JavaScript?",
+      "question": "What is JSX in React?",
       "options": [
-        { "id": "quiz-24-a", "name": "a", "value": "[]" },
-        { "id": "quiz-24-b", "name": "b", "value": "new Array(5)" },
-        { "id": "quiz-24-c", "name": "c", "value": "Array.of(1,2,3)" },
-        { "id": "quiz-24-d", "name": "d", "value": "{}" },
-        { "id": "quiz-24-e", "name": "e", "value": "Array(3)" }
+        { "id": "quiz-24-a", "name": "a", "value": "JS syntax in HTML style" },
+        { "id": "quiz-24-b", "name": "b", "value": "A syntax extension" },
+        { "id": "quiz-24-c", "name": "c", "value": "Data fetching method" },
+        { "id": "quiz-24-d", "name": "d", "value": "React hook" },
+        { "id": "quiz-24-e", "name": "e", "value": "Describes React elements" }
       ],
-      "correctAnswersIds": ["a", "b", "c", "e"],
-      "explanation": "Arrays can be created with [], new Array(), Array.of(). {} creates an object, not an array."
+      "correctAnswersIds": ["b", "e"],
+      "explanation": "JSX is a syntax extension for JavaScript and a way to describe React elements."
     }
   },
   {

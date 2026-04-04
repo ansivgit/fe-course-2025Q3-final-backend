@@ -22,4 +22,5 @@ export const ROUTES = {
 export const DB_COLLECTIONS = {
   USERS: 'users',
   PROGRESS: 'progress',
+  DATA: 'data',
 };

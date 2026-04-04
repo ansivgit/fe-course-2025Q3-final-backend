@@ -1,21 +1,21 @@
 import { DataRepository } from '../data-access';
 import { BadRequestError } from '../errors';
-import { getWidgetSchema, type Widget, type WidgetValidation } from '../schemas';
+import { getWidgetSchema, type Widget, type WidgetType, type WidgetValidation } from '../schemas';
 import { validateWidgets } from '../utils';
 
 import { ERROR_MESSAGES } from '../constants';
 
 export class WidgetService {
-  private readonly widgetRepository: DataRepository;
+  private readonly dataRepository: DataRepository;
 
   constructor() {
-    this.widgetRepository = new DataRepository();
+    this.dataRepository = new DataRepository();
   }
 
-  public async getWidgetsByType(widgetType: string): Promise<Widget[]> {
-    const data: unknown = await this.widgetRepository.getWidgetsByType(widgetType);
+  public async getWidgetsByType(widgetType: WidgetType): Promise<Widget[]> {
+    const data: Widget[] = await this.dataRepository.getWidgetsByType(widgetType);
 
-    if (!data) {
+    if (data.length === 0) {
       throw new BadRequestError(ERROR_MESSAGES.BAD_REQUEST);
     }
 

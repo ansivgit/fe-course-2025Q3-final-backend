@@ -41,7 +41,7 @@ const widgetSchemas = {
   'match-game': MatchWidgetSchema,
 } as const;
 
-type WidgetType = keyof typeof widgetSchemas;
+export type WidgetType = keyof typeof widgetSchemas;
 
 const isWidgetType = (type: string): type is WidgetType => {
   return type in widgetSchemas;

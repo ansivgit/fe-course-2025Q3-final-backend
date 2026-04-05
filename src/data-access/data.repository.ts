@@ -1,10 +1,28 @@
+import type { Collection } from 'mongodb';
+
+import { DatabaseError } from '../errors';
+import type { Widget, WidgetType } from '../schemas';
+import { getDb } from './db-connection';
+
+import { DB_COLLECTIONS, ERROR_MESSAGES } from '../constants';
+
+const COLLECTION = DB_COLLECTIONS.DATA;
+
 export class DataRepository {
-  public async getWidgetsByType(widgetType: string): Promise<unknown> {
+  private async getDbCollection(widgetType: WidgetType): Promise<Collection<Widget>> {
     try {
-      const imported: { default: unknown } = await import(`../../data/widgets/${widgetType}.json`);
-      return imported.default;
+      const db = await getDb();
+
+      return db.collection(`${COLLECTION}/${widgetType}`);
     } catch {
-      return null;
+      throw new DatabaseError(ERROR_MESSAGES.DATABASE_ERROR);
     }
+  }
+
+  public async getWidgetsByType(widgetType: WidgetType): Promise<Widget[]> {
+    const collection = await this.getDbCollection(widgetType);
+    const widgets: Widget[] = await collection.find().toArray();
+
+    return widgets;
   }
 }

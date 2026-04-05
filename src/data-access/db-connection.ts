@@ -3,8 +3,10 @@ import 'dotenv/config';
 
 import { DatabaseError } from '../errors';
 
-const { DB_NAME, NODE_ENV, MONGO_URI_DEV, MONGO_URI_PROD } = process.env;
+const { MONGO_DB_NAME, NODE_ENV, MONGO_URI_DEV, MONGO_URI_PROD } = process.env;
+
 const mongoUri = NODE_ENV === 'development' ? MONGO_URI_DEV : MONGO_URI_PROD;
+const DB_NAME = MONGO_DB_NAME ?? 'Tandem-mern';
 
 if (!mongoUri) {
   throw new DatabaseError('Database URI is not defined');
@@ -34,7 +36,7 @@ const createConnection = async (): Promise<{ client: MongoClient; db: Db }> => {
       const client = new MongoClient(mongoUri, clientOptions);
 
       await client.connect();
-      const db = client.db(DB_NAME ?? 'Tandem-mern');
+      const db = client.db(DB_NAME);
 
       // check if the connection is working
       await db.command({ ping: 1 });

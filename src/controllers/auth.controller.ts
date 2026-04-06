@@ -42,7 +42,7 @@ export class AuthController {
 
       const user: UserProfile = await this.authService.signup(userData);
 
-      res.status(CONSTANTS.HTTP_STATUS_OK).send({
+      res.status(CONSTANTS.HTTP_STATUS_CREATED).send({
         data: user,
         error: null,
       });

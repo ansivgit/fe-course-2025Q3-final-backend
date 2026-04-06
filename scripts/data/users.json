@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Max",
+    "login": "max@example.com",
+    "password": "password1",
+    "createdAt": 1760551000000,
+    "updatedAt": 1773420956089
+  },
+  {
+    "name": "Leo",
+    "login": "leo@example.com",
+    "password": "password2",
+    "createdAt": 1700052000000,
+    "updatedAt": 1700052000000
+  },
+  {
+    "id": "77b1af41-e2a7-4448-97ac-92e8d57c166e",
+    "name": "Mia",
+    "login": "mia@example.com",
+    "password": "password3",
+    "createdAt": 1755000000000,
+    "updatedAt": 1765000000000
+  },
+  {
+    "name": "TestUser",
+    "login": "test@example.com",
+    "password": "test1234",
+    "createdAt": 1765000000000,
+    "updatedAt": 1768000000000
+  }
+]

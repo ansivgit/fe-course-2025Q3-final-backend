@@ -72,7 +72,7 @@ paths:
   /auth/login:
     post:
       tags:
-        - Login
+        - Auth
       security: []
       summary: Login
       description: Logins a user and returns a User object
@@ -111,7 +111,7 @@ paths:
   /auth/signup:
     post:
       tags:
-        - Signup
+        - Auth
       security: [ ]
       summary: Signup
       description: Signup a user
@@ -157,6 +157,190 @@ paths:
         409:
           description: Conflict. Login already exists
 
+  /user/{userId}:
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        description: User ID as string
+        schema:
+          type: string
+          example: '69c6c22185058ae5469e67db'
+    get:
+      tags:
+        - User
+      security: [ ]
+      summary: Get User profile
+      description: Get User's profile by ID
+      responses:
+        200:
+          description: The user profile
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Bad request. UserId is invalid (not a valid string)
+        404:
+          description: User not found
+
+  /user:
+    put:
+      tags:
+        - User
+      security: [ ]
+      summary: Update a user's name
+      description: Updates a user's name by ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                id:
+                  type: string
+                  length: 24
+                  example: '69c6c22185058ae5469e67db'
+                  description: UserId
+                name:
+                  type: string
+                  minLength: 3
+                  maxLength: 255
+                  example: 'NewUserName'
+                  description: New user name
+              required:
+                - id
+                - name
+      responses:
+        200:
+          description: The user has been updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        400:
+          description: Bad request. UserId is invalid (not a valid string)
+        404:
+          description: User not found
+    delete:
+      tags:
+        - User
+      summary: Delete user
+      description: Deletes user by ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                id:
+                  type: string
+                  length: 24
+                  example: '69b346d295eb8482c95370e2'
+                  description: UserId
+              required:
+                - id
+      responses:
+        204:
+          description: The user has been deleted
+        400:
+          description: Bad request. UserId is invalid (not a valid string)
+        404:
+          description: User not found
+
+  /progress/{userId}:
+    parameters:
+      - name: userId
+        in: path
+        required: true
+        description: User ID as string
+        schema:
+          type: string
+          example: '69c6c22185058ae5469e67db'
+    get:
+      tags:
+        - Progress
+      security: [ ]
+      summary: Get User progress
+      description: Get User's progress by userID
+      responses:
+        200:
+          description: The user progress
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Progress'
+        400:
+          description: Bad request. UserId is invalid (not a valid string)
+        404:
+          description: User not found
+    put:
+      tags:
+        - Progress
+      security: [ ]
+      summary: Update a user's progress
+      description: Updates a user's progress by userID
+      requestBody:
+        required: true
+        description: New progress data - example
+        content:
+          application/json:
+            schema:
+              type: object
+              title: example
+              properties:
+                userAchievements:
+                  type: array
+                  example: ['a5']
+                progress:
+                  type: object
+                  example: {
+                    javascript: 100,
+                    typescript: 1000,
+                    react: 10,
+                    nodejs: 0
+                  }
+      responses:
+        200:
+          description: The progress has been updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Progress'
+        400:
+          description: Bad request. UserId is invalid (not a valid string)
+        404:
+          description: User not found
+
+  /data/{type}:
+    get:
+      summary: Get all widgets of a specific type
+      tags:
+        - Widget
+      parameters:
+        - name: type
+          in: path
+          required: true
+          description: Type of widget (quiz, match-game, etc.)
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Array of widgets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Widget'
+        '404':
+          description: Widget file not found
+        '400':
+          description: Invalid widget data
 components:
   schemas:
     ChatRequest:
@@ -184,26 +368,141 @@ components:
           type: string
         name:
           type: string
+
     User:
+      type: object
+      properties:
+        _id:
+          type: string
+          format: string
+        login:
+          type: string
+          example: 'test@example.com'
+        name:
+          type: string
+          example: 'TestUser'
+        createdAt:
+          type: number
+          example: 1655000000
+        updatedAt:
+          type: number
+          example: 1655000000
+      required:
+        - id
+        - login
+
+    Progress:
+      type: object
+      properties:
+        _id:
+          type: string
+          format: string
+        userId:
+          type: string
+          example: '69c6c22185058ae5469e67db'
+        userAchievements:
+          type: array
+          items:
+            type: string
+            example: 'a5'
+        progress:
           type: object
           properties:
-            id:
-              type: string
-              format: uuid
-            login:
-              type: string
-              example: 'test@example.com'
-            name:
-              type: string
-              example: 'TestUser'
-            createdAt:
+            javascript:
               type: number
-              example: 1655000000
-            updatedAt:
+              example: 10
+            typescript:
               type: number
-              example: 1655000000
-            session: []
-            settings: {}
+              example: 10
+            react:
+              type: number
+              example: 10
+            nodejs:
+              type: number
+              example: 0
+
+        solvedWidgets:
+          type: object
+          properties:
+            quiz:
+              type: array
+              items:
+                type: string
+                example: 'quiz-02'
+            matchGame:
+              type: array
+              items:
+                type: string
+                example: 'match-game-01'
+
+        updatedAt:
+          type: number
+          example: 1655000000
+      required:
+        - userId
+
+    Widget:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique widget ID
+          example: quiz-01
+        type:
+          type: string
+          enum: [quiz]
+          description: Widget type
+          example: quiz
+        tags:
+          type: array
+          items:
+            type: string
+          description: Tags related to the widget
+          example: [js, arrays]
+        payload:
+          type: object
+          description: Widget payload with question, options, correctAnswersIds and explanation
+          properties:
+            question:
+              type: string
+              description: Question text
+              example: "Which values are falsy in JavaScript?"
+            options:
+              type: array
+              description: Possible answers
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: quiz-01-a
+                  name:
+                    type: string
+                    example: a
+                  value:
+                    type: string
+                    example: 0
+                required:
+                  - id
+                  - name
+                  - value
+            correctAnswersIds:
+              type: array
+              description: IDs of correct options
+              items:
+                type: string
+              example: [a, c, d, e]
+            explanation:
+              type: string
+              description: Explanation for the answer
+              example: "0, null, '', and undefined are falsy; any object is always truthy."
           required:
-            - id
-            - login
+            - question
+            - options
+            - correctAnswersIds
+            - explanation
+      required:
+        - id
+        - type
+        - tags
+        - payload

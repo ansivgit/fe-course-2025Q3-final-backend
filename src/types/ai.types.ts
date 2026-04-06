@@ -23,4 +23,13 @@ export type GroqResponse = {
   }[];
 };
 
+export type Task = {
+  id: string;
+  topic: string;
+  difficulty: Difficulty;
+  question: string;
+  goldenAnswer: string;
+  rubric: string[];
+};
+
 export type TypedChatRequest = Request<Record<string, never>, unknown, ChatRequestBody>;
